@@ -5,6 +5,14 @@ admin_path:
 webhook_url: 
 sections:
 - type: directory
+  path: content/npc
+  label: NPCs
+  create: all
+  match: "**/*.json"
+  new_doc_ext: json
+  templates:
+  - npc
+- type: directory
   path: content/pc
   label: PCs
   create: all
