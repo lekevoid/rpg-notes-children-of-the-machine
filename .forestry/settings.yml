@@ -26,12 +26,6 @@ sections:
   new_doc_ext: json
   templates:
   - pc
-- type: directory
-  path: content
-  label: Content
-  create: all
-  match: "**/*.json"
-  new_doc_ext: json
 upload_dir: uploads
 public_path: "/uploads"
 front_matter_path: ''
