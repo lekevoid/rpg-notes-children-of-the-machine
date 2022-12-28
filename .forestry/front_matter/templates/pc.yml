@@ -5,27 +5,31 @@ display_field: title
 fields:
 - type: text
   name: title
-  label: title
+  label: Title
 - type: text
   name: section
   label: section
+  hidden: true
+  default: pc
 - type: field_group
   name: head
-  label: head
+  label: Main Info
   fields:
   - type: text
     name: name
-    label: name
+    label: Character Name
+    config:
+      required: true
   - type: text
     name: player
-    label: player
+    label: Player Name
 - type: field_group
   name: stats
-  label: stats
+  label: Stats
   fields:
   - type: field_group
     name: attributes
-    label: attributes
+    label: Attributes
     fields:
     - type: text
       name: strength
@@ -56,7 +60,7 @@ fields:
       label: wits
   - type: field_group
     name: abilities
-    label: abilities
+    label: Abilities
     fields:
     - type: text
       name: alertness
@@ -150,4 +154,15 @@ fields:
       label: science
   - type: field_group
     name: backgrounds
-    label: backgrounds
+    label: Backgrounds
+    fields:
+    - name: allies
+      type: number
+      label: Allies
+      description: ''
+      default: 0
+      required: true
+      config:
+        min: 0
+        max: 5
+        step: 
