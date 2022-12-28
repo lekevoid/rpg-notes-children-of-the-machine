@@ -1,0 +1,84 @@
+---
+label: NPC
+hide_body: true
+fields:
+- type: text
+  name: title
+  label: title
+- type: text
+  name: section
+  label: section
+- type: field_group
+  name: stats
+  label: stats
+  fields:
+  - type: field_group
+    name: physical
+    label: physical
+    fields:
+    - type: text
+      name: combat
+      label: combat
+    - type: text
+      name: stealth
+      label: stealth
+    - type: text
+      name: soak
+      label: soak
+    - type: text
+      name: strength
+      label: strength
+  - type: field_group
+    name: mental
+    label: mental
+    fields:
+    - type: text
+      name: charisma
+      label: charisma
+    - type: text
+      name: empathy
+      label: empathy
+    - type: text
+      name: manipulation
+      label: manipulation
+    - type: text
+      name: self-control
+      label: self-control
+  - type: field_group
+    name: social
+    label: social
+    fields:
+    - type: text
+      name: alertness
+      label: alertness
+    - type: text
+      name: culture
+      label: culture
+    - type: text
+      name: knowledge
+      label: knowledge
+    - type: text
+      name: willpower
+      label: willpower
+- type: field_group
+  name: personality
+  label: personality
+  fields:
+  - type: list
+    name: dislikes
+    label: dislikes
+  - type: list
+    name: goals
+    label: goals
+  - type: list
+    name: habits
+    label: habits
+  - type: list
+    name: likes
+    label: likes
+  - type: list
+    name: rptips
+    label: rptips
+  - type: list
+    name: wants
+    label: wants
