@@ -1,0 +1,32 @@
+{
+	"title": "Raphaell Anderstone",
+	"section": "npc",
+	"stats": {
+		"physical": {
+			"combat": "1",
+			"stealth": "1",
+			"soak": "1",
+			"strength": "1"
+		},
+		"mental": {
+			"charisma": "1",
+			"empathy": "1",
+			"manipulation": "1",
+			"self-control": "1"
+		},
+		"social": {
+			"alertness": "1",
+			"culture": "1",
+			"knowledge": "1",
+			"willpower": "1"
+		}
+	},
+	"personality": {
+		"dislikes": [],
+		"goals": [],
+		"habits": [],
+		"likes": [],
+		"rptips": [],
+		"wants": []
+	}
+}
