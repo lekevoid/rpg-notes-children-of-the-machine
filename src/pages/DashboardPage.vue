@@ -7,6 +7,14 @@
 
 <script>
 export default {
-	name: "IndexPage",
+	name: "DashboardPage",
+	data() {
+		return {};
+	},
+	methods: {
+		logout() {
+			console.log("logged out");
+		},
+	},
 };
 </script>
