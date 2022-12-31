@@ -1,31 +1,16 @@
 const routes = [
 	{
 		path: "/",
-		component: () => import("layouts/IndexLayout.vue"),
+		component: () => import("layouts/LoginLayout.vue"),
 		children: [
-			{ path: "/", component: () => import("src/pages/IndexPage.vue") },
-			{ path: "/login", component: () => import("src/pages/AuthPage.vue") },
+			{ path: "", name: "home", component: () => import("pages/LoginPage.vue") },
+			{ path: "/login", name: "login", component: () => import("pages/LoginPage.vue") },
 		],
 	},
 	{
 		path: "/dashboard",
-		component: () => import("layouts/DashboardLayout.vue"),
-		children: [{ path: "/", component: () => import("src/pages/DashboardPage.vue"), meta: { requiresAuth: true } }],
-	},
-	{
-		path: "/pc",
-		component: () => import("layouts/DashboardLayout.vue"),
-		children: [{ path: "/:id", component: () => import("src/pages/PcPage.vue"), meta: { requiresAuth: true } }],
-	},
-	{
-		path: "/npc",
-		component: () => import("layouts/DashboardLayout.vue"),
-		children: [{ path: "/:id", component: () => import("src/pages/NpcPage.vue"), meta: { requiresAuth: true } }],
-	},
-	{
-		path: "/location",
-		component: () => import("layouts/DashboardLayout.vue"),
-		children: [{ path: "/:id", component: () => import("src/pages/LocationPage.vue"), meta: { requiresAuth: true } }],
+		component: () => import("layouts/MainLayout.vue"),
+		children: [{ path: "", name: "dashboard", component: () => import("pages/DashboardPage.vue"), meta: { requiresAuth: true } }],
 	},
 
 	// Always leave this as last one,

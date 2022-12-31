@@ -1,12 +1,15 @@
 <template>
-	<q-page class="flex flex-center">
-		<h1>Welcome Home Son</h1>
-		<img alt="Quasar logo" src="~assets/quasar-logo-vertical.svg" style="width: 200px; height: 200px" />
-	</q-page>
+  <q-page class="flex flex-center">
+    <img
+      alt="Quasar logo"
+      src="~assets/quasar-logo-vertical.svg"
+      style="width: 200px; height: 200px"
+    />
+    <p>{{ blah }}</p>
+  </q-page>
 </template>
 
-<script>
-export default {
-	name: "IndexPage",
-};
+<script setup>
+console.log(import.meta);
+const blah = import.meta.env.VITE_SUPABASE_URL;
 </script>

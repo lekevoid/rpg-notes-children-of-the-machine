@@ -1,4 +1,4 @@
-# Children of the Machine (rpg-notes-children-of-the-machine)
+# Quasar App (quasar-project)
 
 A Quasar Project
 

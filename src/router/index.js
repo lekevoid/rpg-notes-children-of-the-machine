@@ -1,7 +1,7 @@
 import { route } from "quasar/wrappers";
 import { createRouter, createMemoryHistory, createWebHistory, createWebHashHistory } from "vue-router";
 import routes from "./routes";
-
+import useAuthUser from "src/composables/UseAuthUser";
 /*
  * If not building with SSR mode, you can
  * directly export the Router instantiation;
@@ -10,6 +10,8 @@ import routes from "./routes";
  * async/await or return a Promise which resolves
  * with the Router instance.
  */
+
+import { nextTick } from "vue";
 
 export default route(function (/* { store, ssrContext } */) {
 	const createHistory = process.env.SERVER ? createMemoryHistory : process.env.VUE_ROUTER_MODE === "history" ? createWebHistory : createWebHashHistory;
@@ -24,13 +26,14 @@ export default route(function (/* { store, ssrContext } */) {
 		history: createHistory(process.env.VUE_ROUTER_BASE),
 	});
 
-	Router.beforeEach(async (to, from, next) => {
-		const auth = to.meta.requiresAuth;
-		if (auth && !(await firebase.getCurrentUser())) {
-			next("/");
-		} else {
-			next();
-		}
+	Router.beforeEach((to) => {
+		const { isLoggedIn } = useAuthUser();
+
+		nextTick(() => {
+			if (!isLoggedIn() && to.meta.requiresAuth && !Object.keys(to.query).includes("fromEmail")) {
+				return { name: "login" };
+			}
+		});
 	});
 
 	return Router;
