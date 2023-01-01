@@ -12,9 +12,18 @@
 
 		<q-drawer v-model="leftDrawerOpen" show-if-above bordered>
 			<q-list>
-				<q-item-label header> Essential Links </q-item-label>
-
-				<EssentialLink v-for="link in essentialLinks" :key="link.title" v-bind="link" />
+				<q-item-label header class="cursor-pointer" @click="toggleOpenSubnav('pc')">PCs</q-item-label>
+				<div v-if="openSubnavs.includes('pc')">
+					<NavLink title="Add a PC" caption="" icon="add" link="/add/pc" />
+				</div>
+				<q-item-label header class="cursor-pointer" @click="toggleOpenSubnav('npc')">NPCs</q-item-label>
+				<div v-if="openSubnavs.includes('npc')">
+					<NavLink title="Add a NPC" caption="" icon="add" link="/add/pc" />
+				</div>
+				<q-item-label header class="cursor-pointer" @click="toggleOpenSubnav('location')">Locations</q-item-label>
+				<div v-if="openSubnavs.includes('location')">
+					<NavLink title="Add a Location" caption="" icon="add" link="/add/pc" />
+				</div>
 			</q-list>
 		</q-drawer>
 
@@ -30,7 +39,7 @@ import useAuthUser from "src/composables/UseAuthUser";
 import { useRouter } from "vue-router";
 import { useQuasar } from "quasar";
 
-import EssentialLink from "components/EssentialLink.vue";
+import NavLink from "components/NavLink.vue";
 
 const router = useRouter();
 const { logout } = useAuthUser();
@@ -43,6 +52,16 @@ const handleLogout = async () => {
 		router.push("/login");
 	});
 };
+
+const openSubnavs = ref([]);
+
+function toggleOpenSubnav(val) {
+	if (openSubnavs.value.includes(val)) {
+		openSubnavs.value = openSubnavs.value.filter((e) => e !== val);
+	} else {
+		openSubnavs.value.push(val);
+	}
+}
 
 const linksList = [
 	{
@@ -90,7 +109,7 @@ const linksList = [
 ];
 
 const leftDrawerOpen = ref(false);
-const essentialLinks = linksList;
+const NavLinks = linksList;
 
 const loggedIn = false;
 

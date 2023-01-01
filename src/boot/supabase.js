@@ -8,7 +8,6 @@ const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 supabase.auth.onAuthStateChange((evt, session) => {
 	const { user } = useAuthUser();
-	console.log("USER", user);
 	user.value = session?.user || null;
 });
 
