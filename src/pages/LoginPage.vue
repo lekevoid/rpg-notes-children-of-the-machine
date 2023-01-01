@@ -8,7 +8,7 @@
 
 <script setup>
 import { ref } from "vue";
-import useAuthUser from "src/composables/useAuthUser";
+import useAuthUser from "src/composables/UseAuthUser";
 import { useRouter } from "vue-router";
 import useSupabase from "boot/supabase";
 const { supabase } = useSupabase();
