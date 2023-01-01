@@ -3,6 +3,7 @@
 		<q-header elevated>
 			<q-toolbar>
 				<q-toolbar-title> Quasar App </q-toolbar-title>
+				<a href="/dashboard">Dashboard</a>
 			</q-toolbar>
 		</q-header>
 

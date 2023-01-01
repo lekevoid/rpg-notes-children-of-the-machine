@@ -49,7 +49,7 @@ const $q = useQuasar();
 const handleLogout = async () => {
 	$q.dialog({ title: "Log out", message: "Do you really ?", cancel: true, persistent: true }).onOk(async () => {
 		await logout();
-		router.push("/login");
+		router.replace("/login");
 	});
 };
 

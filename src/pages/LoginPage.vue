@@ -7,14 +7,12 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import useAuthUser from "src/composables/UseAuthUser";
 import { useRouter } from "vue-router";
-import useSupabase from "boot/supabase";
-const { supabase } = useSupabase();
 
 const router = useRouter();
-const { login } = useAuthUser();
+const { login, isLoggedIn } = useAuthUser();
 
 const handleLogin = async () => {
 	try {
@@ -23,4 +21,10 @@ const handleLogin = async () => {
 		alert(error.message);
 	}
 };
+
+onMounted(() => {
+	if (isLoggedIn.value) {
+		router.push({ name: "dashboard" });
+	}
+});
 </script>

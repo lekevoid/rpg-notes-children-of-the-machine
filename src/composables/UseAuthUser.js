@@ -1,5 +1,8 @@
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import useSupabase from "boot/supabase";
+
+import { useRouter } from "vue-router";
+const router = useRouter();
 
 const user = ref(null);
 
@@ -29,9 +32,9 @@ export default function useAuthUser() {
 		return data;
 	};
 
-	const isLoggedIn = () => {
+	const isLoggedIn = computed(() => {
 		return !!user.value;
-	};
+	});
 
-	return { user, login, logout, isLoggedIn };
+	return { user, login, logout, updateUser, isLoggedIn };
 }
