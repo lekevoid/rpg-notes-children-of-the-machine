@@ -36,5 +36,5 @@ export default function useAuthUser() {
 		return !!user.value;
 	});
 
-	return { user, login, logout, updateUser, isLoggedIn };
+	return { user, login, logout, isLoggedIn };
 }
