@@ -1,6 +1,6 @@
 <template>
 	<q-page padding>
-		<h1>Add a NPC</h1>
+		<h1 class="text-h4">Add a NPC</h1>
 		<NPCSheet />
 	</q-page>
 </template>

@@ -1,14 +1,34 @@
 <template>
 	<div>
-		<q-card>
+		<q-card class="q-pa-lg">
 			<q-card-section>
-				<h2>Sheet</h2>
-				<q-select v-model="race" :options="races" label="Race/Type" />
-				<q-input v-model="name" label="Name" placeholder="Character Name" />
+				<q-select outlined v-model="race" :options="races" label="Race/Type" class="q-mb-lg" />
 			</q-card-section>
 			<q-card-section>
-				<h3>Stats</h3>
-				<div class="row" v-if="Object.values(stats).length">
+				<div class="row q-gutter-lg">
+					<div class="col">
+						<q-input outlined v-model="name" label="Name" placeholder="Character Name" class="q-mb-lg" />
+					</div>
+					<div class="col">
+						<q-input outlined v-model="head.court" label="Court" placeholder="Court" class="q-mb-lg" />
+						<div class="row q-gutter-lg">
+							<div class="col">
+								<q-input outlined v-model="head.legacies.seelie" label="Seelie Legacy" placeholder="Seelie Legacy" class="q-mb-lg" />
+							</div>
+							<div class="col">
+								<q-input outlined v-model="head.legacies.unseelie" label="Unseelie Legacy" placeholder="Unseelie Legacy" class="q-mb-lg" />
+							</div>
+						</div>
+						<q-input outlined v-model="head.house" label="House" placeholder="Character Name" class="q-mb-lg" />
+					</div>
+					<div class="col">
+						<q-input outlined v-model="head.seeming" label="Seeming" placeholder="Character Name" class="q-mb-lg" />
+					</div>
+				</div>
+			</q-card-section>
+			<q-card-section>
+				<h3 class="text-h5">Stats</h3>
+				<div class="row q-gutter-lg" v-if="Object.values(stats).length">
 					<div class="col">
 						<TraitScore label="Combat" slug="combat" v-model="stats.combat" @change="(e) => markAsModified(e)" />
 						<TraitScore label="Stealth" slug="stealth" v-model="stats.stealth" @change="(e) => markAsModified(e)" />
@@ -31,28 +51,28 @@
 			</q-card-section>
 			<q-card-section>
 				<h3>Personality</h3>
-				<div class="row q-gutter-xl q-mb-xl">
+				<div class="row q-gutter-lg q-mb-lg">
 					<div class="col">
-						<q-input v-model="personality.likes" filled type="textarea" placeholder="What do they like ?" />
+						<q-input v-model="personality.likes" outlined type="textarea" placeholder="What do they like ?" />
 					</div>
 					<div class="col">
-						<q-input v-model="personality.dislikes" filled type="textarea" placeholder="What do they dislike ?" />
-					</div>
-				</div>
-				<div class="row q-gutter-xl q-mb-xl">
-					<div class="col">
-						<q-input v-model="personality.wants" filled type="textarea" placeholder="What do they want, desire, what nudges them ?" />
-					</div>
-					<div class="col">
-						<q-input v-model="personality.rptips" filled type="textarea" placeholder="Roleplaying tips" />
+						<q-input v-model="personality.dislikes" outlined type="textarea" placeholder="What do they dislike ?" />
 					</div>
 				</div>
-				<div class="row q-gutter-xl q-mb-xl">
+				<div class="row q-gutter-lg q-mb-lg">
 					<div class="col">
-						<q-input v-model="personality.goals" filled type="textarea" placeholder="What are their goals in life ?" />
+						<q-input v-model="personality.wants" outlined type="textarea" placeholder="What do they want, desire, what nudges them ?" />
 					</div>
 					<div class="col">
-						<q-input v-model="personality.habits" filled type="textarea" placeholder="What are their habits, occupations, hobbies ?" />
+						<q-input v-model="personality.rptips" outlined type="textarea" placeholder="Roleplaying tips" />
+					</div>
+				</div>
+				<div class="row q-gutter-lg q-mb-lg">
+					<div class="col">
+						<q-input v-model="personality.goals" outlined type="textarea" placeholder="What are their goals in life ?" />
+					</div>
+					<div class="col">
+						<q-input v-model="personality.habits" outlined type="textarea" placeholder="What are their habits, occupations, hobbies ?" />
 					</div>
 				</div>
 			</q-card-section>
@@ -94,7 +114,7 @@ const name = ref(props.character?.name || "");
 const race = ref(races.value.find((r) => r.value === "human"));
 const stats = reactive({});
 const modifiedStats = ref([]);
-const head = ref(null);
+const head = ref({ legacies: {} });
 
 const personality = reactive(props.character?.personality || { likes: "", dislikes: "", wants: "", rptips: "", goals: "", habits: "" });
 
