@@ -138,7 +138,6 @@ async function saveAndEdit() {
 	}
 
 	if (data && data[0].id) {
-		console.log(data[0]);
 		router.push({ name: "npc_edit", params: { id: data[0].id } });
 	}
 }
