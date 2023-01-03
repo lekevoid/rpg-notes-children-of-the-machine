@@ -20,7 +20,7 @@ export const useRacesStore = defineStore("races", () => {
 		return 0;
 	}
 
-	async function fetchRaces(forceReset = true) {
+	async function fetchRaces(forceReset = false) {
 		if (forceReset || !fetched.value) {
 			const { data, error } = await supabase.from("races").select("*");
 			if (data) {

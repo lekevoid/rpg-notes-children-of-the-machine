@@ -7,7 +7,7 @@ export const useDefaultsStore = defineStore("defaults", () => {
 	const fetched = ref(false);
 	const stats_list_npc = ref([]);
 
-	async function fetchDefaults(forceReset = true) {
+	async function fetchDefaults(forceReset = false) {
 		if (forceReset || !fetched.value) {
 			const { data, error } = await supabase.from("defaults").select("*");
 			try {
