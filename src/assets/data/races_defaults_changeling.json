@@ -1,0 +1,42 @@
+{
+	"name": "",
+	"court": "",
+	"legacies": {
+		"seelie": "",
+		"unseelie": "",
+		"primary": "seelie"
+	},
+	"seelie": "",
+	"unseelie": "",
+	"house": "",
+	"seeming": "",
+	"kith": "",
+	"seemingsList": [
+		{
+			"label": "Society of Ether",
+			"value": "society_of_ether"
+		},
+		{
+			"label": "Verbena",
+			"value": "verbena"
+		},
+		{
+			"label": "Virtual Adepts",
+			"value": "virtual_adepts"
+		}
+	],
+	"kithsList": [
+		{
+			"label": "Society of Ether",
+			"value": "society_of_ether"
+		},
+		{
+			"label": "Verbena",
+			"value": "verbena"
+		},
+		{
+			"label": "Virtual Adepts",
+			"value": "virtual_adepts"
+		}
+	]
+}

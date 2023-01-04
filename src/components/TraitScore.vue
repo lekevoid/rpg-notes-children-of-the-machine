@@ -1,39 +1,29 @@
 <template>
 	<div class="row items-center">
-		<div class="col-3 flex items-center">{{ label }}</div>
+		<div class="col-2 flex items-center text-weight-bold">
+			<div class="bg-dice">
+				<span>{{ score }}</span>
+			</div>
+		</div>
+		<div class="col-3 flex items-center text-weight-bold">
+			<span>{{ label }}</span>
+			<span v-if="maxTrait < 20"></span>
+		</div>
 		<div class="col flex items-center">
-			<q-rating v-model="score" max="10" size="1.2em" color="white" icon="radio_button_unchecked" icon-selected="radio_button_checked">
-				<template v-slot:tip-1>
-					<q-tooltip class="bg-black" anchor="top middle" self="bottom middle">1</q-tooltip>
-				</template>
-				<template v-slot:tip-2>
-					<q-tooltip class="bg-black" anchor="top middle" self="bottom middle">2</q-tooltip>
-				</template>
-				<template v-slot:tip-3>
-					<q-tooltip class="bg-black" anchor="top middle" self="bottom middle">3</q-tooltip>
-				</template>
-				<template v-slot:tip-4>
-					<q-tooltip class="bg-black" anchor="top middle" self="bottom middle">4</q-tooltip>
-				</template>
-				<template v-slot:tip-5>
-					<q-tooltip class="bg-black" anchor="top middle" self="bottom middle">5</q-tooltip>
-				</template>
-				<template v-slot:tip-6>
-					<q-tooltip class="bg-black" anchor="top middle" self="bottom middle">6</q-tooltip>
-				</template>
-				<template v-slot:tip-7>
-					<q-tooltip class="bg-black" anchor="top middle" self="bottom middle">7</q-tooltip>
-				</template>
-				<template v-slot:tip-8>
-					<q-tooltip class="bg-black" anchor="top middle" self="bottom middle">8</q-tooltip>
-				</template>
-				<template v-slot:tip-9>
-					<q-tooltip class="bg-black" anchor="top middle" self="bottom middle">9</q-tooltip>
-				</template>
-				<template v-slot:tip-10>
-					<q-tooltip class="bg-black" anchor="top middle" self="bottom middle">10</q-tooltip>
+			<q-rating
+				v-model="score"
+				:max="maxTrait"
+				size="1.2em"
+				color="white"
+				icon="radio_button_unchecked"
+				icon-selected="radio_button_checked"
+				v-if="maxTrait < 20"
+			>
+				<template v-for="num in 18" v-slot:[`tip-${num}`] :key="num">
+					<q-tooltip class="bg-black" anchor="top middle" self="bottom middle">{{ num }}</q-tooltip>
 				</template>
 			</q-rating>
+			<div v-else class="text-weight-bold">Plot Device</div>
 		</div>
 	</div>
 </template>
@@ -42,7 +32,7 @@
 import { ref, defineProps, computed, watch } from "vue";
 const emit = defineEmits(["update:modelValue", "change"]);
 
-const props = defineProps({ label: String, slug: String, modelValue: Number });
+const props = defineProps({ label: String, slug: String, maxTrait: Number, modelValue: Number });
 
 const score = computed({
 	get: () => props.modelValue,
@@ -52,3 +42,28 @@ const score = computed({
 	},
 });
 </script>
+
+<style scoped>
+.bg-dice {
+	background-image: url("/src/assets/img/d10_shadow.png");
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: contain;
+	position: relative;
+	height: 1.6em;
+	width: 1.6em;
+	margin: 0.2em 0;
+}
+
+.bg-dice span {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	padding-right: 2px;
+}
+</style>
