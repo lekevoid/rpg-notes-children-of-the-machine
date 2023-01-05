@@ -38,7 +38,7 @@
 											class="overlapping absolute"
 											:style="`left: ${n * 20}px`"
 										>
-											<img :src="`/src/assets/img/avatar_${person}.jpg`" />
+											<img :src="`/img/avatar_${person}.jpg`" />
 										</q-avatar>
 									</div>
 									<div class="q-pl-xl q-pt-sm q-pb-md">
