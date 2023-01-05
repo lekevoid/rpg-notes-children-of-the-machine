@@ -45,7 +45,7 @@ const score = computed({
 
 <style scoped>
 .bg-dice {
-	background-image: url("/src/assets/img/d10_shadow.png");
+	background-image: url("/img/d10_shadow.png");
 	background-position: center center;
 	background-repeat: no-repeat;
 	background-size: contain;
