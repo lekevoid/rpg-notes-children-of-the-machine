@@ -1,0 +1,111 @@
+{
+	"name": "Ahsha Kelek",
+	"kith": "Piskie",
+	"seeming": "Wilder",
+	"court": "Unseelie",
+	"legacies": "Riddler/Sage",
+	"house": "Ailil, Lockkeeper",
+	"strength": 2,
+	"dexterity": 3,
+	"stamina": 3,
+	"charisma": 2,
+	"manipulation": 3,
+	"appearance": 3,
+	"perception": 3,
+	"intelligence": 3,
+	"wits": 3,
+	"alertness": 1,
+	"athletics": 0,
+	"brawl": 0,
+	"empathy": 2,
+	"expression": 2,
+	"intimidation": 0,
+	"kenning": 3,
+	"leadership": 1,
+	"streetwise": 1,
+	"subterfuge": 1,
+	"animal_ken": 1,
+	"crafts": 1,
+	"drive": 1,
+	"etiquette": 1,
+	"firearms": 0,
+	"larceny": 1,
+	"melee": 0,
+	"performance": 1,
+	"security": 0,
+	"stealth": 0,
+	"survival": 0,
+	"academics": 4,
+	"computer": 1,
+	"enigmas": 1,
+	"gremayre": 2,
+	"investigation": 1,
+	"law": 2,
+	"medicine": 2,
+	"politics": 1,
+	"science": 1,
+	"technology": 1,
+	"backgrounds": [
+		{
+			"label": "Contacts",
+			"score": 1
+		},
+		{
+			"label": "Allies",
+			"score": 2
+		},
+		{
+			"label": "Mentor",
+			"score": 2
+		},
+		{
+			"label": "Resources",
+			"score": 1
+		},
+		{
+			"label": "Treasure",
+			"score": 4
+		}
+	],
+	"arts": [
+		{
+			"label": "Contract",
+			"score": 1
+		},
+		{
+			"label": "Chicanery",
+			"score": 1
+		},
+		{
+			"label": "Chronos",
+			"score": 1
+		}
+	],
+	"realms": [
+		{
+			"label": "Actor",
+			"score": 3
+		},
+		{
+			"label": "Fae",
+			"score": 1
+		},
+		{
+			"label": "Time",
+			"score": 1
+		}
+	],
+	"other_traits": ["Asthma", "Bad eyesight (for reading)", "Ambidextrous", "Insubordinate"],
+	"glamour": 5,
+	"willpower": 4,
+	"nightmare": 0,
+	"banality": 3,
+	"antithesis": "",
+	"details": [
+		{
+			"title": "The Treasure",
+			"text": ["The who", "The what", "The how"]
+		}
+	],
+	"bought_with_xp": []
+}

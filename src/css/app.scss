@@ -1,1 +1,16 @@
-// app global css in SCSS form
+@font-face {
+	font-family: "Changeling Spring";
+	src: url("/fonts/boyd_uncial.woff2");
+}
+
+@font-face {
+	font-family: "Changeling";
+	font-weight: normal;
+	src: url("/fonts/bernhard_modern_regular.woff2");
+}
+
+@font-face {
+	font-family: "Changeling";
+	font-weight: bold;
+	src: url("/fonts/bernhard_modern_bold.woff2");
+}

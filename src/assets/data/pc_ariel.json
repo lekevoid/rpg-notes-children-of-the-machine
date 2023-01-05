@@ -1,0 +1,95 @@
+{
+	"name": "Ariel Anderstone",
+	"kith": "Selkie",
+	"seeming": "Childling",
+	"court": "Seelie",
+	"legacies": "Sage/Fool",
+	"house": "",
+	"strength": 1,
+	"dexterity": 2,
+	"stamina": 3,
+	"charisma": 3,
+	"manipulation": 2,
+	"appearance": 2,
+	"perception": 3,
+	"intelligence": 3,
+	"wits": 2,
+	"alertness": 2,
+	"athletics": 0,
+	"brawl": 0,
+	"empathy": 2,
+	"expression": 0,
+	"intimidation": 0,
+	"kenning": 2,
+	"leadership": 0,
+	"streetwise": 1,
+	"subterfuge": 2,
+	"animal_ken": 2,
+	"crafts": 0,
+	"drive": 0,
+	"etiquette": 1,
+	"firearms": 0,
+	"larceny": 0,
+	"melee": 0,
+	"performance": 0,
+	"security": 0,
+	"stealth": 2,
+	"survival": 2,
+	"academics": 2,
+	"computer": 0,
+	"enigmas": 1,
+	"gremayre": 1,
+	"investigation": 0,
+	"law": 0,
+	"medicine": 0,
+	"politics": 0,
+	"science": 0,
+	"technology": 0,
+	"psychology": 1,
+	"backgrounds": [
+		{
+			"label": "Remembrance",
+			"score": 2
+		},
+		{
+			"label": "Library",
+			"score": 2
+		},
+		{
+			"label": "Dreams",
+			"score": 1
+		}
+	],
+	"arts": [
+		{
+			"label": "Chronos",
+			"score": 1
+		},
+		{
+			"label": "Oneiromancy",
+			"score": 1
+		},
+		{
+			"label": "Naming",
+			"score": 1
+		}
+	],
+	"realms": [
+		{
+			"label": "Actor",
+			"score": 3
+		},
+		{
+			"label": "Fae",
+			"score": 2
+		}
+	],
+	"other_traits": ["Aversion to animal suffering"],
+	"glamour": 5,
+	"willpower": 4,
+	"nightmare": 0,
+	"banality": 3,
+	"antithesis": "",
+	"details": [],
+	"bought_with_xp": []
+}
