@@ -24,7 +24,6 @@ export const useNPCsStore = defineStore("NPCs", () => {
 		if (forceReset || !fetched.value) {
 			const { data, error } = await supabase.from("npcs").select().neq("name", "");
 			try {
-				console.log(data, data.sort(sortNPCs));
 				fetchedNPCs.value = data.sort(sortNPCs);
 				fetched.value = true;
 			} catch (e) {

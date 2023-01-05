@@ -1,6 +1,6 @@
 <template>
 	<q-layout view="lHh Lpr lFf">
-		<q-header elevated>
+		<q-header elevated style="background-image: url('/src/assets/img/bg.jpg')">
 			<q-toolbar>
 				<q-toolbar-title> Quasar App </q-toolbar-title>
 				<a href="/dashboard">Dashboard</a>

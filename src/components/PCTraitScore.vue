@@ -28,11 +28,11 @@ const scoreModel = ref(props.score);
 	position: absolute;
 	opacity: 0;
 	width: 100%;
-	height: 100%;
+	height: 50%;
 	content: "";
 	transition: opacity 0.2s;
-	filter: blur(4px);
-	background: linear-gradient(to bottom, rgba(255, 255, 220, 0) 0%, rgba(255, 255, 220, 0.2) 50%, rgba(255, 255, 220, 0) 100%);
+	filter: blur(10px);
+	background: linear-gradient(to right, rgba(255, 255, 220, 0) 0%, rgba(255, 255, 220, 0.2) 30%, rgba(255, 255, 220, 0) 100%);
 }
 
 .row:hover:after {

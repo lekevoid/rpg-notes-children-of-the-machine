@@ -1,3 +1,3 @@
 <template>
-	<h1>Locations</h1>
+	<h1>Edit a Story</h1>
 </template>

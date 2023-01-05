@@ -33,9 +33,10 @@
 			<NavLink title="Add a NPC" caption="" icon="add" link="npc_add" />
 		</div>
 		<q-item-label header class="cursor-pointer" @click="toggleOpenSubnav('scene')">Scenes</q-item-label>
-		<div v-if="openSubnavs.includes('scene')">
+		<!-- <div v-if="openSubnavs.includes('scene')">
 			<NavLink title="Add a Scene" caption="" icon="add" link="scene_add" />
-		</div>
+		</div> -->
+		<NavLink title="Stories" caption="" icon="auto_stories" link="story_view_all" />
 	</q-list>
 </template>
 

@@ -47,6 +47,12 @@ const routes = [
 		],
 		meta: { requiresAuth: true },
 	},
+	{
+		path: "/story",
+		component: () => import("layouts/MainLayout.vue"),
+		children: [{ path: "", name: "story_view_all", component: () => import("pages/story/StoryViewAll.vue") }],
+		meta: { requiresAuth: true },
+	},
 
 	// Always leave this as last one,
 	// but you can also remove it

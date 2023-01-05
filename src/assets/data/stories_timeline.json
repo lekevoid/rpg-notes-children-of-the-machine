@@ -1,0 +1,72 @@
+[
+	{
+		"overtitle": "Start of the Game !",
+		"date": "2022-05-02",
+		"icon": "celebration",
+		"entries": [
+			{
+				"who": ["ahsha"],
+				"text": [
+					"Got in touch with Ariel, Sabrina, about peer counseling",
+					"Called Calie Téssier about Lucas's file ; Calie didn't respond well at all."
+				]
+			},
+			{
+				"who": ["ariel"],
+				"text": [
+					"Got a meeting with Ahsha about peer counseling.",
+					"Went swimming in the river. Felt something move upstream. Tried to follow, got distracted, then backtracked."
+				]
+			},
+			{
+				"who": ["lucas"],
+				"text": ["Got a talk with his mom Calie about Ahsha. Lucas got real mad and cried."]
+			}
+		]
+	},
+	{
+		"overtitle": "",
+		"date": "2022-05-03",
+		"icon": "theater_comedy",
+		"entries": [
+			{
+				"who": ["ahsha"],
+				"text": ["Signed an agreement with Calie Téssier to meet up with Lucas"]
+			},
+			{
+				"who": ["ahsha", "lucas"],
+				"text": ["Ahsha and Lucas talked about something."]
+			},
+			{
+				"who": ["ariel"],
+				"text": [
+					"Dreamed of a giant sea snake with a crystal on its forehead.",
+					"Got into a fight with Patrick Carlone's gang trying to prevent them from torturing ants. The bullies got back to her by splashing her and Raphaëll with water when exiting school."
+				]
+			},
+			{
+				"who": ["lucas"],
+				"text": ["Got a talk with his mom Calie about Ahsha. Lucas got real mad and cried."]
+			}
+		]
+	},
+	{
+		"overtitle": "",
+		"date": "2022-05-04",
+		"icon": "theater_comedy",
+		"entries": [
+			{
+				"who": ["ahsha"],
+				"text": ["Something's bound to happen..."]
+			},
+			{
+				"who": ["ariel"],
+				"text": ["Something's bound to happen..."]
+			},
+			{
+				"who": ["lucas"],
+				"text": ["Something's bound to happen..."]
+			}
+		]
+	}
+]
