@@ -20,6 +20,9 @@ const routes = [
 			{ path: "", name: "pc_view_all", component: () => import("pages/pc/PCViewAll.vue") },
 			{ path: "/pc/add", name: "pc_add", component: () => import("pages/pc/PCAdd.vue") },
 			{ path: "/pc/edit/:id", name: "pc_edit", component: () => import("pages/pc/PCEdit.vue") },
+			{ path: "/pc/ahsha-kelek", name: "pc_ahsha", component: () => import("pages/pc/PCAhshaKelek.vue") },
+			{ path: "/pc/ariel-anderstone", name: "pc_ariel", component: () => import("pages/pc/PCArielAnderstone.vue") },
+			{ path: "/pc/lucas-lunde", name: "pc_lucas", component: () => import("pages/pc/PCLucasLunde.vue") },
 		],
 		meta: { requiresAuth: true },
 	},
@@ -29,6 +32,7 @@ const routes = [
 		children: [
 			{ path: "", name: "npc_view_all", component: () => import("pages/npc/NPCViewAll.vue") },
 			{ path: "/npc/add", name: "npc_add", component: () => import("pages/npc/NPCAdd.vue") },
+			{ path: "/npc/view/:id", name: "npc_view", component: () => import("pages/npc/NPCView.vue") },
 			{ path: "/npc/edit/:id", name: "npc_edit", component: () => import("pages/npc/NPCEdit.vue") },
 		],
 		meta: { requiresAuth: true },

@@ -1,9 +1,9 @@
-import { useDefaultsStore } from "stores/defaults";
+import { useNPCsStore } from "stores/npcs";
 import { useRacesStore } from "stores/races";
 
 export default async function usePopulateStores() {
-	// const { fetchDefaults } = useDefaultsStore();
+	const { fetchNPCs } = useNPCsStore();
 	const { fetchRaces } = useRacesStore();
-	// await fetchDefaults();
+	await fetchNPCs();
 	await fetchRaces();
 }

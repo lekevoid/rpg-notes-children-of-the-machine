@@ -200,7 +200,7 @@ const { races } = storeToRefs(useRacesStore());
 const name = ref(props.character?.name || "");
 
 // Dependent Stats
-const defaultRace = "changeling";
+const defaultRace = "human";
 const race = ref(races.value.find((r) => r.value === defaultRace));
 const stats = reactive({});
 const modifiedStats = ref([]);
@@ -227,8 +227,7 @@ function markAsModified(val) {
 	modifiedStats.value.push(val);
 }
 
-const testFilteredHead = computed(() => {
-	console.log(head.value);
+/* const testFilteredHead = computed(() => {
 	let out = { ...head.value };
 	for (const fieldName in out) {
 		if (fieldName.match(/List$/)) {
@@ -239,7 +238,7 @@ const testFilteredHead = computed(() => {
 		}
 	}
 	return out;
-});
+}); */
 
 function toggleLegacies(currentVal) {
 	console.log(currentVal, head.value.legacies);
