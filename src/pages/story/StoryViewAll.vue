@@ -6,7 +6,7 @@
 				<q-tab class="text-blue" name="timeline" icon="schema" label="Timeline" />
 				<q-tab class="text-deep-orange" name="peer_counseling" icon="psychology" label="Peer Counseling" />
 				<q-tab class="text-green" name="golf_metaberoutin" icon="golf_course" label="Golf Métabéroutin" />
-				<q-tab class="text-purple" name="other_supernaturals" icon="img:/src/assets/img/icon_supernatural_purple.png" label="Supernaturals" />
+				<q-tab class="text-purple" name="other_supernaturals" icon="img:/img/icon_supernatural_purple.png" label="Supernaturals" />
 			</q-tabs>
 
 			<q-separator />

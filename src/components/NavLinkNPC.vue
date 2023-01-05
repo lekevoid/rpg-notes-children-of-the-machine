@@ -25,7 +25,7 @@ const raceIcon = computed(() => {
 	if (race.value === "human") {
 		return "person_outline";
 	}
-	return `img:/src/assets/img/icon_${race.value}.png`;
+	return `img:/img/icon_${race.value}.png`;
 });
 
 const itemLink = computed(() => {
