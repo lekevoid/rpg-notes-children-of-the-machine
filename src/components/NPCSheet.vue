@@ -3,7 +3,7 @@
 		<NPCSheetSkeleton v-if="!race" />
 		<q-card class="q-pa-lg" v-else>
 			<q-card-section>
-				<h3 class="text-h5">Main Information</h3>
+				<h3>Main Information</h3>
 				<q-select outlined v-model="race" :options="races" label="Race/Type" class="q-mb-lg" />
 				<div class="row q-gutter-lg">
 					<div class="col">
@@ -138,7 +138,7 @@
 				</div>
 			</q-card-section>
 			<q-card-section>
-				<h3 class="text-h5">Personality</h3>
+				<h3>Personality</h3>
 				<div class="row q-gutter-lg q-mb-lg">
 					<div class="col">
 						<q-input v-model="personality.likes" outlined type="textarea" placeholder="What do they like ?" />

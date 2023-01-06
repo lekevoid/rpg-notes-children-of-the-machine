@@ -1,6 +1,6 @@
 <template>
 	<q-page padding>
-		<h1 class="text-h4">Stories</h1>
+		<h1>Stories</h1>
 		<q-card>
 			<q-tabs v-model="tab" align="left" class="bg-dark text-white">
 				<q-tab class="text-blue" name="timeline" icon="schema" label="Timeline" />
@@ -8,17 +8,15 @@
 				<q-tab class="text-green" name="golf_metaberoutin" icon="golf_course" label="Golf Métabéroutin" />
 				<q-tab class="text-purple" name="other_supernaturals" icon="img:/img/icon_supernatural_purple.png" label="Supernaturals" />
 			</q-tabs>
-
 			<q-separator />
-
 			<q-tab-panels v-model="tab" animated>
 				<q-tab-panel name="timeline">
-					<h2 class="text-h4">Timeline</h2>
+					<h2>Timeline</h2>
 					<div class="q-gutter-sm flex no-wrap items-center">
 						<p class="q-my-none">Show timeline events related to :</p>
-						<q-checkbox class="q-my-none" v-model="show_timeline_ahsha" label="Ahsha" color="green" />
-						<q-checkbox class="q-my-none" v-model="show_timeline_ariel" label="Ariel" color="indigo-9" />
-						<q-checkbox class="q-my-none" v-model="show_timeline_lucas" label="Lucas" color="red-9" />
+						<q-checkbox class="q-my-none text-p" v-model="show_timeline_ahsha" label="Ahsha" color="green" />
+						<q-checkbox class="q-my-none text-p" v-model="show_timeline_ariel" label="Ariel" color="indigo-9" />
+						<q-checkbox class="q-my-none text-p" v-model="show_timeline_lucas" label="Lucas" color="red-9" />
 					</div>
 					<div class="q-px-lg q-pb-md bg-grey-10 text-white">
 						<q-timeline color="blue">
@@ -51,37 +49,37 @@
 				</q-tab-panel>
 
 				<q-tab-panel name="peer_counseling">
-					<h2 class="text-h4">Peer Counseling</h2>
+					<h2>Peer Counseling</h2>
 					<div
 						v-for="(entry, k) in stories_peer_counseling"
 						:class="['q-mb-xl', entry.initiated ? 'text-white' : 'text-light-blue']"
 						:key="`peer_counseling_${k}`"
 					>
-						<h3 class="text-h5">{{ entry.title }}</h3>
+						<h3>{{ entry.title }}</h3>
 						<p v-for="(par, j) in entry.text" :key="`peer_counseling_${k}_${j}`">{{ par }}</p>
 					</div>
 				</q-tab-panel>
 
 				<q-tab-panel name="golf_metaberoutin">
-					<h2 class="text-h4">Golf Métabéroutin</h2>
+					<h2>Golf Métabéroutin</h2>
 					<div
 						v-for="(entry, k) in stories_golf_metaberoutin"
 						:class="['q-mb-xl', entry.initiated ? 'text-white' : 'text-light-blue']"
 						:key="`metaberoutin_${k}`"
 					>
-						<h3 class="text-h5">{{ entry.title }}</h3>
+						<h3>{{ entry.title }}</h3>
 						<p v-for="(par, j) in entry.text" :key="`metaberoutin_${k}_${j}`">{{ par }}</p>
 					</div>
 				</q-tab-panel>
 
 				<q-tab-panel name="other_supernaturals">
-					<h2 class="text-h4">Games of Supernaturals</h2>
+					<h2>Games of Supernaturals</h2>
 					<div
 						v-for="(entry, k) in stories_supernaturals"
 						:class="['q-mb-xl', entry.initiated ? 'text-white' : 'text-light-blue']"
 						:key="`supernaturals_${k}`"
 					>
-						<h3 class="text-h5">{{ entry.title }}</h3>
+						<h3>{{ entry.title }}</h3>
 						<p v-for="(par, j) in entry.text" :key="`supernaturals_${k}_${j}`">{{ par }}</p>
 					</div>
 				</q-tab-panel>

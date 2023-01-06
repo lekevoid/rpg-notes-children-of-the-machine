@@ -3,17 +3,13 @@
 		<q-header elevated style="background-image: url('/img/bg.jpg')">
 			<q-toolbar>
 				<q-btn flat dense round icon="menu" aria-label="Menu" @click="toggleLeftDrawer" />
-
 				<q-toolbar-title>Children of the Machine</q-toolbar-title>
-
 				<div><button @click="handleLogout">Logout</button></div>
 			</q-toolbar>
 		</q-header>
-
 		<q-drawer v-model="leftDrawerOpen" show-if-above bordered style="background-image: url('/img/bg.jpg')">
 			<MainNav />
 		</q-drawer>
-
 		<q-page-container>
 			<router-view />
 		</q-page-container>

@@ -2,7 +2,7 @@
 	<div>
 		<q-card class="q-pa-lg">
 			<q-card-section>
-				<h3 class="text-h5">Main Information</h3>
+				<h3>Main Information</h3>
 				<q-skeleton type="QInput" />
 			</q-card-section>
 			<q-card-section>
@@ -25,7 +25,7 @@
 				</div>
 			</q-card-section>
 			<q-card-section>
-				<h3 class="text-h5">Stats</h3>
+				<h3>Stats</h3>
 				<div class="row q-gutter-lg">
 					<div class="col">
 						<q-skeleton type="text" class="q-mb-sm" />
@@ -48,7 +48,7 @@
 				</div>
 			</q-card-section>
 			<q-card-section>
-				<h3 class="text-h5">Personality</h3>
+				<h3>Personality</h3>
 				<div class="row q-gutter-lg q-mb-lg">
 					<div class="col">
 						<q-skeleton type="QInput" />

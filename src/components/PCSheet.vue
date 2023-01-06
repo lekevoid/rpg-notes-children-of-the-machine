@@ -1,6 +1,6 @@
 <template>
 	<div class="pc_sheet">
-		<h1 class="text-h3">{{ character.name }}</h1>
+		<h1>{{ character.name }}</h1>
 		<div class="row q-gutter-lg">
 			<div class="col-12 col-lg-7">
 				<q-card class="q-pa-lg">
@@ -20,22 +20,22 @@
 						</div>
 					</q-card-section>
 					<q-card-section>
-						<h2 class="text-h5 text-center q-my-none">Attributes</h2>
+						<h2 class="text-center q-my-none">Attributes</h2>
 						<div class="row q-gutter-lg">
 							<div class="col">
-								<h3 class="text-h6">Physical</h3>
+								<h3>Physical</h3>
 								<PCTraitScore label="Strength" :score="character.strength" />
 								<PCTraitScore label="Dexterity" :score="character.dexterity" />
 								<PCTraitScore label="Stamina" :score="character.stamina" />
 							</div>
 							<div class="col">
-								<h3 class="text-h6">Social</h3>
+								<h3>Social</h3>
 								<PCTraitScore label="Charisma" :score="character.charisma" />
 								<PCTraitScore label="Manipulation" :score="character.manipulation" />
 								<PCTraitScore label="Appearance" :score="character.appearance" />
 							</div>
 							<div class="col">
-								<h3 class="text-h6">Mental</h3>
+								<h3>Mental</h3>
 								<PCTraitScore label="Perception" :score="character.perception" />
 								<PCTraitScore label="Intelligence" :score="character.intelligence" />
 								<PCTraitScore label="Wits" :score="character.wits" />
@@ -43,10 +43,10 @@
 						</div>
 					</q-card-section>
 					<q-card-section>
-						<h2 class="text-h5 text-center q-mb-none">Abilities</h2>
+						<h2 class="text-center q-mb-none">Abilities</h2>
 						<div class="row q-gutter-lg">
 							<div class="col">
-								<h3 class="text-h6">Talents</h3>
+								<h3>Talents</h3>
 								<PCTraitScore label="Alertness" :score="character.alertness" />
 								<PCTraitScore label="Athletics" :score="character.athletics" />
 								<PCTraitScore label="Brawl" :score="character.brawl" />
@@ -60,7 +60,7 @@
 								<slot name="extra-talents"></slot>
 							</div>
 							<div class="col">
-								<h3 class="text-h6">Skills</h3>
+								<h3>Skills</h3>
 								<PCTraitScore label="Animal Ken" :score="character.animal_ken" />
 								<PCTraitScore label="Crafts" :score="character.crafts" />
 								<PCTraitScore label="Drive" :score="character.drive" />
@@ -74,7 +74,7 @@
 								<slot name="extra-skills"></slot>
 							</div>
 							<div class="col">
-								<h3 class="text-h6">Knowledges</h3>
+								<h3>Knowledges</h3>
 								<PCTraitScore label="Academics" :score="character.academics" />
 								<PCTraitScore label="Computer" :score="character.computer" />
 								<PCTraitScore label="Enigmas" :score="character.enigmas" />
@@ -90,28 +90,28 @@
 						</div>
 					</q-card-section>
 					<q-card-section>
-						<h2 class="text-h5 text-center q-mb-none">Advantages</h2>
+						<h2 class="text-center q-mb-none">Advantages</h2>
 						<div class="row q-gutter-lg q-mb-lg">
 							<div class="col">
-								<h3 class="text-h6">Backgrounds</h3>
+								<h3>Backgrounds</h3>
 								<PCTraitScore v-for="trait in backgrounds" :label="trait.label" :score="trait.score" :key="trait.label" />
 							</div>
 							<div class="col">
-								<h3 class="text-h6">Arts</h3>
+								<h3>Arts</h3>
 								<PCTraitScore v-for="trait in arts" :label="trait.label" :score="trait.score" :key="trait.label" />
 							</div>
 							<div class="col">
-								<h3 class="text-h6">Realms</h3>
+								<h3>Realms</h3>
 								<PCTraitScore v-for="trait in realms" :label="trait.label" :score="trait.score" :key="trait.label" />
 							</div>
 						</div>
 						<div class="row q-gutter-lg">
 							<div class="col">
-								<h3 class="text-h6">Other Traits</h3>
+								<h3>Other Traits</h3>
 								<p class="trait_name q-mb-none" v-for="(trait, k) in otherTraits" :key="k">{{ trait }}</p>
 							</div>
 							<div class="col-8 q-pl-lg">
-								<h3 class="text-h6">&nbsp;</h3>
+								<h3>&nbsp;</h3>
 								<PCTraitScore label="Glamour" :score="character.glamour" :max="10" />
 								<PCTraitScore label="Willpower" :score="character.willpower" :max="10" />
 								<PCTraitScore label="Nightmare" :score="character.nightmare" :max="10" />
@@ -124,16 +124,16 @@
 			<div class="col">
 				<q-card class="q-pa-lg q-mb-lg">
 					<q-card-section>
-						<h2 class="text-h5 q-my-none">Details</h2>
+						<h2 class="q-my-none">Details</h2>
 						<div v-for="(entry, k) in character.details" :key="k">
-							<h3 class="text-h6">{{ entry.title }}</h3>
+							<h3>{{ entry.title }}</h3>
 							<p v-for="(par, j) in entry.text" :key="j">{{ par }}</p>
 						</div>
 					</q-card-section>
 				</q-card>
 				<q-card class="q-pa-lg q-mb-lg">
 					<q-card-section>
-						<h2 class="text-h5 q-my-none">Bought with XP</h2>
+						<h2 class="q-my-none">Bought with XP</h2>
 						<div v-for="(entry, k) in character.bought_with_xp" class="row" :key="k">
 							<div class="col-4">{{ entry.date }}</div>
 							<div class="col">{{ entry.text }}</div>
@@ -175,24 +175,4 @@ const realms = [...props.character.realms].sort(sortByName).sort(sortByScore);
 const otherTraits = [...props.character.other_traits].sort();
 </script>
 
-<style scoped>
-.pc_sheet {
-	font-family: "Changeling";
-}
-
-h1,
-h2,
-h3 {
-	font-family: "Changeling Spring";
-	font-weight: bold;
-}
-
-p {
-	font-size: 1.2rem;
-	letter-spacing: 1px;
-}
-
-.trait_name {
-	font-size: 1.2rem;
-}
-</style>
+<style scoped></style>

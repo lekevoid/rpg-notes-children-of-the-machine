@@ -1,3 +1,7 @@
+$font_titles: "Changeling";
+$font_subtitle: "Changeling Spring";
+$font_sans: "Roboto";
+
 @font-face {
 	font-family: "Changeling Spring";
 	src: url("/fonts/boyd_uncial.woff2");
@@ -13,4 +17,32 @@
 	font-family: "Changeling";
 	font-weight: bold;
 	src: url("/fonts/bernhard_modern_bold.woff2");
+}
+
+body {
+	font-family: $font_titles;
+}
+
+h1,
+h2,
+h3 {
+	font-family: $font_subtitle;
+}
+
+p,
+.text-p {
+	font-family: $font_sans;
+	letter-spacing: 1px;
+}
+
+.trait_name {
+	font-family: $font_subtitle;
+	font-size: 1.2rem;
+}
+
+.q-tab__label,
+.q-timeline__title,
+.q-timeline__subtitle {
+	font-family: $font_sans;
+	letter-spacing: 1px;
 }

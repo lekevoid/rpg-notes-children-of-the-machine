@@ -1,5 +1,6 @@
 <template>
 	<q-list>
+		<NavLink title="Dashboard" caption="" icon="dashboard" link="dashboard" />
 		<q-item-label header class="cursor-pointer" @click="toggleOpenSubnav('pc')">PCs</q-item-label>
 		<div v-if="openSubnavs.includes('pc')">
 			<NavLink title="Ahsha Kelek" caption="" icon="face_3" link="pc_ahsha" />
@@ -15,7 +16,7 @@
 				<div class="col flex flex-center">
 					<q-btn
 						:color="showChangelingNPCs ? 'indigo-8' : 'dark'"
-						icon="img:/src/assets/img/icon_changeling.png"
+						icon="img:/img/icon_changeling.png"
 						@click="toggleShowChangelingNPCs()"
 						class="full-width glossy"
 					/>
@@ -23,7 +24,7 @@
 				<div class="col flex flex-center">
 					<q-btn
 						:color="showOtherSpernaturalNPCs ? 'indigo-8' : 'dark'"
-						icon="img:/src/assets/img/icon_supernatural.png"
+						icon="img:/img/icon_supernatural.png"
 						@click="toggleShowOtherSpernaturalNPCs()"
 						class="full-width glossy"
 					/>

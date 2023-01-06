@@ -1,8 +1,8 @@
 <template>
 	<q-page class="flex flex-center">
-		<transition appear enter-active-class="animated fadeIn">
-			<button @click="handleLogin">Login with Google</button>
-		</transition>
+		<div class="fixed btn_wrapper">
+			<q-btn size="24px" round color="dark" icon="img:/img/logo_google.png" @click="handleLogin" class="hover-yellow-shadow" />
+		</div>
 	</q-page>
 </template>
 
@@ -39,3 +39,18 @@ onBeforeUnmount(() => {
 	clearInterval(checkLogin);
 });
 </script>
+
+<style scoped>
+.btn_wrapper {
+	bottom: 20px;
+	right: 20px;
+}
+
+.hover-yellow-shadow {
+	transition: box-shadow 0.6s;
+}
+
+.hover-yellow-shadow:hover {
+	box-shadow: 0px 0px 50px #ff0;
+}
+</style>
