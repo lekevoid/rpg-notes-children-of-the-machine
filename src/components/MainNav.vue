@@ -1,13 +1,13 @@
 <template>
 	<q-list>
 		<NavLink title="Dashboard" caption="" icon="dashboard" link="dashboard" />
-		<q-item-label header class="cursor-pointer" @click="toggleOpenSubnav('pc')">PCs</q-item-label>
+		<q-item-label header class="text-font-title text-h4 cursor-pointer" @click="toggleOpenSubnav('pc')">PCs</q-item-label>
 		<div v-if="openSubnavs.includes('pc')">
 			<NavLink title="Ahsha Kelek" caption="" icon="face_3" link="pc_ahsha" />
 			<NavLink title="Ariel Anderstone" caption="" icon="face_3" link="pc_ariel" />
 			<NavLink title="Lucas Lunde" caption="" icon="face_6" link="pc_lucas" />
 		</div>
-		<q-item-label header class="cursor-pointer" @click="toggleOpenSubnav('npc')">NPCs</q-item-label>
+		<q-item-label header class="text-font-title text-h4 cursor-pointer" @click="toggleOpenSubnav('npc')">NPCs</q-item-label>
 		<div v-if="openSubnavs.includes('npc')">
 			<div class="row q-px-md">
 				<div class="col flex flex-center">
@@ -33,7 +33,7 @@
 			<NavLinkNPC v-for="character in visibleNpcs" :character="character" :key="character.id" />
 			<NavLink title="Add a NPC" caption="" icon="add" link="npc_add" />
 		</div>
-		<q-item-label header class="cursor-pointer" @click="toggleOpenSubnav('scene')">Scenes</q-item-label>
+		<q-item-label header class="text-font-title text-h4 cursor-pointer" @click="toggleOpenSubnav('scene')">Scenes</q-item-label>
 		<!-- <div v-if="openSubnavs.includes('scene')">
 			<NavLink title="Add a Scene" caption="" icon="add" link="scene_add" />
 		</div> -->

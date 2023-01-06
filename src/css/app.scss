@@ -19,13 +19,15 @@ $font_sans: "Roboto";
 	src: url("/fonts/bernhard_modern_bold.woff2");
 }
 
-body {
+body,
+.text-font-title {
 	font-family: $font_titles;
 }
 
 h1,
 h2,
-h3 {
+h3,
+.text-font-subtitle {
 	font-family: $font_subtitle;
 }
 
