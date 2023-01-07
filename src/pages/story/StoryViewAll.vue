@@ -50,38 +50,63 @@
 
 				<q-tab-panel name="peer_counseling">
 					<h2>Peer Counseling</h2>
-					<div
-						v-for="(entry, k) in stories_peer_counseling"
-						:class="['q-mb-xl', entry.initiated ? 'text-white' : 'text-light-blue']"
-						:key="`peer_counseling_${k}`"
-					>
-						<h3>{{ entry.title }}</h3>
-						<p v-for="(par, j) in entry.text" :key="`peer_counseling_${k}_${j}`">{{ par }}</p>
+					<div class="peer_counseling_files_list row q-gutter-lg">
+						<q-card
+							v-for="(entry, k) in stories_peer_counseling"
+							bordered
+							:class="[
+								'peer_counseling_card',
+								'q-mb-xl',
+								entry.initiated ? 'bg-grey-10 text-white' : 'uninitiated text-light-blue',
+								activePeerCounselingCard === entry.title ? 'active col-11' : 'inactive col-3',
+							]"
+							:key="`peer_counseling_${k}`"
+						>
+							<q-card-section class="cursor-pointer" @click="togglePeerCounselingCard(entry.title)">
+								<div class="text-h4">{{ entry.title }}</div>
+							</q-card-section>
+							<q-separator dark inset />
+							<q-card-section :class="[activePeerCounselingCard === entry.title ? '' : 'ellipsis-5-lines']">
+								<p v-for="(par, j) in entry.text" :key="`peer_counseling_${k}_${j}`">{{ par }}</p>
+							</q-card-section>
+						</q-card>
 					</div>
 				</q-tab-panel>
 
 				<q-tab-panel name="golf_metaberoutin">
 					<h2>Golf Métabéroutin</h2>
-					<div
+					<q-card
 						v-for="(entry, k) in stories_golf_metaberoutin"
-						:class="['q-mb-xl', entry.initiated ? 'text-white' : 'text-light-blue']"
-						:key="`metaberoutin_${k}`"
+						bordered
+						:class="['q-mb-xl', entry.initiated ? 'bg-grey-10 text-white' : 'uninitiated text-light-blue']"
+						:key="`supernaturals_${k}`"
 					>
-						<h3>{{ entry.title }}</h3>
-						<p v-for="(par, j) in entry.text" :key="`metaberoutin_${k}_${j}`">{{ par }}</p>
-					</div>
+						<q-card-section class="cursor-pointer" @click="togglePeerCounselingCard(entry.title)">
+							<div class="text-h4">{{ entry.title }}</div>
+						</q-card-section>
+						<q-separator dark inset />
+						<q-card-section>
+							<p v-for="(par, j) in entry.text" :key="`peer_counseling_${k}_${j}`">{{ par }}</p>
+						</q-card-section>
+					</q-card>
 				</q-tab-panel>
 
 				<q-tab-panel name="other_supernaturals">
 					<h2>Games of Supernaturals</h2>
-					<div
+					<q-card
 						v-for="(entry, k) in stories_supernaturals"
-						:class="['q-mb-xl', entry.initiated ? 'text-white' : 'text-light-blue']"
+						bordered
+						:class="['q-mb-xl', entry.initiated ? 'bg-grey-10 text-white' : 'uninitiated text-light-blue']"
 						:key="`supernaturals_${k}`"
 					>
-						<h3>{{ entry.title }}</h3>
-						<p v-for="(par, j) in entry.text" :key="`supernaturals_${k}_${j}`">{{ par }}</p>
-					</div>
+						<q-card-section class="cursor-pointer" @click="togglePeerCounselingCard(entry.title)">
+							<div class="text-h4">{{ entry.title }}</div>
+						</q-card-section>
+						<q-separator dark inset />
+						<q-card-section>
+							<p v-for="(par, j) in entry.text" :key="`peer_counseling_${k}_${j}`">{{ par }}</p>
+						</q-card-section>
+					</q-card>
 				</q-tab-panel>
 			</q-tab-panels>
 		</q-card>
@@ -101,6 +126,17 @@ import stories_supernaturals from "assets/data/stories_supernaturals.json";
 const show_timeline_ahsha = ref(true);
 const show_timeline_ariel = ref(true);
 const show_timeline_lucas = ref(true);
+
+const activePeerCounselingCard = ref("");
+
+function togglePeerCounselingCard(val) {
+	console.log(activePeerCounselingCard.value, val);
+	if (activePeerCounselingCard.value === val) {
+		activePeerCounselingCard.value = "";
+	} else {
+		activePeerCounselingCard.value = val;
+	}
+}
 
 const filtered_stories_timeline = computed(() => {
 	return stories_timeline.map((s) => {
@@ -128,7 +164,22 @@ const filtered_stories_timeline = computed(() => {
 .initiated {
 	opacity: 1;
 }
+
 .uninitiated {
 	opacity: 0.6;
+}
+
+.q-card.uninitiated {
+	background-color: #000828;
+}
+
+.peer_counseling_card {
+	transition: width 0.3s ease, flex 0.3s ease;
+}
+
+.peer_counseling_card .ellipsis-5-lines {
+	overflow: hidden;
+	padding-bottom: 0;
+	margin-bottom: 1rem;
 }
 </style>
