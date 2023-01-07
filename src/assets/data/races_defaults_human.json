@@ -1,5 +1,8 @@
 {
 	"name": "",
-	"nature": "",
-	"demeanor": ""
+	"race": "human",
+	"head": {
+		"nature": "",
+		"demeanor": ""
+	}
 }

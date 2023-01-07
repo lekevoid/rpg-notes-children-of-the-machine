@@ -14,10 +14,17 @@
 		<div v-if="openSubnavs.includes('npc')">
 			<div class="row q-px-md q-pb-md q-gutter-sm">
 				<div class="col flex flex-center">
-					<q-btn :color="showHumanNPCs ? 'green-10' : 'grey-10'" icon="person_outline" @click="toggleShowHumanNPCs()" class="full-width glossy" />
+					<q-btn
+						size="md"
+						:color="showHumanNPCs ? 'green-10' : 'grey-10'"
+						icon="person_outline"
+						@click="toggleShowHumanNPCs()"
+						class="full-width glossy"
+					/>
 				</div>
 				<div class="col flex flex-center">
 					<q-btn
+						size="md"
 						:color="showChangelingNPCs ? 'green-10' : 'grey-10'"
 						icon="img:/img/icon_changeling.png"
 						@click="toggleShowChangelingNPCs()"
@@ -26,6 +33,7 @@
 				</div>
 				<div class="col flex flex-center">
 					<q-btn
+						size="md"
 						:color="showOtherSpernaturalNPCs ? 'green-10' : 'grey-10'"
 						icon="img:/img/icon_supernatural.png"
 						@click="toggleShowOtherSpernaturalNPCs()"

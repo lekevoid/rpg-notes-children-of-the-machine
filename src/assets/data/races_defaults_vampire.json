@@ -1,11 +1,14 @@
 {
 	"name": "",
-	"nature": "",
-	"demeanor": "",
-	"generation": "13",
-	"sect": {
-		"label": "Camarilla",
-		"value": "camarilla"
+	"race": "vampire",
+	"head": {
+		"nature": "",
+		"demeanor": "",
+		"generation": "13",
+		"sect": {
+			"label": "Camarilla",
+			"value": "camarilla"
+		}
 	},
 	"sectsList": [
 		{

@@ -1,11 +1,11 @@
 <template>
 	<div class="row items-center">
-		<div class="col-2 flex items-center text-weight-bold">
+		<div class="col-1 flex items-center text-weight-bold">
 			<div class="bg-dice">
 				<span>{{ score }}</span>
 			</div>
 		</div>
-		<div class="col-3 flex items-center text-weight-bold">
+		<div class="trait_name col-4 flex items-center text-weight-bold">
 			<span>{{ label }}</span>
 			<span v-if="maxTrait < 20"></span>
 		</div>
@@ -32,7 +32,7 @@
 import { ref, defineProps, computed, watch } from "vue";
 const emit = defineEmits(["update:modelValue", "change"]);
 
-const props = defineProps({ label: String, slug: String, maxTrait: Number, modelValue: Number });
+const props = defineProps({ label: String, slug: String, maxTrait: Number, modelValue: { type: [Number, undefined], default: 4 } });
 
 const score = computed({
 	get: () => props.modelValue,
@@ -53,6 +53,7 @@ const score = computed({
 	height: 1.6em;
 	width: 1.6em;
 	margin: 0.2em 0;
+	font-family: "Roboto";
 }
 
 .bg-dice span {

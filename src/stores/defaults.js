@@ -33,26 +33,8 @@ export const useDefaultsStore = defineStore("defaults", () => {
 		noRace: defaults_human,
 	};
 
-	const getHeadStatsForRace = (race = "noRace") => {
-		const sortByValue = (a, b) => {
-			if (a.value < b.value) {
-				return -1;
-			}
-			if (a.value > b.value) {
-				return 1;
-			}
-			return 0;
-		};
-
-		let out = headStats[race] || headStats.noRace;
-
-		for (const fieldName in out) {
-			if (fieldName.match(/List$/)) {
-				out[fieldName] = out[fieldName].sort(sortByValue);
-			}
-		}
-
-		return out;
+	const getHeadStatsForRace = (race = "human") => {
+		return headStats[race].head;
 	};
 
 	const statExists = (field) => {
@@ -73,6 +55,5 @@ export const useDefaultsStore = defineStore("defaults", () => {
 		headStats,
 		getHeadStatsForRace,
 		statExists,
-		// fetchDefaults,
 	};
 });

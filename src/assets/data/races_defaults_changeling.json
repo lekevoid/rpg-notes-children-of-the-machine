@@ -1,28 +1,29 @@
 {
 	"name": "",
-	"court": "",
-	"legacies": {
-		"seelie": "",
-		"unseelie": "",
-		"primary": "seelie"
+	"race": "changeling",
+	"head": {
+		"court": "",
+		"legacies": {
+			"seelie": "",
+			"unseelie": "",
+			"primary": "seelie"
+		},
+		"house": "",
+		"seeming": "",
+		"kith": ""
 	},
-	"seelie": "",
-	"unseelie": "",
-	"house": "",
-	"seeming": "",
-	"kith": "",
 	"seemingsList": [
 		{
-			"label": "Society of Ether",
-			"value": "society_of_ether"
+			"label": "Childling",
+			"value": "childling"
 		},
 		{
-			"label": "Verbena",
-			"value": "verbena"
+			"label": "Wilder",
+			"value": "wilder"
 		},
 		{
-			"label": "Virtual Adepts",
-			"value": "virtual_adepts"
+			"label": "Grump",
+			"value": "grump"
 		}
 	],
 	"kithsList": [
