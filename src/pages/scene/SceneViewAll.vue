@@ -8,7 +8,7 @@
 			<q-checkbox v-model="visibleSceneTypes" val="restaurant" label="Restaurants" color="orange" />
 			<q-checkbox v-model="visibleSceneTypes" val="school" label="Schools" color="cyan" />
 		</div>
-		<SceneCard v-for="scene in filteredScenes" :scene="scene" :key="scene.name" />
+		<SceneCard v-for="scene in filteredScenes" :scene="scene" :key="scene.id" />
 	</q-page>
 </template>
 

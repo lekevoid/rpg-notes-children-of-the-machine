@@ -1,5 +1,6 @@
 [
 	{
+		"id": "caij",
 		"name": "Bibliothèque du Barreau de Trois-Rivières et CAIJ",
 		"types": ["library", "admin"],
 		"link": "https://www.caij.qc.ca/dossier",
@@ -7,7 +8,8 @@
 		"npcs": [{ "name": "Sabine", "id": 17 }]
 	},
 	{
-		"name": "Le Bayou",
+		"id": "bayou",
+		"name": "Bayou",
 		"types": ["restaurant"],
 		"link": "",
 		"description": ["Eat good !"],
