@@ -2,7 +2,7 @@
 	<q-list class="flex column justify-between q-pb-md" style="height: 100%">
 		<NavLink title="Dashboard" caption="" icon="dashboard" link="dashboard" />
 		<q-item-label header class="text-font-title text-h4 cursor-pointer" @click="toggleOpenSubnav('pc')">PCs</q-item-label>
-		<div v-if="openSubnavs.includes('pc')">
+		<div v-if="true || openSubnavs.includes('pc')">
 			<NavLink title="Ahsha Kelek" caption="" icon="img:/img/avatar_ahsha.jpg" link="pc_ahsha" />
 			<NavLink title="Ariel Anderstone" caption="" icon="img:/img/avatar_ariel.jpg" link="pc_ariel" />
 			<NavLink title="Lucas Lunde" caption="" icon="img:/img/avatar_lucas.jpg" link="pc_lucas" />

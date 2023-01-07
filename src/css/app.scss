@@ -58,8 +58,16 @@ p,
 	line-height: 1;
 }
 
-a {
+a,
+a:active,
+a:focus {
+	color: $light-blue;
+	transition: color 0.2s;
 	text-decoration: none;
+}
+
+a:hover {
+	color: $blue-grey-8;
 }
 
 .trait_name {
