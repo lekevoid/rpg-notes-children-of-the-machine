@@ -7,15 +7,18 @@
 			<NavLink title="Ariel Anderstone" caption="" icon="img:/img/avatar_ariel.jpg" link="pc_ariel" />
 			<NavLink title="Lucas Lunde" caption="" icon="img:/img/avatar_lucas.jpg" link="pc_lucas" />
 		</div>
-		<q-item-label header class="text-font-title text-h4 cursor-pointer" @click="toggleOpenSubnav('npc')">NPCs</q-item-label>
+		<q-item-label header class="text-font-title text-h4 cursor-pointer flex items-center justify-between" @click="toggleOpenSubnav('npc')">
+			<span style="position: relative; top: 1px; line-height: 0.8">NPCs</span>
+			<q-btn round size="sm" color="dark" icon="view_list" :to="{ name: 'npc_view_all' }" />
+		</q-item-label>
 		<div v-if="openSubnavs.includes('npc')">
-			<div class="row q-px-md">
+			<div class="row q-px-md q-pb-md q-gutter-sm">
 				<div class="col flex flex-center">
-					<q-btn :color="showHumanNPCs ? 'indigo-8' : 'dark'" icon="person_outline" @click="toggleShowHumanNPCs()" class="full-width glossy" />
+					<q-btn :color="showHumanNPCs ? 'green-10' : 'grey-10'" icon="person_outline" @click="toggleShowHumanNPCs()" class="full-width glossy" />
 				</div>
 				<div class="col flex flex-center">
 					<q-btn
-						:color="showChangelingNPCs ? 'indigo-8' : 'dark'"
+						:color="showChangelingNPCs ? 'green-10' : 'grey-10'"
 						icon="img:/img/icon_changeling.png"
 						@click="toggleShowChangelingNPCs()"
 						class="full-width glossy"
@@ -23,7 +26,7 @@
 				</div>
 				<div class="col flex flex-center">
 					<q-btn
-						:color="showOtherSpernaturalNPCs ? 'indigo-8' : 'dark'"
+						:color="showOtherSpernaturalNPCs ? 'green-10' : 'grey-10'"
 						icon="img:/img/icon_supernatural.png"
 						@click="toggleShowOtherSpernaturalNPCs()"
 						class="full-width glossy"

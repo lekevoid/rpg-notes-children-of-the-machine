@@ -1,5 +1,5 @@
 <template>
-	<q-item clickable tag="a" :to="{ name: 'npc_view', params: { id: character.id } }" class="npc_link q-py-none flex items-center">
+	<q-item dense tag="a" :to="{ name: 'npc_view', params: { id: character.id } }" class="npc_link q-py-none flex items-center">
 		<q-item-section avatar class="flex flex-center">
 			<q-icon class="race_icon" :name="raceIcon" />
 		</q-item-section>
@@ -14,7 +14,6 @@ import { ref, defineProps, computed, watch } from "vue";
 const props = defineProps({ character: Object });
 
 const race = computed(() => {
-	console.log(props.character.race);
 	if (!props.character.race) {
 		return "human";
 	}

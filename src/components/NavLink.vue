@@ -1,5 +1,5 @@
 <template>
-	<q-item dense :to="itemLink" class="q-py-sm text-h6" style="letter-spacing: 1px">
+	<q-item :to="itemLink" class="text-h6" style="letter-spacing: 1px">
 		<q-item-section v-if="icon" avatar>
 			<q-icon :name="icon" :class="[icon.match(/img:/) ? 'round' : '']" />
 		</q-item-section>

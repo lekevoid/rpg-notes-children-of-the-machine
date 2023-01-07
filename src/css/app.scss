@@ -37,6 +37,10 @@ p,
 	letter-spacing: 1px;
 }
 
+a {
+	text-decoration: none;
+}
+
 .trait_name {
 	font-family: $font_subtitle;
 	font-size: 1.2rem;
@@ -50,8 +54,8 @@ p,
 }
 
 .ellipsis-5-lines {
-	-webkit-line-clamp: 5;
-	overflow: hidden;
 	display: -webkit-box;
+	overflow: hidden;
+	-webkit-line-clamp: 5;
 	-webkit-box-orient: vertical;
 }
