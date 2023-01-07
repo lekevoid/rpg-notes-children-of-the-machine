@@ -1,7 +1,7 @@
 <template>
 	<q-item dense :to="itemLink" class="q-py-sm text-h6" style="letter-spacing: 1px">
 		<q-item-section v-if="icon" avatar>
-			<q-icon :name="icon" />
+			<q-icon :name="icon" :class="[icon.match(/img:/) ? 'round' : '']" />
 		</q-item-section>
 		<q-item-section>
 			<q-item-label>{{ title }}</q-item-label>
@@ -25,3 +25,11 @@ const itemLink = computed(() => {
 	return props.link;
 });
 </script>
+<style scoped>
+.q-icon.round {
+	border-radius: 1000px;
+	overflow: hidden;
+	font-size: 32px;
+	border: 1px solid rgba(255, 255, 255, 0.6);
+}
+</style>

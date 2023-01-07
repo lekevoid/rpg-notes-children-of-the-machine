@@ -48,3 +48,10 @@ p,
 	font-family: $font_sans;
 	letter-spacing: 1px;
 }
+
+.ellipsis-5-lines {
+	-webkit-line-clamp: 5;
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+}
