@@ -28,6 +28,8 @@
 						<q-input outlined v-if="statExists(head.essence)" v-model="head.essence" label="Essence" placeholder="Essence" class="q-mb-lg" />
 					</div>
 					<div class="col">
+						<!-- Changeling Kith -->
+						<q-input outlined v-if="statExists(head.kith)" v-model="head.kith" label="Kith" placeholder="Kith" class="q-mb-lg" />
 						<!-- Changeling Seeming -->
 						<q-input outlined v-if="statExists(head.seeming)" v-model="head.seeming" label="Seeming" placeholder="Seeming" class="q-mb-lg" />
 						<!-- Mage Affiliation -->

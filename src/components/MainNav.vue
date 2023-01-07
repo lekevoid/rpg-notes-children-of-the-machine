@@ -1,5 +1,5 @@
 <template>
-	<q-list>
+	<q-list class="flex column justify-between q-pb-md" style="height: 100%">
 		<NavLink title="Dashboard" caption="" icon="dashboard" link="dashboard" />
 		<q-item-label header class="text-font-title text-h4 cursor-pointer" @click="toggleOpenSubnav('pc')">PCs</q-item-label>
 		<div v-if="openSubnavs.includes('pc')">
@@ -42,13 +42,40 @@
 				</div>
 			</div>
 			<NavLinkNPC v-for="character in visibleNpcs" :character="character" :key="character.id" />
-			<NavLink title="Add a NPC" caption="" icon="add" link="npc_add" />
 		</div>
-		<q-item-label header class="text-font-title text-h4 cursor-pointer" @click="toggleOpenSubnav('scene')">Scenes</q-item-label>
-		<!-- <div v-if="openSubnavs.includes('scene')">
+		<!-- <q-item-label header class="text-font-title text-h4 cursor-pointer" @click="toggleOpenSubnav('scene')">Scenes</q-item-label>
+		 <div v-if="openSubnavs.includes('scene')">
 			<NavLink title="Add a Scene" caption="" icon="add" link="scene_add" />
 		</div> -->
+		<q-item-label header class="text-font-title text-h4 cursor-pointer flex items-center justify-between q-mt-lg"> Setting </q-item-label>
+		<NavLink title="Locations" caption="" icon="explore" link="scene_view_all" />
 		<NavLink title="Stories" caption="" icon="auto_stories" link="story_view_all" />
+		<q-space />
+		<q-item clickable class="nav_link">
+			<q-item-section avatar>
+				<q-icon name="home_repair_service" />
+			</q-item-section>
+			<q-item-section>
+				<q-item-label style="font-size: 0.7rem; line-height: 1">Tools</q-item-label>
+			</q-item-section>
+			<q-menu anchor="bottom end" self="bottom left">
+				<q-list style="min-width: 200px">
+					<q-item clickable class="flex no-wrap" :to="{ name: 'npc_add' }">
+						<q-item-section style="flex: 0 0 20px"><q-icon name="add" /></q-item-section>
+						<q-item-section>
+							<q-item-label>Add a NPC</q-item-label>
+						</q-item-section>
+					</q-item>
+					<q-separator dark />
+					<q-item clickable class="flex no-wrap" @click="handleLogout">
+						<q-item-section style="flex: 0 0 20px"><q-icon name="logout" /></q-item-section>
+						<q-item-section>
+							<q-item-label>Log out</q-item-label>
+						</q-item-section>
+					</q-item>
+				</q-list>
+			</q-menu>
+		</q-item>
 	</q-list>
 </template>
 
@@ -57,11 +84,16 @@ import NavLink from "components/NavLink.vue";
 import NavLinkNPC from "components/NavLinkNPC.vue";
 
 import { ref, computed, onMounted } from "vue";
+import { useQuasar } from "quasar";
 import { storeToRefs } from "pinia";
-import { useRoute } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
+import useAuthUser from "src/composables/UseAuthUser";
 
 import { useNPCsStore } from "stores/npcs";
 
+const { logout } = useAuthUser();
+const $q = useQuasar();
+const router = useRouter();
 const route = useRoute();
 
 const openSubnavs = ref(["pc"]);
@@ -98,12 +130,21 @@ function toggleOpenSubnav(val) {
 function toggleShowHumanNPCs() {
 	showHumanNPCs.value = !showHumanNPCs.value;
 }
+
 function toggleShowChangelingNPCs() {
 	showChangelingNPCs.value = !showChangelingNPCs.value;
 }
+
 function toggleShowOtherSpernaturalNPCs() {
 	showOtherSpernaturalNPCs.value = !showOtherSpernaturalNPCs.value;
 }
+
+const handleLogout = async () => {
+	$q.dialog({ title: "Log out", message: "Do you really ?", cancel: true, persistent: true }).onOk(async () => {
+		await logout();
+		router.replace("/login");
+	});
+};
 
 onMounted(() => {
 	for (const e of ["pc", "npc", "scene"]) {

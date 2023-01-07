@@ -1,6 +1,6 @@
 <template>
 	<q-page padding>
-		<h1>Edit a NPC</h1>
+		<h1>Edit : {{ character.name }}</h1>
 		<NPCSheet v-if="character" :character="character" />
 	</q-page>
 </template>
@@ -18,8 +18,6 @@ const npcID = parseInt(route.params.id);
 
 const { npcs } = storeToRefs(useNPCsStore());
 const character = ref(npcs.value.find((n) => n.id === npcID));
-
-console.log(character);
 
 watch(npcs, (newVal) => {
 	character.value = newVal.find((n) => n.id === npcID);
