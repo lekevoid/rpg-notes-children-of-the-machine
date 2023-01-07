@@ -49,9 +49,8 @@ p,
 
 .text-sans,
 .q-field,
-.q-btn .block {
+.q-btn {
 	font-family: $font_sans_fancy;
-	line-height: 1;
 }
 
 .text-xs {
@@ -88,4 +87,10 @@ a {
 	overflow: hidden;
 	-webkit-line-clamp: 5;
 	-webkit-box-orient: vertical;
+}
+
+.q-dark,
+[class*="--dark"],
+.body--dark .text-white {
+	color: #ddd;
 }
