@@ -37,6 +37,10 @@
 				</router-link>
 			</div>
 		</div>
+		<h2>Useful Links</h2>
+		<div class="row q-gutter-lg">
+			<div class="col"></div>
+		</div>
 	</q-page>
 </template>
 
