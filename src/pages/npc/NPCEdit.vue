@@ -1,7 +1,7 @@
 <template>
 	<q-page padding>
 		<h1>Edit : {{ character.name }}</h1>
-		<NPCSheet v-if="character" :character="character" />
+		<NPCSheetEdit v-if="character" :character="character" />
 	</q-page>
 </template>
 
@@ -11,7 +11,7 @@ import { useNPCsStore } from "stores/npcs";
 import { storeToRefs } from "pinia";
 import { useRoute } from "vue-router";
 
-import NPCSheet from "components/NPCSheet.vue";
+import NPCSheetEdit from "components/NPCSheetEdit.vue";
 
 const route = useRoute();
 const npcID = parseInt(route.params.id);

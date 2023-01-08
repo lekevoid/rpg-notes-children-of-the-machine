@@ -5,16 +5,21 @@
 		</div>
 		<div class="col flex items-center no-wrap">
 			<q-icon name="radio_button_checked" v-for="num in score" :key="num" />
-			<q-icon name="radio_button_unchecked" v-for="num in max - score" :key="num" class="faded" />
+			<q-icon name="radio_button_unchecked" v-for="num in maxTrait - score" :key="num" class="faded" />
 		</div>
 	</div>
 </template>
 
 <script setup>
-import { ref, defineProps } from "vue";
+import { ref, computed, defineProps } from "vue";
 
-const props = defineProps({ label: String, score: Number, max: { type: Number, default: 5 } });
+const props = defineProps({ label: String, score: Number, max: { type: Number, default: 10 } });
 const scoreModel = ref(props.score);
+
+const maxTrait = computed(() => {
+	console.log(props.max);
+	return props.max;
+});
 </script>
 
 <style scoped>

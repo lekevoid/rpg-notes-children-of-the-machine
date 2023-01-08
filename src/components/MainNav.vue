@@ -1,5 +1,5 @@
 <template>
-	<q-list class="flex column justify-between q-pb-md" style="height: 100%">
+	<q-list class="flex column no-wrap justify-between q-pb-md" style="height: 100%">
 		<NavLink title="Dashboard" caption="" icon="dashboard" link="dashboard" />
 		<q-item-label header class="text-font-title text-h4 cursor-pointer" @click="toggleOpenSubnav('pc')">PCs</q-item-label>
 		<div v-if="true || openSubnavs.includes('pc')">
@@ -9,7 +9,7 @@
 		</div>
 		<q-item-label header class="text-font-title text-h4 cursor-pointer flex items-center justify-between" @click="toggleOpenSubnav('npc')">
 			<span style="position: relative; top: 1px; line-height: 0.8">NPCs</span>
-			<q-btn round size="sm" color="dark" icon="view_list" :to="{ name: 'npc_view_all' }" />
+			<q-btn round size="sm" color="light-blue-10" icon="receipt_long" :to="{ name: 'npc_view_all' }" />
 		</q-item-label>
 		<div v-if="openSubnavs.includes('npc')">
 			<div class="row q-px-md q-pb-md q-gutter-sm">
@@ -51,7 +51,7 @@
 		<NavLink title="Locations" caption="" icon="explore" link="scene_view_all" />
 		<NavLink title="Stories" caption="" icon="auto_stories" link="story_view_all" />
 		<q-space />
-		<q-item clickable class="nav_link">
+		<q-item clickable class="nav_link q-mt-xl">
 			<q-item-section avatar>
 				<q-icon name="home_repair_service" />
 			</q-item-section>

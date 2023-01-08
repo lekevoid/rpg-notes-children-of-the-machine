@@ -1,9 +1,10 @@
 <template>
-	<q-page padding>
+	<q-page padding class="page_scenes">
 		<h1>Stories</h1>
 		<q-card>
 			<q-tabs v-model="tab" align="left" class="bg-dark text-white">
-				<q-tab class="text-blue" name="timeline" icon="schema" label="Timeline" />
+				<q-tab class="text-blue-grey-1" name="timeline" icon="schema" label="Timeline" />
+				<q-tab class="text-blue-8" name="the_machine" icon="settings" label="The Machine" />
 				<q-tab class="text-deep-orange" name="peer_counseling" icon="psychology" label="Peer Counseling" />
 				<q-tab class="text-green" name="golf_metaberoutin" icon="golf_course" label="Golf Métabéroutin" />
 				<q-tab class="text-purple" name="other_supernaturals" icon="img:/img/icon_supernatural_purple.png" label="Supernaturals" />
@@ -48,61 +49,24 @@
 					</div>
 				</q-tab-panel>
 
+				<q-tab-panel name="the_machine">
+					<h2 class="q-mt-lg q-mb-md">The Machine</h2>
+					<StoryCollapsesList :entries="stories_the_machine" icon="settings" />
+				</q-tab-panel>
+
 				<q-tab-panel name="peer_counseling">
-					<h2>Peer Counseling</h2>
-					<div class="peer_counseling_files_list row q-col-gutter-lg">
-						<div
-							v-for="(entry, k) in stories_peer_counseling"
-							:class="['peer_counseling_card_wrapper q-mb-xl', activePeerCounselingCard === entry.title ? 'active col-11' : 'inactive col-4']"
-							:key="`peer_counseling_${k}`"
-						>
-							<q-card bordered :class="[entry.initiated ? 'bg-grey-10 text-white' : 'uninitiated text-light-blue']">
-								<q-card-section class="cursor-pointer" @click="togglePeerCounselingCard(entry.title)">
-									<div class="text-h4">{{ entry.title }}</div>
-								</q-card-section>
-								<q-separator dark inset />
-								<q-card-section :class="[activePeerCounselingCard === entry.title ? '' : 'ellipsis-5-lines']">
-									<p v-for="(par, j) in entry.text" :key="`peer_counseling_${k}_${j}`">{{ par }}</p>
-								</q-card-section>
-							</q-card>
-						</div>
-					</div>
+					<h2 class="q-mt-lg q-mb-md">Peer Counseling</h2>
+					<StoryCollapsesList :entries="stories_peer_counseling" icon="psychology" />
 				</q-tab-panel>
 
 				<q-tab-panel name="golf_metaberoutin">
-					<h2>Golf Métabéroutin</h2>
-					<q-card
-						v-for="(entry, k) in stories_golf_metaberoutin"
-						bordered
-						:class="['q-mb-xl', entry.initiated ? 'bg-grey-10 text-white' : 'uninitiated text-light-blue']"
-						:key="`supernaturals_${k}`"
-					>
-						<q-card-section class="cursor-pointer" @click="togglePeerCounselingCard(entry.title)">
-							<div class="text-h4">{{ entry.title }}</div>
-						</q-card-section>
-						<q-separator dark inset />
-						<q-card-section>
-							<p v-for="(par, j) in entry.text" :key="`peer_counseling_${k}_${j}`">{{ par }}</p>
-						</q-card-section>
-					</q-card>
+					<h2 class="q-mt-lg q-mb-md">Golf Métabéroutin</h2>
+					<StoryCollapsesList :entries="stories_golf_metaberoutin" icon="golf_course" />
 				</q-tab-panel>
 
 				<q-tab-panel name="other_supernaturals">
-					<h2>Games of Supernaturals</h2>
-					<q-card
-						v-for="(entry, k) in stories_supernaturals"
-						bordered
-						:class="['q-mb-xl', entry.initiated ? 'bg-grey-10 text-white' : 'uninitiated text-light-blue']"
-						:key="`supernaturals_${k}`"
-					>
-						<q-card-section>
-							<div class="text-h4">{{ entry.title }}</div>
-						</q-card-section>
-						<q-separator dark inset />
-						<q-card-section>
-							<p v-for="(par, j) in entry.text" :key="`peer_counseling_${k}_${j}`">{{ par }}</p>
-						</q-card-section>
-					</q-card>
+					<h2 class="q-mt-lg q-mb-md">Games of Supernaturals</h2>
+					<StoryCollapsesList :entries="stories_supernaturals" icon="supernatural" />
 				</q-tab-panel>
 			</q-tab-panels>
 		</q-card>
@@ -114,7 +78,10 @@ import { ref, computed } from "vue";
 import { date } from "quasar";
 const tab = ref("timeline");
 
+import StoryCollapsesList from "components/StoryCollapsesList.vue";
+
 import stories_timeline from "assets/data/stories_timeline.json";
+import stories_the_machine from "assets/data/stories_the_machine.json";
 import stories_peer_counseling from "assets/data/stories_peer_counseling.json";
 import stories_golf_metaberoutin from "assets/data/stories_golf_metaberoutin.json";
 import stories_supernaturals from "assets/data/stories_supernaturals.json";
@@ -156,26 +123,9 @@ const filtered_stories_timeline = computed(() => {
 });
 </script>
 
-<style scoped>
-.initiated {
-	opacity: 1;
-}
-
-.uninitiated {
-	opacity: 0.6;
-}
-
-.q-card.uninitiated {
-	background-color: #000828;
-}
-
-.peer_counseling_card_wrapper {
-	transition: width 0.3s ease, flex 0.3s ease;
-}
-
-.peer_counseling_card_wrapper .ellipsis-5-lines {
-	overflow: hidden;
-	padding-bottom: 0;
-	margin-bottom: 1rem;
+<style>
+.page_scenes .q-expansion-item .q-item__label {
+	position: relative;
+	bottom: 2px;
 }
 </style>

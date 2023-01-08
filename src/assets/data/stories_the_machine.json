@@ -1,0 +1,15 @@
+[
+	{
+		"title": "Just a dream ?",
+		"text": [
+			"Lucas has a dream where he visits an administrative building. The building is mostly empty, but he finds a closet in which there's a huge set of machinery.",
+			"No idea what the machine does, but he tries to grab one of the components, leading the machanisms to violently block and start shooting pieces in all directions."
+		],
+		"initiated": true
+	},
+	{
+		"title": "Find the ports !",
+		"text": ["Define what a Port is..."],
+		"initiated": false
+	}
+]

@@ -1,6 +1,6 @@
 <template>
 	<q-page padding>
-		<h1>Scenes</h1>
+		<h1>Locations</h1>
 		<div class="q-gutter-sm q-mb-xl">
 			<q-checkbox v-model="visibleSceneTypes" val="admin" label="Administrative" color="red" />
 			<q-checkbox v-model="visibleSceneTypes" val="bar" label="Bars & Clubs" color="red" />

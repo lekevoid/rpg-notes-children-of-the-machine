@@ -52,8 +52,18 @@
 				</router-link>
 			</div>
 		</div>
-		<h2>Useful Links</h2>
+		<q-separator class="q-my-xl" />
+		<h2 class="q-mb-sm">Useful Links</h2>
 		<div class="row q-gutter-lg">
+			<div class="col">
+				<h3 class="q-mt-none q-mb-md">Music</h3>
+				<q-list bordered separator>
+					<q-item clickable v-ripple>
+						<q-item-section><a href="https://cotm-music.netlify.app/" target="_blank">Playlist app</a></q-item-section>
+					</q-item>
+				</q-list>
+			</div>
+			<div class="col"></div>
 			<div class="col"></div>
 		</div>
 	</q-page>

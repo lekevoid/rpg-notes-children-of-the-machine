@@ -1,7 +1,13 @@
-$font_titles: "Changeling";
-$font_subtitle: "Changeling Spring";
+$font_titles: "Black Chancery";
+$font_subtitle_1: "Changeling Spring";
+$font_subtitle_2: "Changeling";
 $font_sans: "Roboto";
 $font_sans_fancy: "Sans fancy";
+
+@font-face {
+	font-family: "Black Chancery";
+	src: url("/fonts/black_chancery.woff2");
+}
 
 @font-face {
 	font-family: "Changeling Spring";
@@ -30,15 +36,15 @@ body {
 	font-family: $font_sans_fancy;
 }
 
+h1,
 .text-font-title {
 	font-family: $font_titles;
 }
 
-h1,
 h2,
 h3,
 .text-font-subtitle {
-	font-family: $font_subtitle;
+	font-family: $font_subtitle_2;
 }
 
 p,
@@ -62,8 +68,8 @@ a,
 a:active,
 a:focus {
 	color: $light-blue;
-	transition: color 0.2s;
 	text-decoration: none;
+	transition: color 0.2s;
 }
 
 a:hover {
@@ -71,8 +77,8 @@ a:hover {
 }
 
 .trait_name {
-	font-family: $font_subtitle;
-	font-size: 1.2rem;
+	font-family: $font_subtitle_2;
+	font-size: min(1.5vw, 1.2rem);
 	letter-spacing: 1px;
 }
 
@@ -101,4 +107,22 @@ a:hover {
 [class*="--dark"],
 .body--dark .text-white {
 	color: #ddd;
+}
+
+.bg-dark-blue {
+	background-color: #000828;
+}
+
+.text-dark-blue {
+	color: #000828;
+}
+
+.opacity-6 {
+	opacity: 0.6;
+}
+
+@media (min-width:1440px) {
+	.trait_name {
+		font-size: min(1vw, 1.2rem);
+	}
 }
