@@ -1,15 +1,18 @@
 {
 	"name": "",
-	"nature": "",
-	"demeanor": "",
-	"essence": "",
-	"affiliation": {
-		"label": "Traditions",
-		"value": "traditions"
+	"race": "mage",
+	"head": {
+		"nature": "",
+		"demeanor": "",
+		"essence": "",
+		"affiliation": {
+			"label": "Traditions",
+			"value": "traditions"
+		},
+		"tradition": "",
+		"convention": "",
+		"sect": ""
 	},
-	"tradition": "",
-	"convention": "",
-	"sect": "",
 	"affiliationsList": [
 		{
 			"label": "Traditions",

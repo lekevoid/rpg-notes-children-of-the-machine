@@ -1,6 +1,7 @@
 $font_titles: "Changeling";
 $font_subtitle: "Changeling Spring";
 $font_sans: "Roboto";
+$font_sans_fancy: "Sans fancy";
 
 @font-face {
 	font-family: "Changeling Spring";
@@ -19,7 +20,16 @@ $font_sans: "Roboto";
 	src: url("/fonts/bernhard_modern_bold.woff2");
 }
 
-body,
+@font-face {
+	font-family: "Sans Fancy";
+	font-weight: normal;
+	src: url("/fonts/grandstander.woff2");
+}
+
+body {
+	font-family: $font_sans_fancy;
+}
+
 .text-font-title {
 	font-family: $font_titles;
 }
@@ -33,23 +43,50 @@ h3,
 
 p,
 .text-p {
-	font-family: $font_sans;
+	font-family: $font_sans_fancy;
 	letter-spacing: 1px;
 }
 
-a {
+.text-sans,
+.q-field,
+.q-btn {
+	font-family: $font_sans_fancy;
+}
+
+.text-xs {
+	font-size: 0.8rem;
+	line-height: 1;
+}
+
+a,
+a:active,
+a:focus {
+	color: $light-blue;
+	transition: color 0.2s;
 	text-decoration: none;
+}
+
+a:hover {
+	color: $blue-grey-8;
 }
 
 .trait_name {
 	font-family: $font_subtitle;
 	font-size: 1.2rem;
+	letter-spacing: 1px;
+}
+
+.nav_link {
+	font-family: $font_sans_fancy;
+	font-size: 0.9rem;
+	letter-spacing: 1px;
+	line-height: 1;
 }
 
 .q-tab__label,
 .q-timeline__title,
 .q-timeline__subtitle {
-	font-family: $font_sans;
+	font-family: $font_sans_fancy;
 	letter-spacing: 1px;
 }
 
@@ -58,4 +95,10 @@ a {
 	overflow: hidden;
 	-webkit-line-clamp: 5;
 	-webkit-box-orient: vertical;
+}
+
+.q-dark,
+[class*="--dark"],
+.body--dark .text-white {
+	color: #ddd;
 }

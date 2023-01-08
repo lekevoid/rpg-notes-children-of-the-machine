@@ -1,6 +1,6 @@
 <template>
 	<q-page padding>
-		<h1>View NPC</h1>
+		<h1>{{ npc.name }}</h1>
 		<q-btn v-if="npc" color="primary" icon="edit" label="Edit" :to="{ name: 'npc_edit', params: { id: npc.id } }" />
 		<pre>{{ npc }}</pre>
 	</q-page>

@@ -1,0 +1,18 @@
+[
+	{
+		"id": "caij",
+		"name": "Bibliothèque du Barreau de Trois-Rivières et CAIJ",
+		"types": ["library", "admin"],
+		"link": "https://www.caij.qc.ca/dossier",
+		"description": ["LA référence en matière de dossiers de droit, jurisprudence, législation..."],
+		"npcs": [{ "name": "Sabine", "id": 17 }]
+	},
+	{
+		"id": "bayou",
+		"name": "Bayou",
+		"types": ["restaurant"],
+		"link": "",
+		"description": ["Eat good !"],
+		"npcs": [{ "name": "Achak", "id": 18 }]
+	}
+]

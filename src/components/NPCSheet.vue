@@ -7,7 +7,7 @@
 				<q-select outlined v-model="race" :options="races" label="Race/Type" class="q-mb-lg" />
 				<div class="row q-gutter-lg">
 					<div class="col">
-						<q-input outlined v-if="statExists(head.name)" v-model="name" label="Name" placeholder="Character Name" class="q-mb-lg" />
+						<q-input outlined v-model="name" label="Name" placeholder="Character Name" class="q-mb-lg" />
 					</div>
 					<div class="col">
 						<q-input outlined v-if="statExists(head.nature)" v-model="head.nature" label="Nature" placeholder="Nature" class="q-mb-lg" />
@@ -28,6 +28,8 @@
 						<q-input outlined v-if="statExists(head.essence)" v-model="head.essence" label="Essence" placeholder="Essence" class="q-mb-lg" />
 					</div>
 					<div class="col">
+						<!-- Changeling Kith -->
+						<q-input outlined v-if="statExists(head.kith)" v-model="head.kith" label="Kith" placeholder="Kith" class="q-mb-lg" />
 						<!-- Changeling Seeming -->
 						<q-input outlined v-if="statExists(head.seeming)" v-model="head.seeming" label="Seeming" placeholder="Seeming" class="q-mb-lg" />
 						<!-- Mage Affiliation -->
@@ -103,37 +105,40 @@
 				</div>
 			</q-card-section>
 			<q-card-section>
-				<h3 class="text-h5 q-mt-none">Stats</h3>
+				<h3 class="text-h5 q-mt-none flex justify-between items-center">
+					<span>Stats</span>
+					<div class="flex items-center">
+						<q-select
+							style="width: 160px"
+							class="q-mr-sm text-sans"
+							label="Reset all scores to"
+							outlined
+							v-model="resetStatsScore"
+							:options="[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
+							dense
+							options-dense
+						/>
+						<q-btn color="primary" size="md" label="Go" @click="resetStats" />
+					</div>
+				</h3>
 				<div class="row q-gutter-lg" v-if="Object.values(stats).length">
 					<div class="col">
-						<TraitScore label="Combat" slug="combat" v-model="stats.combat" :max-trait="maxTrait" @change="(e) => markAsModified(e)" />
-						<TraitScore label="Stealth" slug="stealth" v-model="stats.stealth" :max-trait="maxTrait" @change="(e) => markAsModified(e)" />
-						<TraitScore label="Soak" slug="soak" v-model="stats.soak" :max-trait="maxTrait" @change="(e) => markAsModified(e)" />
-						<TraitScore label="Strength" slug="strength" v-model="stats.strength" :max-trait="maxTrait" @change="(e) => markAsModified(e)" />
+						<TraitScore label="Combat" slug="combat" v-model="stats.combat" :max-trait="maxTrait" />
+						<TraitScore label="Stealth" slug="stealth" v-model="stats.stealth" :max-trait="maxTrait" />
+						<TraitScore label="Soak" slug="soak" v-model="stats.soak" :max-trait="maxTrait" />
+						<TraitScore label="Strength" slug="strength" v-model="stats.strength" :max-trait="maxTrait" />
 					</div>
 					<div class="col">
-						<TraitScore label="Charisma" slug="charisma" v-model="stats.charisma" :max-trait="maxTrait" @change="(e) => markAsModified(e)" />
-						<TraitScore label="Empathy" slug="empathy" v-model="stats.empathy" :max-trait="maxTrait" @change="(e) => markAsModified(e)" />
-						<TraitScore
-							label="Manipulation"
-							slug="manipulation"
-							v-model="stats.manipulation"
-							:max-trait="maxTrait"
-							@change="(e) => markAsModified(e)"
-						/>
-						<TraitScore
-							label="Self-Control"
-							slug="selfControl"
-							v-model="stats.selfControl"
-							:max-trait="maxTrait"
-							@change="(e) => markAsModified(e)"
-						/>
+						<TraitScore label="Charisma" slug="charisma" v-model="stats.charisma" :max-trait="maxTrait" />
+						<TraitScore label="Empathy" slug="empathy" v-model="stats.empathy" :max-trait="maxTrait" />
+						<TraitScore label="Manipulation" slug="manipulation" v-model="stats.manipulation" :max-trait="maxTrait" />
+						<TraitScore label="Self-Control" slug="selfControl" v-model="stats.selfControl" :max-trait="maxTrait" />
 					</div>
 					<div class="col">
-						<TraitScore label="Alertness" slug="alertness" v-model="stats.alertness" :max-trait="maxTrait" @change="(e) => markAsModified(e)" />
-						<TraitScore label="Culture" slug="culture" v-model="stats.culture" :max-trait="maxTrait" @change="(e) => markAsModified(e)" />
-						<TraitScore label="Knowledge" slug="knowledge" v-model="stats.knowledge" :max-trait="maxTrait" @change="(e) => markAsModified(e)" />
-						<TraitScore label="Willpower" slug="willpower" v-model="stats.willpower" :max-trait="maxTrait" @change="(e) => markAsModified(e)" />
+						<TraitScore label="Alertness" slug="alertness" v-model="stats.alertness" :max-trait="maxTrait" />
+						<TraitScore label="Culture" slug="culture" v-model="stats.culture" :max-trait="maxTrait" />
+						<TraitScore label="Knowledge" slug="knowledge" v-model="stats.knowledge" :max-trait="maxTrait" />
+						<TraitScore label="Willpower" slug="willpower" v-model="stats.willpower" :max-trait="maxTrait" />
 					</div>
 				</div>
 			</q-card-section>
@@ -165,8 +170,9 @@
 				</div>
 			</q-card-section>
 			<q-card-section>
-				<q-btn color="secondary" icon="edit" label="Save & Continue Editing" @click="saveAndEdit" class="q-mr-md" />
-				<q-btn color="primary" icon="person_add_alt" label="Save & Create New" @click="saveAndNew" />
+				<q-btn color="secondary" icon="edit" label="Save" @click="save" class="q-mr-md" v-if="character.id" />
+				<q-btn color="secondary" icon="edit" label="Save & Continue Editing" @click="saveAndEdit" class="q-mr-md" v-if="!character.id" />
+				<q-btn color="primary" icon="person_add_alt" label="Save & Create New" @click="saveAndNew" v-if="!character.id" />
 			</q-card-section>
 		</q-card>
 	</div>
@@ -176,72 +182,44 @@
 import TraitScore from "components/TraitScore.vue";
 import NPCSheetSkeleton from "components/NPCSheetSkeleton.vue";
 
-import { ref, reactive, computed, defineProps, onMounted, watch, nextTick } from "vue";
-import { format } from "quasar";
+import { ref, computed, defineProps, watch } from "vue";
+import { useRouter } from "vue-router";
 import { storeToRefs } from "pinia";
 import { useDefaultsStore } from "stores/defaults";
 import { useRacesStore } from "stores/races";
-import { useRouter } from "vue-router";
+import { useQuasar } from "quasar";
 import useSupabase from "boot/supabase";
 
+const $q = useQuasar();
 const { supabase } = useSupabase();
 const router = useRouter();
-
-// Get Quasar Utils
-const { capitalize } = format;
 
 const props = defineProps({
 	character: Object,
 });
 
-const { statsListNPC, headStats, getHeadStatsForRace, statExists } = useDefaultsStore();
+const { getHeadStatsForRace, statExists } = useDefaultsStore();
 const { races } = storeToRefs(useRacesStore());
 
-const name = ref(props.character?.name || "");
+const resetStatsScore = ref(4);
+const name = ref(props.character.name);
+const race = ref(getRaceObject(props.character.race));
+const stats = ref(props.character.stats);
+const head = ref(props.character.head);
+const personality = ref(props.character.personality);
 
-// Dependent Stats
-const defaultRace = "human";
-const race = ref(races.value.find((r) => r.value === defaultRace));
-const stats = reactive({});
-const modifiedStats = ref([]);
-const head = ref({});
-
-const personality = reactive(props.character?.personality || { likes: "", dislikes: "", wants: "", rptips: "", goals: "", habits: "" });
-
-function populateStartingPoints() {
-	const selectedRace = race?.value || "";
-	const { npcStartingPoints } = selectedRace;
-
-	for (const stat of statsListNPC) {
-		if (!modifiedStats.value.includes(stat)) {
-			stats[stat] = npcStartingPoints || 0;
-		}
-	}
-
-	if (selectedRace) {
-		head.value = getHeadStatsForRace(selectedRace.value);
+function resetStats() {
+	for (const stat in stats.value) {
+		console.log(stat);
+		stats.value[stat] = resetStatsScore.value;
 	}
 }
 
-function markAsModified(val) {
-	modifiedStats.value.push(val);
+function getRaceObject(str) {
+	return races.value.find((r) => r.value === str || r.name === str);
 }
-
-/* const testFilteredHead = computed(() => {
-	let out = { ...head.value };
-	for (const fieldName in out) {
-		if (fieldName.match(/List$/)) {
-			delete out[fieldName];
-		}
-		if (out[fieldName]?.value) {
-			out[fieldName] = out[fieldName].value;
-		}
-	}
-	return out;
-}); */
 
 function toggleLegacies(currentVal) {
-	console.log(currentVal, head.value.legacies);
 	if (!head.value.legacies) {
 		return;
 	}
@@ -254,76 +232,64 @@ function toggleLegacies(currentVal) {
 }
 
 const maxTrait = computed(() => {
-	console.log(race.value, head.value.generation);
 	if (race.value.value === "vampire" && head.value?.generation) {
-		console.log("vamp !!!");
 		return (13 - head.value.generation) * 2;
 	}
 	return 10;
 });
 
 function prepareSave() {
-	console.log(name.value);
-	console.log(race.value);
-	console.log(stats);
-
-	let filteredHead = {};
-	for (const fieldName in out) {
-		if (fieldName.match(/List$/)) {
-			delete out[fieldName];
-		}
-		if (out[fieldName]?.value) {
-			out[fieldName] = out[fieldName].value;
-		}
-	}
-
-	const formattedPersonalities = {};
-	for (const dimension in personality) {
-		if (personality[dimension] !== "") {
-			formattedPersonalities[dimension] = personality[dimension].split("\n");
-		}
-	}
-
-	return { name: name.value, head: filteredHead, race: race.value.value, stats: stats, personality: formattedPersonalities };
+	return {
+		name: name.value,
+		head: head.value,
+		race: race.value.value,
+		stats: stats.value,
+		personality: personality.value,
+	};
 }
 
-async function saveAndEdit() {
+async function save() {
 	const saveData = prepareSave();
 
-	const { data, error } = await supabase.from("npcs").insert(saveData).select();
+	if (props?.character?.id) {
+		saveData.id = props.character.id;
+	}
+
+	const { data, error } = await supabase.from("npcs").upsert(saveData).select();
 
 	if (error) {
 		throw error;
 	}
 
-	if (data && data[0].id) {
-		router.push({ name: "npc_edit", params: { id: data[0].id } });
+	$q.notify({ color: "green", message: `<span class='text-p'>${name.value}'s sheet has been saved!</span>`, icon: "thumb_up_alt", html: true });
+	return data || true;
+}
+
+async function saveAndEdit() {
+	const saveData = prepareSave();
+	const success = await save();
+
+	if (success && success[0].id) {
+		router.push({ name: "npc_edit", params: { id: success[0].id } });
 	}
 }
 
 async function saveAndNew() {
 	const saveData = prepareSave();
+	const success = await save();
 
-	const { data, error } = await supabase.from("npcs").insert(saveData);
-
-	if (error) {
-		throw error;
+	if (success) {
+		router.go();
 	}
-
-	router.go();
 }
 
-onMounted(() => {
-	populateStartingPoints();
-});
-
-watch([race, races, statsListNPC], () => {
-	populateStartingPoints();
-});
-
 watch(races, () => {
-	if (!race?.value && races?.value.length) {
-		race.value = races.value.find((r) => r.value === defaultRace);
+	if (!race.value && races.value.length) {
+		race.value = getRaceObject(props.character.race);
 	}
+});
+
+watch(race, (chosenRace) => {
+	head.value = getHeadStatsForRace(chosenRace?.value);
 });
 </script>

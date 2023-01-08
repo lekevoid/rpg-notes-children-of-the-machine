@@ -1,5 +1,5 @@
 <template>
-	<q-item dense tag="a" :to="{ name: 'npc_view', params: { id: character.id } }" class="npc_link q-py-none flex items-center">
+	<q-item dense tag="a" :to="{ name: 'npc_view', params: { id: character.id } }" class="nav_link npc_link q-py-none flex items-center">
 		<q-item-section avatar class="flex flex-center">
 			<q-icon class="race_icon" :name="raceIcon" />
 		</q-item-section>

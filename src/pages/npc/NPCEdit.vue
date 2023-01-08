@@ -1,16 +1,25 @@
 <template>
 	<q-page padding>
-		<h1>Edit a NPC</h1>
-		<p>{{ route.params.id }}</p>
+		<h1>Edit : {{ character.name }}</h1>
+		<NPCSheet v-if="character" :character="character" />
 	</q-page>
 </template>
 
 <script setup>
-import { useRouter } from "vue-router";
+import { ref, watch } from "vue";
+import { useNPCsStore } from "stores/npcs";
+import { storeToRefs } from "pinia";
 import { useRoute } from "vue-router";
 
-const router = useRouter();
-const route = useRoute();
+import NPCSheet from "components/NPCSheet.vue";
 
-console.log(route);
+const route = useRoute();
+const npcID = parseInt(route.params.id);
+
+const { npcs } = storeToRefs(useNPCsStore());
+const character = ref(npcs.value.find((n) => n.id === npcID));
+
+watch(npcs, (newVal) => {
+	character.value = newVal.find((n) => n.id === npcID);
+});
 </script>

@@ -18,7 +18,7 @@
 						<q-checkbox class="q-my-none text-p" v-model="show_timeline_ariel" label="Ariel" color="indigo-9" />
 						<q-checkbox class="q-my-none text-p" v-model="show_timeline_lucas" label="Lucas" color="red-9" />
 					</div>
-					<div class="q-px-lg q-pb-md bg-grey-10 text-white">
+					<div class="q-px-lg q-py-sm bg-grey-10 text-white">
 						<q-timeline color="blue">
 							<q-timeline-entry
 								v-for="timelineDate in filtered_stories_timeline"
@@ -50,26 +50,22 @@
 
 				<q-tab-panel name="peer_counseling">
 					<h2>Peer Counseling</h2>
-					<div class="peer_counseling_files_list row q-gutter-lg">
-						<q-card
+					<div class="peer_counseling_files_list row q-col-gutter-lg">
+						<div
 							v-for="(entry, k) in stories_peer_counseling"
-							bordered
-							:class="[
-								'peer_counseling_card',
-								'q-mb-xl',
-								entry.initiated ? 'bg-grey-10 text-white' : 'uninitiated text-light-blue',
-								activePeerCounselingCard === entry.title ? 'active col-11' : 'inactive col-3',
-							]"
+							:class="['peer_counseling_card_wrapper q-mb-xl', activePeerCounselingCard === entry.title ? 'active col-11' : 'inactive col-4']"
 							:key="`peer_counseling_${k}`"
 						>
-							<q-card-section class="cursor-pointer" @click="togglePeerCounselingCard(entry.title)">
-								<div class="text-h4">{{ entry.title }}</div>
-							</q-card-section>
-							<q-separator dark inset />
-							<q-card-section :class="[activePeerCounselingCard === entry.title ? '' : 'ellipsis-5-lines']">
-								<p v-for="(par, j) in entry.text" :key="`peer_counseling_${k}_${j}`">{{ par }}</p>
-							</q-card-section>
-						</q-card>
+							<q-card bordered :class="[entry.initiated ? 'bg-grey-10 text-white' : 'uninitiated text-light-blue']">
+								<q-card-section class="cursor-pointer" @click="togglePeerCounselingCard(entry.title)">
+									<div class="text-h4">{{ entry.title }}</div>
+								</q-card-section>
+								<q-separator dark inset />
+								<q-card-section :class="[activePeerCounselingCard === entry.title ? '' : 'ellipsis-5-lines']">
+									<p v-for="(par, j) in entry.text" :key="`peer_counseling_${k}_${j}`">{{ par }}</p>
+								</q-card-section>
+							</q-card>
+						</div>
 					</div>
 				</q-tab-panel>
 
@@ -99,7 +95,7 @@
 						:class="['q-mb-xl', entry.initiated ? 'bg-grey-10 text-white' : 'uninitiated text-light-blue']"
 						:key="`supernaturals_${k}`"
 					>
-						<q-card-section class="cursor-pointer" @click="togglePeerCounselingCard(entry.title)">
+						<q-card-section>
 							<div class="text-h4">{{ entry.title }}</div>
 						</q-card-section>
 						<q-separator dark inset />
@@ -173,11 +169,11 @@ const filtered_stories_timeline = computed(() => {
 	background-color: #000828;
 }
 
-.peer_counseling_card {
+.peer_counseling_card_wrapper {
 	transition: width 0.3s ease, flex 0.3s ease;
 }
 
-.peer_counseling_card .ellipsis-5-lines {
+.peer_counseling_card_wrapper .ellipsis-5-lines {
 	overflow: hidden;
 	padding-bottom: 0;
 	margin-bottom: 1rem;
