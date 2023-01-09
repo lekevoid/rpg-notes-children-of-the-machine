@@ -35,6 +35,10 @@ export const useNPCsStore = defineStore("NPCs", () => {
 			goals: "",
 			habits: "",
 		},
+		notable_traits: {
+			powers: [{ type: "", name: "", score: "" }],
+			quirks: [""],
+		},
 	};
 
 	const npcs = computed(() => {

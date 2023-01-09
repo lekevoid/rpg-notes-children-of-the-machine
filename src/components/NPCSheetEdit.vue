@@ -202,6 +202,35 @@
 				</div>
 			</q-card-section>
 			<q-card-section>
+				<h2>Other Notable Traits</h2>
+				<div class="row q-col-gutter-lg">
+					<div class="col">
+						<h3>Powers</h3>
+						<div v-for="(power, k) in notableTraits.powers" class="row q-col-gutter-sm q-mb-lg" :key="`power_${k}`">
+							<div class="col-2">
+								<q-input outlined v-model="notableTraits.powers[k].type" label="Type" placeholder="Type" />
+							</div>
+							<div class="col-6">
+								<q-input outlined v-model="notableTraits.powers[k].name" label="Name" placeholder="Name" />
+							</div>
+							<div class="col-4">
+								<q-input outlined v-model="notableTraits.powers[k].score" label="Score" placeholder="Score" />
+							</div>
+						</div>
+						<q-btn round color="primary" icon="add" @click="addNotableTraitPower('powers')" />
+					</div>
+					<div class="col">
+						<h3>Quirks</h3>
+						<div v-for="(quirk, k) in notableTraits.quirks" class="row q-col-gutter-sm q-mb-lg" :key="`quirk_${k}`">
+							<div class="col-12">
+								<q-input outlined v-model="notableTraits.quirks[k]" label="Name" placeholder="Name" />
+							</div>
+						</div>
+						<q-btn round color="primary" icon="add" @click="addNotableTraitPower('quirks')" />
+					</div>
+				</div>
+			</q-card-section>
+			<q-card-section>
 				<h2>History</h2>
 				<q-input v-model="history" outlined type="textarea" placeholder="What's their story so far ?" class="field_history" />
 			</q-card-section>
@@ -263,7 +292,7 @@ const props = defineProps({
 
 const { getHeadStatsForRace, getOptionsListsForRace, statExists } = useDefaultsStore();
 const { races } = useRacesStore();
-const { fetchNPC } = useNPCsStore();
+const { fetchNPC, defaultNPCStats } = useNPCsStore();
 
 const resetStatsScore = ref(4);
 const optionsLists = ref(getOptionsListsForRace(props.character.race));
@@ -273,6 +302,7 @@ const stats = ref(props.character.stats);
 const head = ref(props.character.head);
 const history = ref(props.character.history);
 const personality = ref(props.character.personality);
+const notableTraits = ref(props.character.notable_traits || defaultNPCStats.notable_traits);
 
 function resetStats() {
 	for (const stat in stats.value) {
@@ -299,6 +329,16 @@ const maxTrait = computed(() => {
 	return 10;
 });
 
+function addNotableTraitPower(which) {
+	if (which === "powers") {
+		notableTraits.value.powers.push({ type: "", name: "", score: "" });
+	}
+	if (which === "quirks") {
+		notableTraits.value.quirks.push("");
+	}
+	console.log(notableTraits);
+}
+
 function prepareSave() {
 	return {
 		name: name.value,
@@ -307,6 +347,7 @@ function prepareSave() {
 		stats: stats.value,
 		history: history.value,
 		personality: personality.value,
+		notable_traits: notableTraits.value,
 	};
 }
 
