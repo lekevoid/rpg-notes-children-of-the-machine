@@ -1,43 +1,21 @@
 {
 	"name": "",
-	"race": "changeling",
+	"race": "Changeling",
 	"head": {
 		"court": "",
 		"legacies": {
 			"seelie": "",
 			"unseelie": "",
-			"primary": "seelie"
+			"primary": "Seelie"
 		},
 		"house": "",
 		"seeming": "",
 		"kith": ""
 	},
-	"seemingsList": [
-		{
-			"label": "Childling",
-			"value": "childling"
-		},
-		{
-			"label": "Wilder",
-			"value": "wilder"
-		},
-		{
-			"label": "Grump",
-			"value": "grump"
-		}
-	],
-	"kithsList": [
-		{
-			"label": "Society of Ether",
-			"value": "society_of_ether"
-		},
-		{
-			"label": "Verbena",
-			"value": "verbena"
-		},
-		{
-			"label": "Virtual Adepts",
-			"value": "virtual_adepts"
-		}
-	]
+	"history": "",
+	"optionsLists": {
+		"courts": ["Seelie", "Unseelie", "Shadow"],
+		"seemings": ["Childling", "Wilder", "Grump"],
+		"kiths": ["Boggan", "Eshu", "Nocker", "Piskie", "Pooka", "Redcap", "Satyr", "Selkie", "Sidhe", "Sluagh", "Troll"]
+	}
 }

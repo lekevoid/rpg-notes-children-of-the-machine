@@ -1,8 +1,10 @@
 {
 	"name": "",
-	"race": "human",
+	"race": "Human",
 	"head": {
 		"nature": "",
 		"demeanor": ""
-	}
+	},
+	"history": "",
+	"optionsLists": {}
 }

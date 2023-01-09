@@ -1,94 +1,30 @@
 {
 	"name": "",
-	"race": "vampire",
+	"race": "Vampire",
 	"head": {
 		"nature": "",
 		"demeanor": "",
 		"generation": "13",
-		"sect": {
-			"label": "Camarilla",
-			"value": "camarilla"
-		}
+		"sect": "Camarilla",
+		"clan": ""
 	},
-	"sectsList": [
-		{
-			"label": "Camarilla",
-			"value": "camarilla"
-		},
-		{
-			"label": "Sabbat",
-			"value": "sabbat"
-		},
-		{
-			"label": "Anarchs",
-			"value": "anarchs"
-		},
-		{
-			"label": "Independent",
-			"value": "independent"
-		},
-		{
-			"label": "Inconnu",
-			"value": "inconnu"
-		},
-		{
-			"label": "Black Hand",
-			"value": "black_hand"
-		}
-	],
-	"clan": "",
-	"clansList": [
-		{
-			"label": "Assamite",
-			"value": "assamite"
-		},
-		{
-			"label": "Brujah",
-			"value": "brujah"
-		},
-		{
-			"label": "Gangrel",
-			"value": "gangrel"
-		},
-		{
-			"label": "Giovanni",
-			"value": "giovanni"
-		},
-		{
-			"label": "Lasombra",
-			"value": "lasombra"
-		},
-		{
-			"label": "Malkavian",
-			"value": "malkavian"
-		},
-		{
-			"label": "Nosferatu",
-			"value": "nosferatu"
-		},
-		{
-			"label": "Ravnos",
-			"value": "ravnos"
-		},
-		{
-			"label": "Setite",
-			"value": "setite"
-		},
-		{
-			"label": "Toreador",
-			"value": "toreador"
-		},
-		{
-			"label": "Tremere",
-			"value": "tremere"
-		},
-		{
-			"label": "Tzimisce",
-			"value": "tzimisce"
-		},
-		{
-			"label": "Ventrue",
-			"value": "ventrue"
-		}
-	]
+	"history": "",
+	"optionsLists": {
+		"sectsList": ["Camarilla", "Sabbat", "Anarchs", "Independent", "Inconnu", "Black Hand"],
+		"clansList": [
+			"Assamite",
+			"Brujah",
+			"Gangrel",
+			"Giovanni",
+			"Lasombra",
+			"Malkavian",
+			"Nosferatu",
+			"Ravnos",
+			"Setite",
+			"Toreador",
+			"Tremere",
+			"Tzimisce",
+			"Ventrue"
+		]
+	}
 }

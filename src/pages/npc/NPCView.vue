@@ -23,7 +23,7 @@
 								<p v-if="npc.head.nature">Nature : {{ npc.head.nature }}</p>
 								<p v-if="npc.head.demeanor">Demeanor : {{ npc.head.demeanor }}</p>
 								<p v-if="npc.head.court">Court : {{ npc.head.court }}</p>
-								<p v-if="npc.head.legacies.seelie">
+								<p v-if="npc.head.legacies?.seelie">
 									Legacies :
 									{{
 										npc.head.legacies.primary === "Seelie"
@@ -32,7 +32,7 @@
 									}}
 								</p>
 								<p v-if="npc.head.house">House : {{ npc.head.house }}</p>
-								<p v-if="npc.head.essence">Essence : {{ npc.head.essence }}</p>
+								<p v-if="npc.head.essence">Essence : {{ npc.head.essence.value }}</p>
 							</div>
 							<div class="col">
 								<p v-if="npc.head.kith">Kith : {{ npc.head.kith }}</p>
@@ -44,6 +44,9 @@
 								<p v-if="npc.head.generation">Generation : {{ npc.head.generation }}</p>
 								<p v-if="npc.head.sect">Sect : {{ npc.head.sect }}</p>
 								<p v-if="npc.head.clan">Clan : {{ npc.head.clan }}</p>
+								<p v-if="npc.head.breed">Breed : {{ npc.head.breed }}</p>
+								<p v-if="npc.head.tribe">Tribe : {{ npc.head.tribe }}</p>
+								<p v-if="npc.head.auspice">Auspice : {{ npc.head.auspice }}</p>
 							</div>
 						</div>
 						<q-separator class="q-mt-xl q-mb-md" />
@@ -100,12 +103,14 @@
 				</div>
 			</q-card-section>
 			<q-card-section>
-				<h2>History, Background</h2>
+				<h2>History</h2>
 				<div class="row q-col-gutter-xl">
 					<div class="col">
-						<q-card :class="['bg-grey-10 q-pa-sm', !npc.history ? 'opacity-4' : '']">
+						<q-card :class="['bg-grey-10 q-pa-sm', !formattedHistory ? 'opacity-4' : '']">
 							<q-card-section>
-								<div class="prose">{{ npc.history }}</div>
+								<div class="prose">
+									<p v-for="(paragraph, k) in formattedHistory" class="line-height-180" :key="`par_${k}`">{{ paragraph }}</p>
+								</div>
 							</q-card-section>
 						</q-card>
 					</div>
@@ -195,6 +200,14 @@ const npc = ref(npcs.value.find((n) => n.id === npcID.value));
 
 const portraitExists = ref(true);
 
+const formattedHistory = computed(() => {
+	let out = "";
+	if (npc.value?.history) {
+		out = npc.value?.history.split("\n") || "";
+	}
+	return out;
+});
+
 function slugify(str) {
 	const out = str
 		.normalize("NFD")
@@ -207,7 +220,7 @@ function slugify(str) {
 
 onUpdated(() => {
 	npcID.value = parseInt(route.params.id);
-	portraitExists.value = "true";
+	portraitExists.value = true;
 });
 
 watch([npcs, npcID], (newVal) => {
@@ -224,9 +237,8 @@ watch([npcs, npcID], (newVal) => {
 	overflow: hidden;
 }
 
-.prose {
-	white-space: pre;
-	line-height: 1.6;
+.prose p {
+	line-height: 1.8;
 	text-align: justify;
 }
 </style>

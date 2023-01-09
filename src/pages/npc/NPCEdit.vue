@@ -1,7 +1,9 @@
 <template>
 	<q-page padding>
-		<h1>Edit : {{ character.name }}</h1>
-		<NPCSheetEdit v-if="character" :character="character" />
+		<div v-if="character">
+			<h1>Edit : {{ character.name }}</h1>
+			<NPCSheetEdit :character="character" />
+		</div>
 	</q-page>
 </template>
 

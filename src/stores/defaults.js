@@ -1,40 +1,47 @@
 import { computed } from "vue";
 import { defineStore } from "pinia";
-import useSupabase from "boot/supabase";
-const { supabase } = useSupabase();
 
 import defaults_human from "assets/data/races_defaults_human.json";
 import defaults_changeling from "assets/data/races_defaults_changeling.json";
 import defaults_mage from "assets/data/races_defaults_mage.json";
 import defaults_vampire from "assets/data/races_defaults_vampire.json";
+import defaults_werewolf from "assets/data/races_defaults_werewolf.json";
 
 export const useDefaultsStore = defineStore("defaults", () => {
-	// const fetched = ref(false);
 	const statsListNPC = [
-		"combat",
-		"stealth",
-		"soak",
-		"strength",
-		"charisma",
-		"empathy",
-		"manipulation",
-		"selfControl",
-		"alertness",
-		"culture",
-		"knowledge",
-		"willpower",
+		"Combat",
+		"Stealth",
+		"Soak",
+		"Strength",
+		"Charisma",
+		"Empathy",
+		"Manipulation",
+		"Self-Control",
+		"Alertness",
+		"Culture",
+		"Knowledge",
+		"Willpower",
 	];
 
-	const headStats = {
-		human: defaults_human,
-		changeling: defaults_changeling,
-		mage: defaults_mage,
-		vampire: defaults_vampire,
-		noRace: defaults_human,
+	const baseStats = {
+		Human: defaults_human,
+		Changeling: defaults_changeling,
+		Mage: defaults_mage,
+		Vampire: defaults_vampire,
+		Werewolf: defaults_werewolf,
+		NoRace: defaults_human,
 	};
 
-	const getHeadStatsForRace = (race = "human") => {
-		return headStats[race].head;
+	const getHeadStatsForRace = (race = "Human") => {
+		return baseStats[race].head;
+	};
+
+	const getOptionsListsForRace = (race = "Human") => {
+		const out = baseStats[race].optionsLists;
+		for (const toSort in out) {
+			out[toSort] = out[toSort].sort();
+		}
+		return out;
 	};
 
 	const statExists = (field) => {
@@ -52,8 +59,9 @@ export const useDefaultsStore = defineStore("defaults", () => {
 
 	return {
 		statsListNPC,
-		headStats,
+		baseStats,
 		getHeadStatsForRace,
+		getOptionsListsForRace,
 		statExists,
 	};
 });

@@ -1,0 +1,32 @@
+{
+	"name": "",
+	"race": "Werewolf",
+	"head": {
+		"nature": "",
+		"demeanor": "",
+		"breed": "",
+		"tribe": "",
+		"auspice": ""
+	},
+	"history": "",
+	"optionsLists": {
+		"breeds": ["Homid", "Lupus", "Metis"],
+		"tribes": [
+			"Black Furies",
+			"Bone Gnawers",
+			"Children of Gaia",
+			"Get of Fenris",
+			"Fianna",
+			"Glass Walkers",
+			"Red Talons",
+			"Shadow Lords",
+			"Silent Striders",
+			"Silver Fang",
+			"Uktena",
+			"Wendigo",
+			"Stargazers",
+			"Black Spiral Dancers"
+		],
+		"auspices": ["Ragabash", "Theurge", "Philodox", "Galliard", "Arhoun"]
+	}
+}

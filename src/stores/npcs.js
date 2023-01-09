@@ -14,20 +14,27 @@ export const useNPCsStore = defineStore("NPCs", () => {
 			demeanor: "",
 		},
 		stats: {
-			combat: 4,
-			stealth: 4,
-			soak: 4,
-			strength: 4,
-			charisma: 4,
-			empathy: 4,
-			manipulation: 4,
-			selfControl: 4,
-			alertness: 4,
-			culture: 4,
-			knowledge: 4,
-			willpower: 4,
+			Combat: 4,
+			Stealth: 4,
+			Soak: 4,
+			Strength: 4,
+			Charisma: 4,
+			Empathy: 4,
+			Manipulation: 4,
+			"Self-Control": 4,
+			Alertness: 4,
+			Culture: 4,
+			Knowledge: 4,
+			Willpower: 4,
 		},
-		personality: { likes: "", dislikes: "", wants: "", rptips: "", goals: "", habits: "" },
+		personality: {
+			likes: "",
+			dislikes: "",
+			wants: "",
+			rptips: "",
+			goals: "",
+			habits: "",
+		},
 	};
 
 	const npcs = computed(() => {
@@ -47,17 +54,7 @@ export const useNPCsStore = defineStore("NPCs", () => {
 		if (forceReset || !fetched.value) {
 			const { data, error } = await supabase.from("npcs").select().neq("name", "");
 			try {
-				fetchedNPCs.value = data
-					/* .map((character) => {
-						if (character.personality) {
-							for (const pTrait in character.personality) {
-								character.personality[pTrait] = character.personality[pTrait].join("\n");
-							}
-						}
-
-						return character;
-					}) */
-					.sort(sortNPCs);
+				fetchedNPCs.value = data.sort(sortNPCs);
 				fetched.value = true;
 			} catch (e) {
 				throw error;
@@ -65,5 +62,14 @@ export const useNPCsStore = defineStore("NPCs", () => {
 		}
 	}
 
-	return { defaultNPCStats, npcs, fetchNPCs };
+	async function fetchNPC(npcID) {
+		const { data, error } = await supabase.from("npcs").select().eq("id", npcID);
+		try {
+			console.log(data, fetchedNPCs.value);
+		} catch (e) {
+			throw error;
+		}
+	}
+
+	return { defaultNPCStats, npcs, fetchNPCs, fetchNPC };
 });

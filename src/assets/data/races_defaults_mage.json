@@ -1,102 +1,31 @@
 {
 	"name": "",
-	"race": "mage",
+	"race": "Mage",
 	"head": {
 		"nature": "",
 		"demeanor": "",
 		"essence": "",
-		"affiliation": {
-			"label": "Traditions",
-			"value": "traditions"
-		},
+		"affiliation": "Traditions",
 		"tradition": "",
 		"convention": "",
 		"sect": ""
 	},
-	"affiliationsList": [
-		{
-			"label": "Traditions",
-			"value": "traditions"
-		},
-		{
-			"label": "Technocracy",
-			"value": "technocracy"
-		},
-		{
-			"label": "Marauders",
-			"value": "marauders"
-		},
-		{
-			"label": "Nephandi",
-			"value": "nephandi"
-		}
-	],
-	"traditionsList": [
-		{
-			"label": "Akashics",
-			"value": "akashics"
-		},
-		{
-			"label": "Celestial Chorus",
-			"value": "celestial_chorus"
-		},
-		{
-			"label": "Cult of Ecstacy",
-			"value": "cult_of_ecstacy"
-		},
-		{
-			"label": "Dreamspeaker",
-			"value": "dreamspeaker"
-		},
-		{
-			"label": "Euthanatos",
-			"value": "euthanatos"
-		},
-		{
-			"label": "Hollow Ones",
-			"value": "hollow_ones"
-		},
-		{
-			"label": "Order of Hermes",
-			"value": "order_of_hermes"
-		},
-		{
-			"label": "Society of Ether",
-			"value": "society_of_ether"
-		},
-		{
-			"label": "Verbena",
-			"value": "verbena"
-		},
-		{
-			"label": "Virtual Adepts",
-			"value": "virtual_adepts"
-		}
-	],
-	"conventionsList": [
-		{
-			"label": "Iteration X",
-			"value": "iteration_x"
-		},
-		{
-			"label": "New World Order",
-			"value": "New World Order"
-		},
-		{
-			"label": "Progenitors",
-			"value": "Progenitors"
-		},
-		{
-			"label": "Syndicate",
-			"value": "Syndicate"
-		},
-		{
-			"label": "Void Engineers",
-			"value": "Void Engineers"
-		},
-		{
-			"label": "mage",
-			"value": "blah"
-		}
-	]
+	"history": "",
+	"optionsLists": {
+		"affiliations": ["Traditions", "Technocracy", "Marauders", "Nephandi"],
+		"traditions": [
+			"Akashics",
+			"Celestial Chorus",
+			"Cult of Ecstacy",
+			"Dreamspeaker",
+			"Euthanatos",
+			"Hollow Ones",
+			"Order of Hermes",
+			"Society of Ether",
+			"Verbena",
+			"Virtual Adepts"
+		],
+		"conventions": ["Iteration X", "New World Order", "Progenitors", "Syndicate", "Void Engineers", "mage"],
+		"essences": ["Dynamic", "Primordial", "Static", "Questing"]
+	}
 }
