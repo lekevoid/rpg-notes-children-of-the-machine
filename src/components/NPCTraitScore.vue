@@ -17,7 +17,6 @@ const props = defineProps({ label: String, score: Number, max: { type: Number, d
 const scoreModel = ref(props.score);
 
 const maxTrait = computed(() => {
-	console.log(props.max);
 	return props.max;
 });
 </script>
