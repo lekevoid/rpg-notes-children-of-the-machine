@@ -51,16 +51,20 @@
 							</div>
 						</div>
 						<q-separator class="q-mt-xl q-mb-md" />
-						<div class="row q-col-gutter-xl">
+						<div
+							class="row q-col-gutter-xl"
+							v-if="npc?.notable_traits && (npc.notable_traits?.powers[0].name !== '' || npc.notable_traits?.quirks[0] !== '')"
+						>
 							<div class="col">
 								<h2>Notable Traits</h2>
 								<div class="row q-col-gutter-xl">
-									<div class="col">
+									<div class="col" v-if="npc?.notable_traits?.powers && npc.notable_traits.powers[0].name !== ''">
 										<h3 class="q-mt-none">Powers</h3>
-										<NPCTraitScore label="Chicanery" :score="1" />
+										<NPCTraitScore v-for="power in npc.notable_traits.powers" :label="power.name" :score="power.score" :key="power.name" />
 									</div>
-									<div class="col">
+									<div class="col" v-if="npc?.notable_traits?.quirks && npc.notable_traits.quirks[0] !== ''">
 										<h3 class="q-mt-none">Quirks, Merits, Flaws</h3>
+										<p v-for="quirk in npc.notable_traits.quirks" :key="quirk">{{ quirk }}</p>
 									</div>
 								</div>
 							</div>
@@ -226,6 +230,7 @@ onUpdated(() => {
 
 watch([npcs, npcID], (newVal) => {
 	npc.value = npcs.value.find((n) => n.id === npcID.value);
+	console.log(npc.value);
 });
 </script>
 

@@ -207,14 +207,14 @@
 					<div class="col">
 						<h3>Powers</h3>
 						<div v-for="(power, k) in notableTraits.powers" class="row q-col-gutter-sm q-mb-lg" :key="`power_${k}`">
-							<div class="col-2">
-								<q-input outlined v-model="notableTraits.powers[k].type" label="Type" placeholder="Type" />
+							<div class="col-4">
+								<q-select label="Type" outlined v-model="notableTraits.powers[k].type" :options="['Supernatural Power', 'Specialty Trait']" />
 							</div>
-							<div class="col-6">
+							<div class="col-4">
 								<q-input outlined v-model="notableTraits.powers[k].name" label="Name" placeholder="Name" />
 							</div>
 							<div class="col-4">
-								<q-input outlined v-model="notableTraits.powers[k].score" label="Score" placeholder="Score" />
+								<q-input outlined v-model.number="notableTraits.powers[k].score" label="Score" placeholder="Score" type="number" />
 							</div>
 						</div>
 						<q-btn round color="primary" icon="add" @click="addNotableTraitPower('powers')" />
