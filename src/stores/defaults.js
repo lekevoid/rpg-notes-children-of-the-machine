@@ -37,7 +37,7 @@ export const useDefaultsStore = defineStore("defaults", () => {
 	};
 
 	const getOptionsListsForRace = (race = "Human") => {
-		const out = baseStats[race].optionsLists;
+		const out = baseStats[race]?.optionsLists || {};
 		for (const toSort in out) {
 			out[toSort] = out[toSort].sort();
 		}

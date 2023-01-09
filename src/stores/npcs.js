@@ -8,7 +8,7 @@ export const useNPCsStore = defineStore("NPCs", () => {
 	const fetchedNPCs = ref([]);
 	const defaultNPCStats = {
 		name: "",
-		race: "human",
+		race: "Human",
 		head: {
 			nature: "",
 			demeanor: "",
