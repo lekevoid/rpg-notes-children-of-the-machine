@@ -8,10 +8,10 @@
 				<div class="row q-gutter-lg">
 					<div class="col">
 						<q-input outlined v-model="name" label="Name" placeholder="Character Name" class="q-mb-lg" />
-					</div>
-					<div class="col">
 						<q-input outlined v-if="statExists(head.nature)" v-model="head.nature" label="Nature" placeholder="Nature" class="q-mb-lg" />
 						<q-input outlined v-if="statExists(head.demeanor)" v-model="head.demeanor" label="Demeanor" placeholder="Demeanor" class="q-mb-lg" />
+					</div>
+					<div class="col">
 						<q-select
 							outlined
 							v-if="statExists([head.court, optionsLists?.courts])"
@@ -21,6 +21,7 @@
 							placeholder="Court"
 							class="q-mb-lg"
 						/>
+						<!-- Changeling Legacies -->
 						<div v-if="statExists(head.legacies)" :class="['row', 'q-gutter-lg', 'q-mb-lg', { reverse: head.legacies.primary === 'Unseelie' }]">
 							<div class="col-5">
 								<q-input outlined v-model="head.legacies.seelie" label="Seelie Legacy" placeholder="Seelie Legacy" />
@@ -32,8 +33,40 @@
 								<q-input outlined v-model="head.legacies.unseelie" label="Unseelie Legacy" placeholder="Unseelie Legacy" />
 							</div>
 						</div>
+						<!-- Changeling or Demon House -->
 						<q-input outlined v-if="statExists(head.house)" v-model="head.house" label="House" placeholder="House" class="q-mb-lg" />
+						<!-- Mage Essence -->
 						<q-input outlined v-if="statExists(head.essence)" v-model="head.essence" label="Essence" placeholder="Essence" class="q-mb-lg" />
+						<!-- Werewolf Breed -->
+						<q-select
+							outlined
+							v-if="statExists([head.breed, optionsLists?.breeds])"
+							v-model="head.breed"
+							:options="optionsLists.breeds"
+							label="Breed"
+							placeholder="Breed"
+							class="q-mb-lg"
+						/>
+						<!-- Werewolf Tribe -->
+						<q-select
+							outlined
+							v-if="statExists([head.tribe, optionsLists?.tribes])"
+							v-model="head.tribe"
+							:options="optionsLists.tribes"
+							label="Tribe"
+							placeholder="Tribe"
+							class="q-mb-lg"
+						/>
+						<!-- Werewolf Auspice -->
+						<q-select
+							outlined
+							v-if="statExists([head.auspice, optionsLists?.auspices])"
+							v-model="head.auspice"
+							:options="optionsLists.auspices"
+							label="Auspice"
+							placeholder="Auspice"
+							class="q-mb-lg"
+						/>
 					</div>
 					<div class="col">
 						<!-- Changeling Kith -->
@@ -125,36 +158,8 @@
 							placeholder="Clan"
 							class="q-mb-lg"
 						/>
-						<!-- Werewolf Breed -->
-						<q-select
-							outlined
-							v-if="statExists([head.breed, optionsLists?.breeds])"
-							v-model="head.breed"
-							:options="optionsLists.breeds"
-							label="Breed"
-							placeholder="Breed"
-							class="q-mb-lg"
-						/>
-						<!-- Werewolf Tribe -->
-						<q-select
-							outlined
-							v-if="statExists([head.tribe, optionsLists?.tribes])"
-							v-model="head.tribe"
-							:options="optionsLists.tribes"
-							label="Tribe"
-							placeholder="Tribe"
-							class="q-mb-lg"
-						/>
-						<!-- Werewolf Auspice -->
-						<q-select
-							outlined
-							v-if="statExists([head.auspice, optionsLists?.auspices])"
-							v-model="head.auspice"
-							:options="optionsLists.auspices"
-							label="Auspice"
-							placeholder="Auspice"
-							class="q-mb-lg"
-						/>
+						<!-- Werewolf Totem -->
+						<q-input outlined v-if="statExists(head.totem)" v-model="head.totem" label="Totem" placeholder="Totem" class="q-mb-lg" />
 					</div>
 				</div>
 			</q-card-section>

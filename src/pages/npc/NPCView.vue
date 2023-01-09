@@ -33,6 +33,9 @@
 								</p>
 								<p v-if="npc.head.house">House : {{ npc.head.house }}</p>
 								<p v-if="npc.head.essence">Essence : {{ npc.head.essence.value }}</p>
+								<p v-if="npc.head.breed">Breed : {{ npc.head.breed }}</p>
+								<p v-if="npc.head.tribe">Tribe : {{ npc.head.tribe }}</p>
+								<p v-if="npc.head.auspice">Auspice : {{ npc.head.auspice }}</p>
 							</div>
 							<div class="col">
 								<p v-if="npc.head.kith">Kith : {{ npc.head.kith }}</p>
@@ -44,9 +47,7 @@
 								<p v-if="npc.head.generation">Generation : {{ npc.head.generation }}</p>
 								<p v-if="npc.head.sect">Sect : {{ npc.head.sect }}</p>
 								<p v-if="npc.head.clan">Clan : {{ npc.head.clan }}</p>
-								<p v-if="npc.head.breed">Breed : {{ npc.head.breed }}</p>
-								<p v-if="npc.head.tribe">Tribe : {{ npc.head.tribe }}</p>
-								<p v-if="npc.head.auspice">Auspice : {{ npc.head.auspice }}</p>
+								<p v-if="npc.head.totem">Totem : {{ npc.head.totem }}</p>
 							</div>
 						</div>
 						<q-separator class="q-mt-xl q-mb-md" />
