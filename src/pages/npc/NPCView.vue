@@ -51,18 +51,22 @@
 							</div>
 						</div>
 						<q-separator class="q-mt-xl q-mb-md" />
-						<div
-							class="row q-col-gutter-xl"
-							v-if="npc?.notable_traits && (npc.notable_traits?.powers[0].name !== '' || npc.notable_traits?.quirks[0] !== '')"
-						>
+						<div class="row q-col-gutter-xl" v-if="organizedNotablePowers || npc.notable_traits?.quirks[0] !== ''">
 							<div class="col">
 								<h2>Notable Traits</h2>
 								<div class="row q-col-gutter-xl">
-									<div class="col" v-if="npc?.notable_traits?.powers && npc.notable_traits.powers[0].name !== ''">
+									<div class="col_powers col-4" v-for="(powers, type) in organizedNotablePowers" :key="type">
 										<h3 class="q-mt-none">Powers</h3>
-										<NPCTraitScore v-for="power in npc.notable_traits.powers" :label="power.name" :score="power.score" :key="power.name" />
+										<h4>{{ type }}</h4>
+										<NPCTraitScore
+											v-for="trait in powers.sort(sortByScoreThenName)"
+											:label="trait.name"
+											:score="trait.score"
+											:max="5"
+											:key="trait.name"
+										/>
 									</div>
-									<div class="col" v-if="npc?.notable_traits?.quirks && npc.notable_traits.quirks[0] !== ''">
+									<div class="col-4" v-if="npc?.notable_traits?.quirks && npc.notable_traits.quirks[0] !== ''">
 										<h3 class="q-mt-none">Quirks, Merits, Flaws</h3>
 										<p v-for="quirk in npc.notable_traits.quirks" :key="quirk">{{ quirk }}</p>
 									</div>
@@ -208,8 +212,23 @@ const portraitExists = ref(true);
 const formattedHistory = computed(() => {
 	let out = "";
 	if (npc.value?.history) {
-		out = npc.value?.history.split("\n") || "";
+		out = npc.value.history.split("\n") || "";
 	}
+	return out;
+});
+
+const organizedNotablePowers = computed(() => {
+	let out = {};
+
+	if (npc.value?.notable_traits?.powers) {
+		for (const trait of npc.value.notable_traits.powers) {
+			if (!out[trait.type]) {
+				out[trait.type] = [];
+			}
+			out[trait.type].push(trait);
+		}
+	}
+
 	return out;
 });
 
@@ -223,6 +242,22 @@ function slugify(str) {
 	return out;
 }
 
+function sortByScoreThenName(a, b) {
+	if (a.score > b.score) {
+		return -1;
+	}
+	if (a.score < b.score) {
+		return 1;
+	}
+	if (a.name < b.name) {
+		return -1;
+	}
+	if (a.name > b.name) {
+		return 1;
+	}
+	return 0;
+}
+
 onUpdated(() => {
 	npcID.value = parseInt(route.params.id);
 	portraitExists.value = true;
@@ -230,7 +265,6 @@ onUpdated(() => {
 
 watch([npcs, npcID], (newVal) => {
 	npc.value = npcs.value.find((n) => n.id === npcID.value);
-	console.log(npc.value);
 });
 </script>
 
@@ -246,5 +280,9 @@ watch([npcs, npcID], (newVal) => {
 .prose p {
 	line-height: 1.8;
 	text-align: justify;
+}
+
+.col_powers:not(:first-child) h3 {
+	opacity: 0;
 }
 </style>

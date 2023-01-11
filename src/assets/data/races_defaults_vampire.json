@@ -25,6 +25,7 @@
 			"Tremere",
 			"Tzimisce",
 			"Ventrue"
-		]
+		],
+		"notablePowersTypes": ["Disciplines"]
 	}
 }

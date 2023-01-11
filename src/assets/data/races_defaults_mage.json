@@ -26,6 +26,7 @@
 			"Virtual Adepts"
 		],
 		"conventions": ["Iteration X", "New World Order", "Progenitors", "Syndicate", "Void Engineers", "mage"],
-		"essences": ["Dynamic", "Primordial", "Static", "Questing"]
+		"essences": ["Dynamic", "Primordial", "Static", "Questing"],
+		"notablePowersTypes": ["Spheres"]
 	}
 }

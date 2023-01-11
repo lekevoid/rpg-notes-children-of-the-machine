@@ -6,5 +6,7 @@
 		"demeanor": ""
 	},
 	"history": "",
-	"optionsLists": {}
+	"optionsLists": {
+		"notablePowersTypes": ["Animae"]
+	}
 }

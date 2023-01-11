@@ -208,7 +208,12 @@
 						<h3>Powers</h3>
 						<div v-for="(power, k) in notableTraits.powers" class="row q-col-gutter-sm q-mb-lg" :key="`power_${k}`">
 							<div class="col-4">
-								<q-select label="Type" outlined v-model="notableTraits.powers[k].type" :options="['Supernatural Power', 'Specialty Trait']" />
+								<q-select
+									label="Type"
+									outlined
+									v-model="notableTraits.powers[k].type"
+									:options="[...optionsLists.notablePowersTypes, 'Others']"
+								/>
 							</div>
 							<div class="col-4">
 								<q-input outlined v-model="notableTraits.powers[k].name" label="Name" placeholder="Name" />
@@ -336,7 +341,6 @@ function addNotableTraitPower(which) {
 	if (which === "quirks") {
 		notableTraits.value.quirks.push("");
 	}
-	console.log(notableTraits);
 }
 
 function prepareSave() {
