@@ -1,7 +1,14 @@
 <template>
 	<q-page padding>
 		<div v-if="character">
-			<h1>Edit : {{ character.name }}</h1>
+			<div class="row">
+				<div class="col">
+					<h1>Edit : {{ character.name }}</h1>
+				</div>
+				<div class="col-2 flex items-center justify-end">
+					<q-btn round size="md" color="warning" icon="close" :to="{ name: 'npc_view', params: { id: character.id } }" />
+				</div>
+			</div>
 			<NPCSheetEdit :character="character" />
 		</div>
 	</q-page>

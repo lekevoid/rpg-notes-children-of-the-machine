@@ -267,8 +267,16 @@
 				</div>
 			</q-card-section>
 			<q-card-section>
-				<q-btn color="secondary" icon="edit" label="Save" @click="save" class="q-mr-md" v-if="character.id" />
-				<q-btn color="secondary" icon="edit" label="Save & Continue Editing" @click="saveAndEdit" class="q-mr-md" v-if="!character.id" />
+				<q-btn color="secondary" icon="edit" label="Save & Continue" @click="save" class="q-mr-md" v-if="character.id" />
+				<q-btn
+					color="warning"
+					icon="close"
+					label="Cancel"
+					:to="{ name: 'npc_view', params: { id: character.id } }"
+					class="q-mr-md"
+					v-if="character.id"
+				/>
+				<q-btn color="secondary" icon="edit" label="Save & Continue" @click="saveAndEdit" class="q-mr-md" v-if="!character.id" />
 				<q-btn color="primary" icon="person_add_alt" label="Save & Create New" @click="saveAndNew" v-if="!character.id" />
 			</q-card-section>
 		</q-card>
