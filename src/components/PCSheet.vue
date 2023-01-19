@@ -122,24 +122,18 @@
 				</q-card>
 			</div>
 			<div class="col">
-				<q-card class="q-mb-lg">
+				<q-card class="q-mb-lg" v-if="character.portraits">
 					<q-carousel animated v-model="portraitPos" arrows navigation infinite style="aspect-ratio: 1; height: auto">
-						<q-carousel-slide :name="1" img-src="/img/ahsha_seen_by_herself.jpg" style="aspect-ratio: 1; height: auto">
-							<div class="absolute-bottom custom-caption q-pb-xl">
-								<div class="text-subtitle1">Seen by herself</div>
+						<q-carousel-slide
+							v-for="(portrait, k) in character.portraits"
+							:name="k"
+							:img-src="portrait.img"
+							style="aspect-ratio: 1; height: auto"
+							:key="`portrait_${k}`"
+						>
+							<div class="absolute-bottom custom-caption q-pb-xl" v-if="portrait.caption">
+								<div class="text-subtitle1">{{ portrait.caption }}</div>
 							</div>
-						</q-carousel-slide>
-						<q-carousel-slide :name="2" img-src="/img/ahsha_seen_by_herself_2.jpg">
-							<div class="text-subtitle1">Seen by herself</div>
-						</q-carousel-slide>
-						<q-carousel-slide :name="3" img-src="/img/ahsha_seen_by_lucas.jpg">
-							<div class="text-subtitle1">Seen by Lucas</div>
-						</q-carousel-slide>
-						<q-carousel-slide :name="4" img-src="/img/ahsha_seen_by_ariel.jpg">
-							<div class="text-subtitle1">Seen by Ariel</div>
-						</q-carousel-slide>
-						<q-carousel-slide :name="4" img-src="/img/ahsha_seen_by_martin.jpg">
-							<div class="text-subtitle1">Seen by Martin</div>
 						</q-carousel-slide>
 					</q-carousel>
 				</q-card>
@@ -172,7 +166,7 @@ import PCTraitScore from "components/PCTraitScore.vue";
 import { ref } from "vue";
 const props = defineProps(["character"]);
 
-const portraitPos = ref(1);
+const portraitPos = ref(0);
 
 function sortByName(a, b) {
 	if (a.label < b.label) {

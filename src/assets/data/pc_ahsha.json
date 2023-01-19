@@ -101,6 +101,13 @@
 	"nightmare": 0,
 	"banality": 3,
 	"antithesis": "",
+	"portraits": [
+		{ "caption": "Seen by Herself", "img": "/img/ahsha_seen_by_herself.jpg" },
+		{ "caption": "Seen by Herself", "img": "/img/ahsha_seen_by_herself_2.jpg" },
+		{ "caption": "Seen by Ariel", "img": "/img/ahsha_seen_by_ariel.jpg" },
+		{ "caption": "Seen by Lucas", "img": "/img/ahsha_seen_by_lucas.jpg" },
+		{ "caption": "Seen by Martin", "img": "/img/ahsha_seen_by_martin.jpg" }
+	],
 	"details": [
 		{
 			"title": "The Treasure",

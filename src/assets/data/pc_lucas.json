@@ -89,6 +89,7 @@
 	"nightmare": 0,
 	"banality": 3,
 	"antithesis": "Video games",
+	"portraits": [{ "img": "/img/lucas.jpg" }],
 	"details": [],
 	"bought_with_xp": []
 }

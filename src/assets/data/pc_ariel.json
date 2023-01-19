@@ -90,6 +90,7 @@
 	"nightmare": 0,
 	"banality": 3,
 	"antithesis": "",
+	"portraits": [{ "img": "/img/ariel.jpg" }],
 	"details": [],
 	"bought_with_xp": []
 }
