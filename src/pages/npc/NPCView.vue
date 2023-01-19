@@ -75,7 +75,48 @@
 						</div>
 					</div>
 					<div class="col-4">
-						<a v-if="portraitExists" :href="`/img/npcs/${slugify(npc.name)}.jpg`" target="_blank">
+						<pre>{{ portraits }}</pre>
+						<q-card class="q-mb-lg">
+							<q-carousel animated v-model="portraitPos" arrows navigation infinite>
+								<!-- <q-carousel-slide class="q-pa-none" v-if="portraits.normal" :name="1">
+									<q-img :src="`/img/npcs/${npc.name}.jpg`" spinner-color="white" @error="portraits.normal = false" />
+									<div class="absolute-bottom custom-caption q-pb-xl">
+										<div class="text-subtitle1">Caption</div>
+									</div>
+								</q-carousel-slide>
+								<q-carousel-slide class="q-pa-none" v-if="portraits.apocalyptic" :name="2">
+									<q-img :src="`/img/npcs/${npc.name}_apocalyptic.jpg`" spinner-color="white" @error="portraits.apocalyptic = false" />
+									<div class="absolute-bottom custom-caption q-pb-xl">
+										<div class="text-subtitle1">Caption</div>
+									</div>
+								</q-carousel-slide>
+								<q-carousel-slide class="q-pa-none" v-if="portraits.crinos" :name="3">
+									<q-img :src="`/img/npcs/${npc.name}_crinos.jpg`" spinner-color="white" @error="portraits.crinos = false" />
+									<div class="absolute-bottom custom-caption q-pb-xl">
+										<div class="text-subtitle1">Caption</div>
+									</div>
+								</q-carousel-slide>
+								<q-carousel-slide class="q-pa-none" v-if="portraits.lupus" :name="4">
+									<q-img :src="`/img/npcs/${npc.name}_lupus.jpg`" spinner-color="white" @error="portraits.lupus = false" />
+									<div class="absolute-bottom custom-caption q-pb-xl">
+										<div class="text-subtitle1">Caption</div>
+									</div>
+								</q-carousel-slide>
+								<q-carousel-slide class="q-pa-none" v-if="portraits.seeming" :name="5">
+									<q-img :src="`/img/npcs/${npc.name}.jpg`" spinner-color="white" @error="portraits.seeming = false" />
+									<div class="absolute-bottom custom-caption q-pb-xl">
+										<div class="text-subtitle1">Caption</div>
+									</div>
+								</q-carousel-slide>
+								<q-carousel-slide class="q-pa-none" v-if="portraits.mien" :name="6">
+									<q-img :src="`/img/npcs/${npc.name}.jpg`" spinner-color="white" @error="portraits.mien = false" />
+									<div class="absolute-bottom custom-caption q-pb-xl">
+										<div class="text-subtitle1">Caption</div>
+									</div>
+								</q-carousel-slide> -->
+							</q-carousel>
+						</q-card>
+						<!-- <a v-if="portraitExists" :href="`/img/npcs/${slugify(npc.name)}.jpg`" target="_blank">
 							<q-img :src="`/img/npcs/${slugify(npc.name)}.jpg`" class="rounded-borders" @error.prevent="portraitExists = false" />
 						</a>
 						<q-img
@@ -84,7 +125,7 @@
 							:src="`/img/npcs/unknown_${npc.race}.jpg`"
 							class="rounded-borders"
 							@error="portraitExists = false"
-						/>
+						/> -->
 					</div>
 				</div>
 			</q-card-section>
@@ -207,7 +248,45 @@ const npcID = ref(parseInt(route.params.id));
 const { npcs } = storeToRefs(useNPCsStore());
 const npc = ref(npcs.value.find((n) => n.id === npcID.value));
 
+const portraits = ref([]);
 const portraitExists = ref(true);
+const portraitPos = ref(1);
+//const portraits = ref({ normal: true, apocalyptic: true, crinos: true, lupus: true, mien: true, seeming: true });
+
+async function fetchPortraits() {
+	let out = [];
+	const variations = ["", "apocalyptic", "crinos", "lupus", "mien", "seeming"];
+	for (const variation of variations) {
+		const suffix = variation !== "" ? `_${variation}` : "";
+		const imgPath = `/img/npcs/${slugify(npc.value.name)}${suffix}.jpg`;
+
+		const img = new URL(imgPath, import.meta.url);
+		console.log(img);
+
+		/* try {
+			const res = await import(imgPath);
+			console.log(res);
+			fetch(imgPath).then((res) => {
+				if (res.ok) {
+					portraits.value.push(imgPath);
+				}
+			});
+		} catch (e) {
+			console.log("no portrait for variation", variation, e);
+		} */
+	}
+	return out;
+}
+
+watch(npc, () => {
+	if (npc?.value?.name) {
+		fetchPortraits();
+	}
+});
+
+watch(portraits, () => {
+	console.log(portraits.value);
+});
 
 const formattedHistory = computed(() => {
 	let out = "";
