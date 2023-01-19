@@ -28,6 +28,7 @@
 			"Stargazers",
 			"Black Spiral Dancers"
 		],
-		"auspices": ["Ragabash", "Theurge", "Philodox", "Galliard", "Arhoun"]
+		"auspices": ["Ragabash", "Theurge", "Philodox", "Galliard", "Arhoun"],
+		"notablePowersTypes": ["Gifts"]
 	}
 }

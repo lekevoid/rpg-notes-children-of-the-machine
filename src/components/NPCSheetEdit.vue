@@ -208,7 +208,12 @@
 						<h3>Powers</h3>
 						<div v-for="(power, k) in notableTraits.powers" class="row q-col-gutter-sm q-mb-lg" :key="`power_${k}`">
 							<div class="col-4">
-								<q-select label="Type" outlined v-model="notableTraits.powers[k].type" :options="['Supernatural Power', 'Specialty Trait']" />
+								<q-select
+									label="Type"
+									outlined
+									v-model="notableTraits.powers[k].type"
+									:options="[...optionsLists.notablePowersTypes, 'Others']"
+								/>
 							</div>
 							<div class="col-4">
 								<q-input outlined v-model="notableTraits.powers[k].name" label="Name" placeholder="Name" />
@@ -262,8 +267,16 @@
 				</div>
 			</q-card-section>
 			<q-card-section>
-				<q-btn color="secondary" icon="edit" label="Save" @click="save" class="q-mr-md" v-if="character.id" />
-				<q-btn color="secondary" icon="edit" label="Save & Continue Editing" @click="saveAndEdit" class="q-mr-md" v-if="!character.id" />
+				<q-btn color="secondary" icon="edit" label="Save & Continue" @click="save" class="q-mr-md" v-if="character.id" />
+				<q-btn
+					color="warning"
+					icon="close"
+					label="Cancel"
+					:to="{ name: 'npc_view', params: { id: character.id } }"
+					class="q-mr-md"
+					v-if="character.id"
+				/>
+				<q-btn color="secondary" icon="edit" label="Save & Continue" @click="saveAndEdit" class="q-mr-md" v-if="!character.id" />
 				<q-btn color="primary" icon="person_add_alt" label="Save & Create New" @click="saveAndNew" v-if="!character.id" />
 			</q-card-section>
 		</q-card>
@@ -336,7 +349,6 @@ function addNotableTraitPower(which) {
 	if (which === "quirks") {
 		notableTraits.value.quirks.push("");
 	}
-	console.log(notableTraits);
 }
 
 function prepareSave() {

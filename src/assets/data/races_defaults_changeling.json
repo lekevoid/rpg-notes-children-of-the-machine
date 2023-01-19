@@ -16,6 +16,7 @@
 	"optionsLists": {
 		"courts": ["Seelie", "Unseelie", "Shadow"],
 		"seemings": ["Childling", "Wilder", "Grump"],
-		"kiths": ["Boggan", "Eshu", "Nocker", "Piskie", "Pooka", "Redcap", "Satyr", "Selkie", "Sidhe", "Sluagh", "Troll"]
+		"kiths": ["Boggan", "Eshu", "Nocker", "Piskie", "Pooka", "Redcap", "Satyr", "Selkie", "Sidhe", "Sluagh", "Troll"],
+		"notablePowersTypes": ["Arts", "Realms"]
 	}
 }
