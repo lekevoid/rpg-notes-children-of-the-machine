@@ -123,11 +123,24 @@
 			</div>
 			<div class="col">
 				<q-card class="q-mb-lg">
-					<q-carousel animated v-model="portraitPos" arrows navigation infinite>
-						<q-carousel-slide :name="1" img-src="https://cdn.quasar.dev/img/mountains.jpg" />
-						<q-carousel-slide :name="2" img-src="https://cdn.quasar.dev/img/parallax1.jpg" />
-						<q-carousel-slide :name="3" img-src="https://cdn.quasar.dev/img/parallax2.jpg" />
-						<q-carousel-slide :name="4" img-src="https://cdn.quasar.dev/img/quasar.jpg" />
+					<q-carousel animated v-model="portraitPos" arrows navigation infinite style="aspect-ratio: 1; height: auto">
+						<q-carousel-slide :name="1" img-src="/img/ahsha_seen_by_herself.jpg" style="aspect-ratio: 1; height: auto">
+							<div class="absolute-bottom custom-caption q-pb-xl">
+								<div class="text-subtitle1">Seen by herself</div>
+							</div>
+						</q-carousel-slide>
+						<q-carousel-slide :name="2" img-src="/img/ahsha_seen_by_herself_2.jpg">
+							<div class="text-subtitle1">Seen by herself</div>
+						</q-carousel-slide>
+						<q-carousel-slide :name="3" img-src="/img/ahsha_seen_by_lucas.jpg">
+							<div class="text-subtitle1">Seen by Lucas</div>
+						</q-carousel-slide>
+						<q-carousel-slide :name="4" img-src="/img/ahsha_seen_by_ariel.jpg">
+							<div class="text-subtitle1">Seen by Ariel</div>
+						</q-carousel-slide>
+						<q-carousel-slide :name="4" img-src="/img/ahsha_seen_by_martin.jpg">
+							<div class="text-subtitle1">Seen by Martin</div>
+						</q-carousel-slide>
 					</q-carousel>
 				</q-card>
 				<q-card class="q-pa-lg q-mb-lg">
@@ -185,4 +198,11 @@ const realms = [...props.character.realms].sort(sortByName).sort(sortByScore);
 const otherTraits = [...props.character.other_traits].sort();
 </script>
 
-<style scoped></style>
+<style scoped>
+.custom-caption {
+	text-align: center;
+	padding: 12px 12px 60px;
+	color: white;
+	background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 20%, rgba(0, 0, 0, 0) 100%);
+}
+</style>
