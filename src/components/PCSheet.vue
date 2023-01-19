@@ -122,6 +122,14 @@
 				</q-card>
 			</div>
 			<div class="col">
+				<q-card class="q-mb-lg">
+					<q-carousel animated v-model="portraitPos" arrows navigation infinite>
+						<q-carousel-slide :name="1" img-src="https://cdn.quasar.dev/img/mountains.jpg" />
+						<q-carousel-slide :name="2" img-src="https://cdn.quasar.dev/img/parallax1.jpg" />
+						<q-carousel-slide :name="3" img-src="https://cdn.quasar.dev/img/parallax2.jpg" />
+						<q-carousel-slide :name="4" img-src="https://cdn.quasar.dev/img/quasar.jpg" />
+					</q-carousel>
+				</q-card>
 				<q-card class="q-pa-lg q-mb-lg">
 					<q-card-section>
 						<h2 class="q-my-none">Details</h2>
@@ -148,8 +156,10 @@
 <script setup>
 import PCTraitScore from "components/PCTraitScore.vue";
 
-import { defineProps } from "vue";
+import { ref } from "vue";
 const props = defineProps(["character"]);
+
+const portraitPos = ref(1);
 
 function sortByName(a, b) {
 	if (a.label < b.label) {

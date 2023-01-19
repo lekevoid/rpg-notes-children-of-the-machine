@@ -71,9 +71,9 @@
 						</div>
 					</div>
 					<div class="col-4">
-						<a v-if="portraitExists" :href="`/img/npcs/${slugify(npc.name)}.jpg`" target="_blank"
-							><q-img :src="`/img/npcs/${slugify(npc.name)}.jpg`" class="rounded-borders" @error.prevent="portraitExists = false"
-						/></a>
+						<a v-if="portraitExists" :href="`/img/npcs/${slugify(npc.name)}.jpg`" target="_blank">
+							<q-img :src="`/img/npcs/${slugify(npc.name)}.jpg`" class="rounded-borders" @error.prevent="portraitExists = false" />
+						</a>
 						<q-img
 							v-if="!portraitExists"
 							loading="lazy"
