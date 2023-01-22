@@ -1,5 +1,15 @@
 [
 	{
+		"title": "Live ike there's no to-Merrow",
+		"supernatural_type": "changeling",
+		"text": [
+			"Quand le pont de la rivière St-Maurice s'est effondré, plusieurs personnes sont décédées. Des Merrows qui habitaient la rivière et ses environs, en ont profité pour pondre leurs oeufs. Deux ans plus tard, ces oeufs éclosent.",
+			"Le résultat est subtil pour l'instant. Quelques naissances vont survenir, de bébés difformes, écailleux et avec des membranes entre les doigts. Les Changelings pourront détecter leur potentiel de Glamour.",
+			"Find another story, tragedy etc. that would've happened ~10 years ago, in relation with the bridge or the river and involving the Merrows. These merrows are children now and they're causin mischief. They kidnap one of the newborns in an attempt to 'raise them in their real family'"
+		],
+		"initiated": false
+	},
+	{
 		"title": "Just like in Detroit !",
 		"supernatural_type": "vampire",
 		"text": [

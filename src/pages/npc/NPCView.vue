@@ -1,6 +1,6 @@
 <template>
 	<q-page padding>
-		<NPCSheetSkeleton v-if="!npc" />
+		<NPCSheetSkeleton v-if="!npc || !npc.head" />
 		<q-card class="q-pa-lg" v-else>
 			<q-card-section>
 				<div class="row">
@@ -56,15 +56,17 @@
 								<h2>Notable Traits</h2>
 								<div class="row q-col-gutter-xl">
 									<div class="col_powers col-4" v-for="(powers, type) in organizedNotablePowers" :key="type">
-										<h3 class="q-mt-none">Powers</h3>
-										<h4>{{ type }}</h4>
-										<NPCTraitScore
-											v-for="trait in powers.sort(sortByScoreThenName)"
-											:label="trait.name"
-											:score="trait.score"
-											:max="5"
-											:key="trait.name"
-										/>
+										<template v-if="powers[0].name !== ''">
+											<h3 class="q-mt-none">Powers</h3>
+											<h4>{{ type }}</h4>
+											<NPCTraitScore
+												v-for="trait in powers.sort(sortByScoreThenName)"
+												:label="trait.name"
+												:score="trait.score"
+												:max="5"
+												:key="trait.name"
+											/>
+										</template>
 									</div>
 									<div class="col-4" v-if="npc?.notable_traits?.quirks && npc.notable_traits.quirks[0] !== ''">
 										<h3 class="q-mt-none">Quirks, Merits, Flaws</h3>
@@ -75,57 +77,16 @@
 						</div>
 					</div>
 					<div class="col-4">
-						<pre>{{ portraits }}</pre>
 						<q-card class="q-mb-lg">
-							<q-carousel animated v-model="portraitPos" arrows navigation infinite>
-								<!-- <q-carousel-slide class="q-pa-none" v-if="portraits.normal" :name="1">
-									<q-img :src="`/img/npcs/${npc.name}.jpg`" spinner-color="white" @error="portraits.normal = false" />
-									<div class="absolute-bottom custom-caption q-pb-xl">
-										<div class="text-subtitle1">Caption</div>
+							<q-carousel animated v-model="portraitPos" :arrows="portraits.length > 1" infinite>
+								<q-carousel-slide v-for="(portrait, k) in portraits" class="q-pa-none" :name="k" :key="k">
+									<q-img :src="portrait.src" spinner-color="white" />
+									<div class="absolute-bottom text-subtitle2 text-center custom-caption q-pa-sm" v-if="portrait.caption">
+										<div class="text-subtitle1">{{ portrait.caption }}</div>
 									</div>
 								</q-carousel-slide>
-								<q-carousel-slide class="q-pa-none" v-if="portraits.apocalyptic" :name="2">
-									<q-img :src="`/img/npcs/${npc.name}_apocalyptic.jpg`" spinner-color="white" @error="portraits.apocalyptic = false" />
-									<div class="absolute-bottom custom-caption q-pb-xl">
-										<div class="text-subtitle1">Caption</div>
-									</div>
-								</q-carousel-slide>
-								<q-carousel-slide class="q-pa-none" v-if="portraits.crinos" :name="3">
-									<q-img :src="`/img/npcs/${npc.name}_crinos.jpg`" spinner-color="white" @error="portraits.crinos = false" />
-									<div class="absolute-bottom custom-caption q-pb-xl">
-										<div class="text-subtitle1">Caption</div>
-									</div>
-								</q-carousel-slide>
-								<q-carousel-slide class="q-pa-none" v-if="portraits.lupus" :name="4">
-									<q-img :src="`/img/npcs/${npc.name}_lupus.jpg`" spinner-color="white" @error="portraits.lupus = false" />
-									<div class="absolute-bottom custom-caption q-pb-xl">
-										<div class="text-subtitle1">Caption</div>
-									</div>
-								</q-carousel-slide>
-								<q-carousel-slide class="q-pa-none" v-if="portraits.seeming" :name="5">
-									<q-img :src="`/img/npcs/${npc.name}.jpg`" spinner-color="white" @error="portraits.seeming = false" />
-									<div class="absolute-bottom custom-caption q-pb-xl">
-										<div class="text-subtitle1">Caption</div>
-									</div>
-								</q-carousel-slide>
-								<q-carousel-slide class="q-pa-none" v-if="portraits.mien" :name="6">
-									<q-img :src="`/img/npcs/${npc.name}.jpg`" spinner-color="white" @error="portraits.mien = false" />
-									<div class="absolute-bottom custom-caption q-pb-xl">
-										<div class="text-subtitle1">Caption</div>
-									</div>
-								</q-carousel-slide> -->
 							</q-carousel>
 						</q-card>
-						<!-- <a v-if="portraitExists" :href="`/img/npcs/${slugify(npc.name)}.jpg`" target="_blank">
-							<q-img :src="`/img/npcs/${slugify(npc.name)}.jpg`" class="rounded-borders" @error.prevent="portraitExists = false" />
-						</a>
-						<q-img
-							v-if="!portraitExists"
-							loading="lazy"
-							:src="`/img/npcs/unknown_${npc.race}.jpg`"
-							class="rounded-borders"
-							@error="portraitExists = false"
-						/> -->
 					</div>
 				</div>
 			</q-card-section>
@@ -133,22 +94,22 @@
 				<h2>Stats</h2>
 				<div class="row q-col-gutter-xl">
 					<div class="col">
-						<NPCTraitScore label="Combat" :score="npc.stats.combat" />
-						<NPCTraitScore label="Stealth" :score="npc.stats.stealth" />
-						<NPCTraitScore label="Soak" :score="npc.stats.soak" />
-						<NPCTraitScore label="Strength" :score="npc.stats.strength" />
+						<NPCTraitScore label="Combat" :score="npc.stats.Combat" />
+						<NPCTraitScore label="Stealth" :score="npc.stats.Stealth" />
+						<NPCTraitScore label="Soak" :score="npc.stats.Soak" />
+						<NPCTraitScore label="Strength" :score="npc.stats.Strength" />
 					</div>
 					<div class="col">
-						<NPCTraitScore label="Charisma" :score="npc.stats.charisma" />
-						<NPCTraitScore label="Empathy" :score="npc.stats.empathy" />
-						<NPCTraitScore label="Manipulation" :score="npc.stats.manipulation" />
-						<NPCTraitScore label="Self-Control" :score="npc.stats.selfControl" />
+						<NPCTraitScore label="Charisma" :score="npc.stats.Charisma" />
+						<NPCTraitScore label="Empathy" :score="npc.stats.Empathy" />
+						<NPCTraitScore label="Manipulation" :score="npc.stats.Manipulation" />
+						<NPCTraitScore label="Self-Control" :score="npc.stats['Self-Control']" />
 					</div>
 					<div class="col">
-						<NPCTraitScore label="Alertness" :score="npc.stats.alertness" />
-						<NPCTraitScore label="Culture" :score="npc.stats.culture" />
-						<NPCTraitScore label="Knowledge" :score="npc.stats.knowledge" />
-						<NPCTraitScore label="Willpower" :score="npc.stats.willpower" />
+						<NPCTraitScore label="Alertness" :score="npc.stats.Alertness" />
+						<NPCTraitScore label="Culture" :score="npc.stats.Culture" />
+						<NPCTraitScore label="Knowledge" :score="npc.stats.Knowledge" />
+						<NPCTraitScore label="Willpower" :score="npc.stats.Willpower" />
 					</div>
 				</div>
 			</q-card-section>
@@ -237,7 +198,7 @@
 import NPCSheetSkeleton from "components/NPCSheetSkeleton.vue";
 import NPCTraitScore from "components/NPCTraitScore.vue";
 
-import { ref, computed, onUpdated, watch } from "vue";
+import { ref, reactive, computed, onUpdated, onMounted, watch } from "vue";
 import { useNPCsStore } from "stores/npcs";
 import { storeToRefs } from "pinia";
 import { useRoute } from "vue-router";
@@ -246,47 +207,40 @@ const route = useRoute();
 const npcID = ref(parseInt(route.params.id));
 
 const { npcs } = storeToRefs(useNPCsStore());
-const npc = ref(npcs.value.find((n) => n.id === npcID.value));
+const { getNPC } = useNPCsStore();
+
+const npc = computed(() => {
+	return npcs.value.find((n) => n.id === npcID.value);
+});
 
 const portraits = ref([]);
-const portraitExists = ref(true);
-const portraitPos = ref(1);
-//const portraits = ref({ normal: true, apocalyptic: true, crinos: true, lupus: true, mien: true, seeming: true });
+const portraitPos = ref(0);
 
 async function fetchPortraits() {
-	let out = [];
-	const variations = ["", "apocalyptic", "crinos", "lupus", "mien", "seeming"];
-	for (const variation of variations) {
-		const suffix = variation !== "" ? `_${variation}` : "";
-		const imgPath = `/img/npcs/${slugify(npc.value.name)}${suffix}.jpg`;
+	if (npc.value?.name) {
+		let out = [];
+		const variations = [
+			{ id: "normal", src: `/img/npcs/${slugify(npc.value.name)}.jpg` },
+			{ id: "apocalyptic", src: `/img/npcs/${slugify(npc.value.name)}_apocalyptic.jpg`, caption: "Apocalyptic Form" },
+			{ id: "crinos", src: `/img/npcs/${slugify(npc.value.name)}_crinos.jpg`, caption: "Crinos Form" },
+			{ id: "lupus", src: `/img/npcs/${slugify(npc.value.name)}_lupus.jpg`, caption: "Lupus Form" },
+			{ id: "seeming", src: `/img/npcs/${slugify(npc.value.name)}_seeming.jpg`, caption: "Human Seeming" },
+			{ id: "mien", src: `/img/npcs/${slugify(npc.value.name)}_mien.jpg`, caption: "Fae Mien" },
+		];
 
-		const img = new URL(imgPath, import.meta.url);
-		console.log(img);
-
-		/* try {
-			const res = await import(imgPath);
-			console.log(res);
-			fetch(imgPath).then((res) => {
-				if (res.ok) {
-					portraits.value.push(imgPath);
-				}
-			});
-		} catch (e) {
-			console.log("no portrait for variation", variation, e);
-		} */
+		for (const variation of variations) {
+			try {
+				fetch(variation.src).then((res) => {
+					if (res.ok) {
+						portraits.value.push(variation);
+					}
+				});
+			} catch (e) {
+				console.log("no portrait for variation", variation, e);
+			}
+		}
 	}
-	return out;
 }
-
-watch(npc, () => {
-	if (npc?.value?.name) {
-		fetchPortraits();
-	}
-});
-
-watch(portraits, () => {
-	console.log(portraits.value);
-});
 
 const formattedHistory = computed(() => {
 	let out = "";
@@ -337,13 +291,13 @@ function sortByScoreThenName(a, b) {
 	return 0;
 }
 
-onUpdated(() => {
-	npcID.value = parseInt(route.params.id);
-	portraitExists.value = true;
+onMounted(() => {
+	fetchPortraits();
 });
 
-watch([npcs, npcID], (newVal) => {
-	npc.value = npcs.value.find((n) => n.id === npcID.value);
+watch(npc, (npc) => {
+	console.log("npc has a name", npc.name);
+	fetchPortraits();
 });
 </script>
 
@@ -363,5 +317,13 @@ watch([npcs, npcID], (newVal) => {
 
 .col_powers:not(:first-child) h3 {
 	opacity: 0;
+}
+
+.q-carousel__slide > .q-img {
+	height: 100%;
+}
+
+.q-carousel__slide > [class*="caption"] {
+	background-color: rgba(0, 0, 0, 0.5);
 }
 </style>

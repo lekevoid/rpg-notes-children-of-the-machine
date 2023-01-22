@@ -11,11 +11,14 @@
 </template>
 
 <script setup>
-import { ref, computed, defineProps } from "vue";
+import { ref, computed } from "vue";
 
 const props = defineProps({ label: String, score: Number, max: { type: Number, default: 10 } });
 const scoreModel = ref(props.score);
 
+if (props.score === "") {
+	console.log(props);
+}
 const maxTrait = computed(() => {
 	return props.max;
 });

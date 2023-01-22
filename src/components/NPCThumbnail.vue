@@ -2,12 +2,12 @@
 	<router-link class="npc_thumb full-width" :to="{ name: 'npc_view', params: { id: character.id } }">
 		<q-img
 			v-if="portraitExists"
-			:src="`/img/npcs/${slugify(character.name)}.jpg`"
+			:src="`/img/npcs/${slugify(character.name)}_tb.jpg`"
 			class="rounded-borders"
 			@error.prevent="portraitExists = false"
-			:ratio="4 / 3"
+			:ratio="1"
 		>
-			<div class="absolute-bottom text-subtitle1 text-center">{{ character.name }}</div>
+			<div class="absolute-bottom text-subtitle2 text-center">{{ character.name }}</div>
 		</q-img>
 		<q-img
 			v-if="!portraitExists"
@@ -15,9 +15,9 @@
 			:src="`/img/npcs/unknown_${character.race}.jpg`"
 			class="rounded-borders"
 			@error="portraitExists = false"
-			:ratio="4 / 3"
+			:ratio="1"
 		>
-			<div class="absolute-bottom text-subtitle1 text-center">{{ character.name }}</div>
+			<div class="absolute-bottom text-subtitle2 text-center">{{ character.name }}</div>
 		</q-img>
 	</router-link>
 </template>
@@ -49,5 +49,11 @@ onUpdated(() => {
 <style scoped>
 .npc_thumb {
 	height: 200px;
+}
+</style>
+
+<style>
+.npc_thumb .q-img__content > div {
+	padding: 4px 8px 8px;
 }
 </style>

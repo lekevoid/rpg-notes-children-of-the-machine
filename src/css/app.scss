@@ -29,7 +29,7 @@ $font_sans_fancy: "Sans fancy";
 @font-face {
 	font-family: "Sans Fancy";
 	font-weight: normal;
-	src: url("/fonts/grandstander.woff2");
+	src: url("/fonts/dinomik.woff2");
 }
 
 body {
@@ -50,13 +50,22 @@ h3,
 p,
 .text-p {
 	font-family: $font_sans_fancy;
+	font-size: 1.1rem;
 	letter-spacing: 1px;
 }
 
 .text-sans,
 .q-field,
+.q-field__native,
+.q-field__label {
+	font-family: $font_sans_fancy;
+	font-size: 1.1rem;
+	letter-spacing: 1px;
+}
+
 .q-btn {
 	font-family: $font_sans_fancy;
+	font-size: 1rem;
 }
 
 .text-xs {
@@ -127,6 +136,14 @@ a:hover {
 
 .opacity-6 {
 	opacity: 0.6;
+}
+
+.q-textarea .q-field__native {
+	line-height: 160%;
+}
+
+.prose {
+	white-space: pre-wrap;
 }
 
 @media (min-width:1440px) {

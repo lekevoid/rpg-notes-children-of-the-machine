@@ -33,7 +33,7 @@
 		<div v-if="showChangelingNPCs">
 			<h2>The Changelings</h2>
 			<div class="row q-col-gutter-lg">
-				<div class="col-2" v-for="character in changelingNPCs" :key="character.id">
+				<div class="col-1" v-for="character in changelingNPCs" :key="character.id">
 					<NPCThumbnail :character="character" />
 				</div>
 			</div>
@@ -42,7 +42,7 @@
 		<div v-if="showHumanNPCs">
 			<h2>The Humans</h2>
 			<div class="row q-col-gutter-lg">
-				<div class="col-2" v-for="character in humanNPCs" :key="character.id">
+				<div class="col-1" v-for="character in humanNPCs" :key="character.id">
 					<NPCThumbnail :character="character" />
 				</div>
 			</div>
@@ -51,7 +51,7 @@
 		<div v-if="showOtherSpernaturalNPCs">
 			<h2>The Prodigals</h2>
 			<div class="row q-col-gutter-lg">
-				<div class="col-2" v-for="character in otherSpernaturalNPCs" :key="character.id">
+				<div class="col-1" v-for="character in otherSpernaturalNPCs" :key="character.id">
 					<NPCThumbnail :character="character" />
 				</div>
 			</div>

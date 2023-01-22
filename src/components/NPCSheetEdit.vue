@@ -267,7 +267,7 @@
 				</div>
 			</q-card-section>
 			<q-card-section>
-				<q-btn color="secondary" icon="edit" label="Save & Continue" @click="save" class="q-mr-md" v-if="character.id" />
+				<q-btn color="secondary" icon="edit" label="Save & Continue" @click="saveAndEdit" class="q-mr-md" v-if="character.id" />
 				<q-btn
 					color="warning"
 					icon="close"
@@ -365,6 +365,7 @@ function prepareSave() {
 
 async function save() {
 	const saveData = prepareSave();
+	console.log(saveData);
 
 	if (props?.character?.id) {
 		saveData.id = props.character.id;
@@ -385,6 +386,7 @@ async function saveAndEdit() {
 	const success = await save();
 
 	if (success && success[0].id) {
+		console.log(success[0].id);
 		await fetchNPC(success[0].id);
 		router.push({ name: "npc_edit", params: { id: success[0].id } });
 	}

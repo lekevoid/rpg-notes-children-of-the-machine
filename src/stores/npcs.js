@@ -1,9 +1,13 @@
 import { ref, computed } from "vue";
+import { useRoute } from "vue-router";
 import { defineStore } from "pinia";
 import useSupabase from "boot/supabase";
 const { supabase } = useSupabase();
 
 export const useNPCsStore = defineStore("NPCs", () => {
+	const route = useRoute();
+	const npcID = ref(parseInt(route.params.id));
+
 	const fetched = ref(false);
 	const fetchedNPCs = ref([]);
 	const defaultNPCStats = {
@@ -45,6 +49,12 @@ export const useNPCsStore = defineStore("NPCs", () => {
 		return fetchedNPCs.value;
 	});
 
+	function getNPC(searchID) {
+		const out = npcs.value.find((n) => n.id === npcID.value);
+		console.log(searchID, out, npcs.value);
+		return npcs.value.find((n) => n.id === npcID.value);
+	}
+
 	function sortNPCs(a, b) {
 		if (a.name < b.name) {
 			return -1;
@@ -75,5 +85,5 @@ export const useNPCsStore = defineStore("NPCs", () => {
 		}
 	}
 
-	return { defaultNPCStats, npcs, fetchNPCs, fetchNPC };
+	return { defaultNPCStats, npcs, getNPC, fetchNPCs, fetchNPC };
 });
