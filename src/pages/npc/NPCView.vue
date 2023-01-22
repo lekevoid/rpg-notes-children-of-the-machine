@@ -77,6 +77,7 @@
 						</div>
 					</div>
 					<div class="col-4">
+						<pre>{{ portraits }}</pre>
 						<q-card class="q-mb-lg">
 							<q-carousel animated v-model="portraitPos" :arrows="portraits.length > 1" infinite>
 								<q-carousel-slide v-for="(portrait, k) in portraits" class="q-pa-none" :name="k" :key="k">
