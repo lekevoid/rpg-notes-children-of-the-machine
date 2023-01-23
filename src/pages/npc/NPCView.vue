@@ -80,12 +80,14 @@
 						<pre>{{ portraits }}</pre>
 						<q-card class="q-mb-lg">
 							<q-carousel animated v-model="portraitPos" :arrows="portraits.length > 1" infinite>
-								<q-carousel-slide v-for="(portrait, k) in portraits" class="q-pa-none" :name="k" :key="k">
-									<q-img :src="portrait.src" spinner-color="white" />
-									<div class="absolute-bottom text-subtitle2 text-center custom-caption q-pa-sm" v-if="portrait.caption">
-										<div class="text-subtitle1">{{ portrait.caption }}</div>
-									</div>
-								</q-carousel-slide>
+								<template v-for="(portrait, k) in portraits">
+									<q-carousel-slide v-if="portraitsAvailVariations[portrait.id]" class="q-pa-none" :name="k" :key="k">
+										<q-img :src="portrait.src" spinner-color="white" @error="portraitsAvailVariations[portrait.id] = false" />
+										<div class="absolute-bottom text-subtitle2 text-center custom-caption q-pa-sm" v-if="portrait.caption">
+											<div class="text-subtitle1">{{ portrait.caption }}</div>
+										</div>
+									</q-carousel-slide>
+								</template>
 							</q-carousel>
 						</q-card>
 					</div>
@@ -215,6 +217,7 @@ const npc = computed(() => {
 });
 
 const portraits = ref([]);
+const portraitsAvailVariations = { normal: true, apocalyptic: true, crinos: true, lupus: true, seeming: true, mien: true };
 const portraitPos = ref(0);
 
 async function fetchPortraits() {
