@@ -232,6 +232,7 @@ async function fetchPortraits() {
 		for (const variation of variations) {
 			try {
 				fetch(variation.src).then((res) => {
+					console.log(res);
 					if (res.ok) {
 						portraits.value.push(variation);
 					}
