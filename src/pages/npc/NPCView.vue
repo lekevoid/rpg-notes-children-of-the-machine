@@ -234,6 +234,8 @@ async function fetchPortraits() {
 
 		for (const variation of variations) {
 			try {
+				const imgImport = await import(variation.src);
+				console.log(imgImport);
 				fetch(variation.src).then((res) => {
 					console.log(res);
 					if (res.ok) {
@@ -303,6 +305,10 @@ onMounted(() => {
 watch(npc, (npc) => {
 	console.log("npc has a name", npc.name);
 	fetchPortraits();
+});
+
+watch(portraitsAvailVariations, (newVal) => {
+	console.log(newVal);
 });
 </script>
 
