@@ -79,16 +79,20 @@
 					<div class="col-4">
 						<pre>{{ portraits }}</pre>
 						<q-card class="q-mb-lg">
-							<q-carousel animated v-model="portraitPos" :arrows="portraits.length > 1" infinite>
-								<template v-for="(portrait, k) in portraits">
-									<q-carousel-slide v-if="portraitsAvailVariations[portrait.id]" class="q-pa-none" :name="k" :key="k">
-										<q-img :src="portrait.src" spinner-color="white" @error="portraitsAvailVariations[portrait.id] = false" />
+							<Transition name="fade" mode="out-in" appear>
+								<div class="portraits_carousel" @click="movePortraitPosPlus">
+									<div
+										v-for="(portrait, k) in portraits"
+										:class="['q-pa-none', `portrait_${k}`, k === portraitPos ? 'active' : 'hidden']"
+										:key="k"
+									>
+										<q-img :src="portrait.src" spinner-color="white" @load="portraitsAvailVariations[portrait.id] = true" />
 										<div class="absolute-bottom text-subtitle2 text-center custom-caption q-pa-sm" v-if="portrait.caption">
 											<div class="text-subtitle1">{{ portrait.caption }}</div>
 										</div>
-									</q-carousel-slide>
-								</template>
-							</q-carousel>
+									</div>
+								</div>
+							</Transition>
 						</q-card>
 					</div>
 				</div>
@@ -217,8 +221,24 @@ const npc = computed(() => {
 });
 
 const portraits = ref([]);
-const portraitsAvailVariations = { normal: true, apocalyptic: true, crinos: true, lupus: true, seeming: true, mien: true };
+const portraitsAvailVariations = ref({ normal: false, apocalyptic: false, crinos: false, lupus: false, seeming: false, mien: false });
 const portraitPos = ref(0);
+const portraitsPosMax = computed(() => Object.values(portraitsAvailVariations.value).filter((v) => v === true).length - 1);
+
+function movePortraitPosPlus() {
+	portraitPos.value += 1;
+}
+
+watch(portraitPos, (newVal) => {
+	console.log(portraitsAvailVariations.value);
+	console.log(newVal, portraitsPosMax.value);
+	if (newVal > portraitsPosMax.value) {
+		portraitPos.value = 0;
+	}
+	if (newVal < 0) {
+		portraitPos.value = portraitsPosMax.value;
+	}
+});
 
 async function fetchPortraits() {
 	if (npc.value?.name) {
@@ -234,16 +254,11 @@ async function fetchPortraits() {
 
 		for (const variation of variations) {
 			try {
-				const imgImport = await import(variation.src);
-				console.log(imgImport);
-				if (imgImport) {
-					portraits.value.push(variation);
-				}
-				/* fetch(variation.src).then((res) => {
-					console.log(res);
+				fetch(variation.src).then((res) => {
 					if (res.ok) {
+						portraits.value.push(variation);
 					}
-				}); */
+				});
 			} catch (e) {
 				console.log("no portrait for variation", variation, e);
 			}
