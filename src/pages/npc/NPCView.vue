@@ -236,12 +236,14 @@ async function fetchPortraits() {
 			try {
 				const imgImport = await import(variation.src);
 				console.log(imgImport);
-				fetch(variation.src).then((res) => {
+				if (imgImport) {
+					portraits.value.push(variation);
+				}
+				/* fetch(variation.src).then((res) => {
 					console.log(res);
 					if (res.ok) {
-						portraits.value.push(variation);
 					}
-				});
+				}); */
 			} catch (e) {
 				console.log("no portrait for variation", variation, e);
 			}
