@@ -182,22 +182,22 @@
 				</h2>
 				<div class="row q-gutter-lg" v-if="Object.values(stats).length">
 					<div class="col">
-						<TraitScore label="Combat" slug="combat" v-model="stats.combat" :max-trait="maxTrait" />
-						<TraitScore label="Stealth" slug="stealth" v-model="stats.stealth" :max-trait="maxTrait" />
-						<TraitScore label="Soak" slug="soak" v-model="stats.soak" :max-trait="maxTrait" />
-						<TraitScore label="Strength" slug="strength" v-model="stats.strength" :max-trait="maxTrait" />
+						<TraitScore label="Combat" slug="combat" v-model="stats.Combat" :max-trait="maxTrait" />
+						<TraitScore label="Stealth" slug="stealth" v-model="stats.Stealth" :max-trait="maxTrait" />
+						<TraitScore label="Soak" slug="soak" v-model="stats.Soak" :max-trait="maxTrait" />
+						<TraitScore label="Strength" slug="strength" v-model="stats.Strength" :max-trait="maxTrait" />
 					</div>
 					<div class="col">
-						<TraitScore label="Charisma" slug="charisma" v-model="stats.charisma" :max-trait="maxTrait" />
-						<TraitScore label="Empathy" slug="empathy" v-model="stats.empathy" :max-trait="maxTrait" />
-						<TraitScore label="Manipulation" slug="manipulation" v-model="stats.manipulation" :max-trait="maxTrait" />
-						<TraitScore label="Self-Control" slug="selfControl" v-model="stats.selfControl" :max-trait="maxTrait" />
+						<TraitScore label="Charisma" slug="charisma" v-model="stats.Charisma" :max-trait="maxTrait" />
+						<TraitScore label="Empathy" slug="empathy" v-model="stats.Empathy" :max-trait="maxTrait" />
+						<TraitScore label="Manipulation" slug="manipulation" v-model="stats.Manipulation" :max-trait="maxTrait" />
+						<TraitScore label="Self-Control" slug="selfControl" v-model="stats['Self-Control']" :max-trait="maxTrait" />
 					</div>
 					<div class="col">
-						<TraitScore label="Alertness" slug="alertness" v-model="stats.alertness" :max-trait="maxTrait" />
-						<TraitScore label="Culture" slug="culture" v-model="stats.culture" :max-trait="maxTrait" />
-						<TraitScore label="Knowledge" slug="knowledge" v-model="stats.knowledge" :max-trait="maxTrait" />
-						<TraitScore label="Willpower" slug="willpower" v-model="stats.willpower" :max-trait="maxTrait" />
+						<TraitScore label="Alertness" slug="alertness" v-model="stats.Alertness" :max-trait="maxTrait" />
+						<TraitScore label="Culture" slug="culture" v-model="stats.Culture" :max-trait="maxTrait" />
+						<TraitScore label="Knowledge" slug="knowledge" v-model="stats.Knowledge" :max-trait="maxTrait" />
+						<TraitScore label="Willpower" slug="willpower" v-model="stats.Willpower" :max-trait="maxTrait" />
 					</div>
 				</div>
 			</q-card-section>
@@ -355,7 +355,7 @@ function prepareSave() {
 	return {
 		name: name.value,
 		head: head.value,
-		race: race.value.value,
+		race: race.value,
 		stats: stats.value,
 		history: history.value,
 		personality: personality.value,
@@ -365,11 +365,12 @@ function prepareSave() {
 
 async function save() {
 	const saveData = prepareSave();
-	console.log(saveData);
 
 	if (props?.character?.id) {
 		saveData.id = props.character.id;
 	}
+
+	console.log(saveData);
 
 	const { data, error } = await supabase.from("npcs").upsert(saveData).select();
 
@@ -382,8 +383,8 @@ async function save() {
 }
 
 async function saveAndEdit() {
-	const saveData = prepareSave();
 	const success = await save();
+	console.log(success);
 
 	if (success && success[0].id) {
 		console.log(success[0].id);

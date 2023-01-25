@@ -77,22 +77,20 @@
 						</div>
 					</div>
 					<div class="col-4">
-						<pre>{{ portraits }}</pre>
 						<q-card class="q-mb-lg">
-							<Transition name="fade" mode="out-in" appear>
-								<div class="portraits_carousel" @click="movePortraitPosPlus">
-									<div
-										v-for="(portrait, k) in portraits"
-										:class="['q-pa-none', `portrait_${k}`, k === portraitPos ? 'active' : 'hidden']"
-										:key="k"
-									>
-										<q-img :src="portrait.src" spinner-color="white" @load="portraitsAvailVariations[portrait.id] = true" />
-										<div class="absolute-bottom text-subtitle2 text-center custom-caption q-pa-sm" v-if="portrait.caption">
-											<div class="text-subtitle1">{{ portrait.caption }}</div>
-										</div>
+							<q-carousel animated v-model="portraitPos" arrows infinite style="aspect-ratio: 1; height: auto">
+								<q-carousel-slide
+									v-for="(portrait, k) in portraits"
+									:name="k"
+									:img-src="portrait.src"
+									style="aspect-ratio: 1; height: auto"
+									:key="`portrait_${k}`"
+								>
+									<div class="absolute-bottom custom-caption text-center q-py-md" v-if="portrait.caption">
+										<div class="text-subtitle1">{{ portrait.caption }}</div>
 									</div>
-								</div>
-							</Transition>
+								</q-carousel-slide>
+							</q-carousel>
 						</q-card>
 					</div>
 				</div>
@@ -205,7 +203,7 @@
 import NPCSheetSkeleton from "components/NPCSheetSkeleton.vue";
 import NPCTraitScore from "components/NPCTraitScore.vue";
 
-import { ref, reactive, computed, onUpdated, onMounted, watch } from "vue";
+import { ref, computed, watch } from "vue";
 import { useNPCsStore } from "stores/npcs";
 import { storeToRefs } from "pinia";
 import { useRoute } from "vue-router";
@@ -220,51 +218,50 @@ const npc = computed(() => {
 	return npcs.value.find((n) => n.id === npcID.value);
 });
 
-const portraits = ref([]);
-const portraitsAvailVariations = ref({ normal: false, apocalyptic: false, crinos: false, lupus: false, seeming: false, mien: false });
+const portraits = computed(() => {
+	console.log(npc.value);
+	if (npc?.value?.race) {
+		switch (npc.value.race) {
+			case "Changeling":
+				return [
+					{ id: "normal", src: `/img/npcs/${slugify(npc.value.name)}.jpg`, caption: "Human Seeming" },
+					{ id: "mien", src: `/img/npcs/${slugify(npc.value.name)}_mien.jpg`, caption: "Fae Mien" },
+				];
+			case "Demon":
+				return [
+					{ id: "normal", src: `/img/npcs/${slugify(npc.value.name)}.jpg` },
+					{ id: "apocalyptic", src: `/img/npcs/${slugify(npc.value.name)}_apocalyptic.jpg`, caption: "Apocalyptic Form" },
+				];
+			case "Werewolf":
+				return [
+					{ id: "normal", src: `/img/npcs/${slugify(npc.value.name)}.jpg` },
+					{ id: "crinos", src: `/img/npcs/${slugify(npc.value.name)}_crinos.jpg`, caption: "Crinos Form" },
+					{ id: "lupus", src: `/img/npcs/${slugify(npc.value.name)}_lupus.jpg`, caption: "Lupus Form" },
+				];
+			default:
+				return [{ id: "normal", src: `/img/npcs/${slugify(npc.value.name)}.jpg` }];
+		}
+	}
+
+	return [];
+});
+
 const portraitPos = ref(0);
-const portraitsPosMax = computed(() => Object.values(portraitsAvailVariations.value).filter((v) => v === true).length - 1);
+const portraitsPosMax = computed(() => portraits.value.length - 1);
 
 function movePortraitPosPlus() {
 	portraitPos.value += 1;
 }
 
-watch(portraitPos, (newVal) => {
-	console.log(portraitsAvailVariations.value);
-	console.log(newVal, portraitsPosMax.value);
-	if (newVal > portraitsPosMax.value) {
+watch([portraitPos, portraitsPosMax], () => {
+	console.log(portraitPos.value, portraitsPosMax.value);
+	if (portraitPos.value > portraitsPosMax.value) {
 		portraitPos.value = 0;
 	}
-	if (newVal < 0) {
+	if (portraitPos.value < 0) {
 		portraitPos.value = portraitsPosMax.value;
 	}
 });
-
-async function fetchPortraits() {
-	if (npc.value?.name) {
-		let out = [];
-		const variations = [
-			{ id: "normal", src: `/img/npcs/${slugify(npc.value.name)}.jpg` },
-			{ id: "apocalyptic", src: `/img/npcs/${slugify(npc.value.name)}_apocalyptic.jpg`, caption: "Apocalyptic Form" },
-			{ id: "crinos", src: `/img/npcs/${slugify(npc.value.name)}_crinos.jpg`, caption: "Crinos Form" },
-			{ id: "lupus", src: `/img/npcs/${slugify(npc.value.name)}_lupus.jpg`, caption: "Lupus Form" },
-			{ id: "seeming", src: `/img/npcs/${slugify(npc.value.name)}_seeming.jpg`, caption: "Human Seeming" },
-			{ id: "mien", src: `/img/npcs/${slugify(npc.value.name)}_mien.jpg`, caption: "Fae Mien" },
-		];
-
-		for (const variation of variations) {
-			try {
-				fetch(variation.src).then((res) => {
-					if (res.ok) {
-						portraits.value.push(variation);
-					}
-				});
-			} catch (e) {
-				console.log("no portrait for variation", variation, e);
-			}
-		}
-	}
-}
 
 const formattedHistory = computed(() => {
 	let out = "";
@@ -314,19 +311,6 @@ function sortByScoreThenName(a, b) {
 	}
 	return 0;
 }
-
-onMounted(() => {
-	fetchPortraits();
-});
-
-watch(npc, (npc) => {
-	console.log("npc has a name", npc.name);
-	fetchPortraits();
-});
-
-watch(portraitsAvailVariations, (newVal) => {
-	console.log(newVal);
-});
 </script>
 
 <style scoped>
@@ -352,6 +336,6 @@ watch(portraitsAvailVariations, (newVal) => {
 }
 
 .q-carousel__slide > [class*="caption"] {
-	background-color: rgba(0, 0, 0, 0.5);
+	background-color: rgba(0, 0, 0, 0.8);
 }
 </style>

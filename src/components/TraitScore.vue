@@ -38,7 +38,7 @@ const score = computed({
 	get: () => props.modelValue,
 	set: (value) => {
 		emit("update:modelValue", value);
-		emit("change", props.slug);
+		emit("change", props.label);
 	},
 });
 </script>

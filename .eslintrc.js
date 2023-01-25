@@ -62,7 +62,7 @@ module.exports = {
 		"no-debugger": process.env.NODE_ENV === "production" ? "error" : "off",
 
 		//Rest
-		indent: ["warn", "tab"],
+		//indent: ["warn", "tab"],
 		semi: ["warn", "always"],
 		quotes: ["warn", "double"],
 	},
