@@ -2,7 +2,7 @@
 	<q-page padding>
 		<h1>The Beloved NPCs</h1>
 		<div class="row q-pb-md q-col-gutter-lg">
-			<div class="col flex flex-center">
+			<div class="col-2 flex flex-center">
 				<q-btn
 					size="md"
 					:color="showChangelingNPCs ? 'green-10' : 'grey-10'"
@@ -11,7 +11,7 @@
 					class="full-width glossy"
 				/>
 			</div>
-			<div class="col flex flex-center">
+			<div class="col-2 flex flex-center">
 				<q-btn
 					size="md"
 					:color="showHumanNPCs ? 'green-10' : 'grey-10'"
@@ -20,7 +20,7 @@
 					class="full-width glossy"
 				/>
 			</div>
-			<div class="col flex flex-center">
+			<div class="col-2 flex flex-center">
 				<q-btn
 					size="md"
 					:color="showOtherSpernaturalNPCs ? 'green-10' : 'grey-10'"
@@ -28,6 +28,9 @@
 					@click="toggleShowOtherSpernaturalNPCs()"
 					class="full-width glossy"
 				/>
+			</div>
+			<div class="col-6 flex flex-center">
+				<q-input outlined dense v-model="nameFilter" label="Search Name" class="full-width" />
 			</div>
 		</div>
 		<div v-if="showChangelingNPCs">
@@ -66,15 +69,39 @@ import { ref, computed, onMounted } from "vue";
 import { storeToRefs } from "pinia";
 import { useNPCsStore } from "stores/npcs";
 
+const nameFilter = ref("");
 const showHumanNPCs = ref(true);
 const showChangelingNPCs = ref(true);
 const showOtherSpernaturalNPCs = ref(true);
 
 const { npcs } = storeToRefs(useNPCsStore());
 
+function namesMatch(haystack = "", needle = "") {
+	if (haystack === "" || needle === "") {
+		return true;
+	}
+
+	const h = haystack
+		.toLowerCase()
+		.normalize("NFD")
+		.replace(/[\u0300-\u036f]/g, "");
+	const n = needle
+		.toLowerCase()
+		.normalize("NFD")
+		.replace(/[\u0300-\u036f]/g, "");
+
+	if (h.includes(n)) {
+		return true;
+	}
+	return false;
+}
+
 const humanNPCs = computed(() => {
 	return npcs.value
 		.map((c) => {
+			if (!namesMatch(c.name, nameFilter.value)) {
+				return null;
+			}
 			if (showHumanNPCs.value && (!c.race || ["Human"].includes(c.race))) {
 				return c;
 			}
@@ -86,6 +113,9 @@ const humanNPCs = computed(() => {
 const changelingNPCs = computed(() => {
 	return npcs.value
 		.map((c) => {
+			if (!namesMatch(c.name, nameFilter.value)) {
+				return null;
+			}
 			if (showChangelingNPCs.value && c.race === "Changeling") {
 				return c;
 			}
@@ -98,6 +128,9 @@ const changelingNPCs = computed(() => {
 const otherSpernaturalNPCs = computed(() => {
 	return npcs.value
 		.map((c) => {
+			if (!namesMatch(c.name, nameFilter.value)) {
+				return null;
+			}
 			if (c.race && !["Human", "Changeling"].includes(c.race) && showOtherSpernaturalNPCs.value) {
 				return c;
 			}
