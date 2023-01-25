@@ -33,7 +33,7 @@
 				<q-input outlined dense v-model="nameFilter" label="Search Name" class="full-width" />
 			</div>
 		</div>
-		<div v-if="showChangelingNPCs">
+		<div v-if="showChangelingNPCs && changelingNPCs.length > 0">
 			<h2>The Changelings</h2>
 			<div class="row q-col-gutter-lg">
 				<div class="col-1" v-for="character in changelingNPCs" :key="character.id">
@@ -41,8 +41,8 @@
 				</div>
 			</div>
 		</div>
-		<q-separator class="q-my-xl" />
-		<div v-if="showHumanNPCs">
+		<div v-if="showHumanNPCs && humanNPCs.length > 0">
+			<q-separator class="q-my-xl" />
 			<h2>The Humans</h2>
 			<div class="row q-col-gutter-lg">
 				<div class="col-1" v-for="character in humanNPCs" :key="character.id">
@@ -50,8 +50,8 @@
 				</div>
 			</div>
 		</div>
-		<q-separator class="q-my-xl" />
-		<div v-if="showOtherSpernaturalNPCs">
+		<div v-if="showOtherSpernaturalNPCs && otherSpernaturalNPCs.length > 0">
+			<q-separator class="q-my-xl" />
 			<h2>The Prodigals</h2>
 			<div class="row q-col-gutter-lg">
 				<div class="col-1" v-for="character in otherSpernaturalNPCs" :key="character.id">

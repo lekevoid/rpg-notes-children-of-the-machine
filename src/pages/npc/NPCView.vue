@@ -86,9 +86,11 @@
 									style="aspect-ratio: 1; height: auto"
 									:key="`portrait_${k}`"
 								>
-									<div class="absolute-bottom custom-caption text-center q-py-md" v-if="portrait.caption">
-										<div class="text-subtitle1">{{ portrait.caption }}</div>
-									</div>
+									<a :href="portrait.src" target="_blank" class="block absolute-full">
+										<div class="absolute-bottom custom-caption text-center q-py-md" v-if="portrait.caption">
+											<div class="text-subtitle1">{{ portrait.caption }}</div>
+										</div>
+									</a>
 								</q-carousel-slide>
 							</q-carousel>
 						</q-card>
@@ -331,11 +333,11 @@ function sortByScoreThenName(a, b) {
 	opacity: 0;
 }
 
-.q-carousel__slide > .q-img {
+.q-carousel__slide .q-img {
 	height: 100%;
 }
 
-.q-carousel__slide > [class*="caption"] {
+.q-carousel__slide [class*="caption"] {
 	background-color: rgba(0, 0, 0, 0.8);
 }
 </style>

@@ -5,7 +5,7 @@
 			:src="`/img/npcs/${slugify(character.name)}_tb.jpg`"
 			class="rounded-borders"
 			@error.prevent="portraitExists = false"
-			:ratio="1"
+			:ratio="3 / 4"
 		>
 			<div class="absolute-bottom text-subtitle2 text-center">{{ character.name }}</div>
 		</q-img>
@@ -15,7 +15,7 @@
 			:src="`/img/npcs/unknown_${character.race}.jpg`"
 			class="rounded-borders"
 			@error="portraitExists = false"
-			:ratio="1"
+			:ratio="3 / 4"
 		>
 			<div class="absolute-bottom text-subtitle2 text-center">{{ character.name }}</div>
 		</q-img>
