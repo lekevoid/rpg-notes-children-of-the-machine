@@ -151,3 +151,9 @@ function toggleShowOtherSpernaturalNPCs() {
 	showOtherSpernaturalNPCs.value = !showOtherSpernaturalNPCs.value;
 }
 </script>
+
+<style>
+.npc_thumb .absolute-bottom {
+	background-color: rgba(0, 0, 0, 0.8);
+}
+</style>
