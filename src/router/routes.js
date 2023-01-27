@@ -53,6 +53,16 @@ const routes = [
 		children: [{ path: "", name: "story_view_all", component: () => import("pages/story/StoryViewAll.vue") }],
 		meta: { requiresAuth: true },
 	},
+	{
+		path: "/notes",
+		component: () => import("layouts/MainLayout.vue"),
+		children: [
+			{ path: "", name: "notes_view_all", component: () => import("pages/notes/NotesViewAll.vue") },
+			{ path: "/powers", name: "notes_powers", component: () => import("pages/notes/NotesPowers.vue") },
+			{ path: "/epiphanies", name: "notes_epiphanies", component: () => import("pages/notes/NotesEpiphanies.vue") },
+		],
+		meta: { requiresAuth: true },
+	},
 
 	// Always leave this as last one,
 	// but you can also remove it

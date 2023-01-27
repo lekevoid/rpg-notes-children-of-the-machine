@@ -9,6 +9,31 @@
 		<q-item-label header class="text-font-title text-h4 cursor-pointer flex items-center justify-between q-mt-lg"> Setting </q-item-label>
 		<NavLink title="Locations" icon="explore" link="scene_view_all" />
 		<NavLink title="Stories" icon="auto_stories" link="story_view_all" />
+		<q-item clickable class="nav_link">
+			<q-item-section avatar>
+				<q-icon name="checklist" />
+			</q-item-section>
+			<q-item-section>
+				<q-item-label>Notes</q-item-label>
+			</q-item-section>
+			<q-menu anchor="bottom end" self="bottom middle">
+				<q-list style="min-width: 140px">
+					<q-item clickable class="flex no-wrap" :to="{ name: 'notes_powers' }">
+						<q-item-section style="flex: 0 0 20px"><q-icon name="offline_bolt" /></q-item-section>
+						<q-item-section>
+							<q-item-label>Powers</q-item-label>
+						</q-item-section>
+					</q-item>
+					<q-separator dark />
+					<q-item clickable class="flex no-wrap" :to="{ name: 'notes_epiphanies' }">
+						<q-item-section style="flex: 0 0 20px"><q-icon name="emoji_objects" /></q-item-section>
+						<q-item-section>
+							<q-item-label>Epiphanies</q-item-label>
+						</q-item-section>
+					</q-item>
+				</q-list>
+			</q-menu>
+		</q-item>
 		<q-space />
 		<q-item clickable class="nav_link q-mt-xl">
 			<q-item-section avatar>
@@ -17,8 +42,8 @@
 			<q-item-section>
 				<q-item-label>Tools</q-item-label>
 			</q-item-section>
-			<q-menu anchor="bottom end" self="bottom left">
-				<q-list style="min-width: 200px">
+			<q-menu anchor="bottom end" self="bottom middle">
+				<q-list style="min-width: 140px">
 					<q-item clickable class="flex no-wrap" :to="{ name: 'npc_add' }">
 						<q-item-section style="flex: 0 0 20px"><q-icon name="add" /></q-item-section>
 						<q-item-section>
