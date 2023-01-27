@@ -23,7 +23,7 @@
 </template>
 
 <script setup>
-import { ref, computed, defineProps, onUpdated, watch } from "vue";
+import { ref, computed, onUpdated, watch } from "vue";
 
 const props = defineProps({
 	character: Object,
@@ -54,6 +54,10 @@ onUpdated(() => {
 
 <style>
 .npc_thumb .q-img__content > div {
-	padding: 4px 8px 8px;
+	padding: 6px 8px;
+	line-height: 100%;
+}
+.npc_thumb .absolute-bottom {
+	background: transparent linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
 }
 </style>

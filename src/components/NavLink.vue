@@ -11,7 +11,7 @@
 </template>
 
 <script setup>
-import { ref, defineProps, computed, watch } from "vue";
+import { ref, computed, watch } from "vue";
 import { useRoute } from "vue-router";
 
 const route = useRoute();

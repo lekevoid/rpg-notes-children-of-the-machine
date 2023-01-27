@@ -6,5 +6,5 @@
 
 <script setup>
 import PCSheet from "components/PCSheet.vue";
-import character from "assets/data/pc_ahsha.json";
+import character from "data/pc_ahsha.json";
 </script>

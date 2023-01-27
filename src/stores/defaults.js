@@ -1,11 +1,11 @@
 import { computed } from "vue";
 import { defineStore } from "pinia";
 
-import defaults_human from "assets/data/races_defaults_human.json";
-import defaults_changeling from "assets/data/races_defaults_changeling.json";
-import defaults_mage from "assets/data/races_defaults_mage.json";
-import defaults_vampire from "assets/data/races_defaults_vampire.json";
-import defaults_werewolf from "assets/data/races_defaults_werewolf.json";
+import defaults_human from "data/races_defaults_human.json";
+import defaults_changeling from "data/races_defaults_changeling.json";
+import defaults_mage from "data/races_defaults_mage.json";
+import defaults_vampire from "data/races_defaults_vampire.json";
+import defaults_werewolf from "data/races_defaults_werewolf.json";
 
 export const useDefaultsStore = defineStore("defaults", () => {
 	const statsListNPC = [

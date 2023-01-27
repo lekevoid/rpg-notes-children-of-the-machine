@@ -8,10 +8,9 @@
 				<div class="row q-gutter-lg">
 					<div class="col">
 						<q-input outlined v-model="name" label="Name" placeholder="Character Name" class="q-mb-lg" />
-						<q-input outlined v-if="statExists(head.nature)" v-model="head.nature" label="Nature" placeholder="Nature" class="q-mb-lg" />
-						<q-input outlined v-if="statExists(head.demeanor)" v-model="head.demeanor" label="Demeanor" placeholder="Demeanor" class="q-mb-lg" />
 					</div>
 					<div class="col">
+						<q-input outlined v-if="statExists(head.nature)" v-model="head.nature" label="Nature" placeholder="Nature" class="q-mb-lg" />
 						<q-select
 							outlined
 							v-if="statExists([head.court, optionsLists?.courts])"
@@ -69,6 +68,7 @@
 						/>
 					</div>
 					<div class="col">
+						<q-input outlined v-if="statExists(head.demeanor)" v-model="head.demeanor" label="Demeanor" placeholder="Demeanor" class="q-mb-lg" />
 						<!-- Changeling Kith -->
 						<q-select
 							outlined
@@ -287,7 +287,7 @@
 import TraitScore from "components/TraitScore.vue";
 import NPCSheetSkeleton from "components/NPCSheetSkeleton.vue";
 
-import { ref, computed, defineProps, watch } from "vue";
+import { ref, computed, watch } from "vue";
 import { useRouter } from "vue-router";
 import { useDefaultsStore } from "stores/defaults";
 import { useRacesStore } from "stores/races";

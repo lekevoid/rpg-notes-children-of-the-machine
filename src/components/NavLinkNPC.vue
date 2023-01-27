@@ -10,7 +10,7 @@
 </template>
 
 <script setup>
-import { ref, defineProps, computed, watch } from "vue";
+import { ref, computed, watch } from "vue";
 const props = defineProps({ character: Object });
 
 const race = computed(() => {

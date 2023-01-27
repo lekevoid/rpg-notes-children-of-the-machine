@@ -15,7 +15,7 @@
 				<q-icon name="home_repair_service" />
 			</q-item-section>
 			<q-item-section>
-				<q-item-label style="font-size: 0.7rem; line-height: 1">Tools</q-item-label>
+				<q-item-label>Tools</q-item-label>
 			</q-item-section>
 			<q-menu anchor="bottom end" self="bottom left">
 				<q-list style="min-width: 200px">

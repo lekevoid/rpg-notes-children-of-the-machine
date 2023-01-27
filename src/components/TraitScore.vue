@@ -29,7 +29,7 @@
 </template>
 
 <script setup>
-import { ref, defineProps, computed, watch } from "vue";
+import { ref, computed, watch } from "vue";
 const emit = defineEmits(["update:modelValue", "change"]);
 
 const props = defineProps({ label: String, slug: String, maxTrait: Number, modelValue: { type: [Number, undefined], default: 4 } });

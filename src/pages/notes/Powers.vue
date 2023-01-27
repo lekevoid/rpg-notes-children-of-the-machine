@@ -4,9 +4,9 @@
 		<q-card>
 			<q-tabs v-model="tab" align="left" class="bg-dark text-white">
 				<q-tab class="text-blue-grey-1" name="timeline" icon="schema" label="Timeline" />
-				<q-tab class="text-green" name="ahsha" icon="img:/img/avatar_ahsha.jpg" label="Ahsha" />
-				<q-tab class="text-indigo-9" name="ariel" icon="img:/img/avatar_ariel.jpg" label="Ariel" />
-				<q-tab class="text-red-9" name="lucas" icon="img:/img/avatar_lucas.jpg" label="Lucas" />
+				<q-tab class="text-green" name="ahsha" icon="emoji_nature" label="Ahsha" />
+				<q-tab class="text-indigo-9" name="ariel" icon="emoji_nature" label="Ariel" />
+				<q-tab class="text-red-9" name="lucas" icon="emoji_nature" label="Lucas" />
 				<q-tab class="text-blue-8" name="the_machine" icon="settings" label="The Machine" />
 				<q-tab class="text-deep-orange" name="peer_counseling" icon="psychology" label="Peer Counseling" />
 				<q-tab class="text-green" name="golf_metaberoutin" icon="golf_course" label="Golf Métabéroutin" />
@@ -144,9 +144,5 @@ const filtered_stories_timeline = computed(() => {
 .page_scenes .q-expansion-item .q-item__label {
 	position: relative;
 	bottom: 2px;
-}
-
-.page_scenes .q-tabs .q-icon img {
-	border-radius: 50%;
 }
 </style>

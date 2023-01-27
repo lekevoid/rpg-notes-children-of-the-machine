@@ -9,6 +9,7 @@
 // https://v2.quasar.dev/quasar-cli-vite/quasar-config-js
 
 const { configure } = require("quasar/wrappers");
+const path = require("path");
 
 module.exports = configure(function (/* ctx */) {
 	return {
@@ -53,6 +54,9 @@ module.exports = configure(function (/* ctx */) {
 			},
 
 			vueRouterMode: "history", // available values: 'hash', 'history'
+			alias: {
+				data: path.join(__dirname, "./src/data"),
+			},
 			// vueRouterBase,
 			// vueDevtools,
 			// vueOptionsAPI: false,

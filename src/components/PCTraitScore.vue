@@ -11,7 +11,7 @@
 </template>
 
 <script setup>
-import { ref, defineProps } from "vue";
+import { ref } from "vue";
 
 const props = defineProps({ label: String, score: Number, max: { type: Number, default: 5 } });
 const scoreModel = ref(props.score);

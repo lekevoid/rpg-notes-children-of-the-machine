@@ -19,7 +19,7 @@
 </template>
 
 <script setup>
-import { ref, computed, defineProps, watch } from "vue";
+import { ref, computed, watch } from "vue";
 
 const props = defineProps({
 	scene: Object,

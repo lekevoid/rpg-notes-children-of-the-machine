@@ -11,5 +11,5 @@
 <script setup>
 import PCSheet from "components/PCSheet.vue";
 import PCTraitScore from "components/PCTraitScore.vue";
-import character from "assets/data/pc_ariel.json";
+import character from "data/pc_ariel.json";
 </script>

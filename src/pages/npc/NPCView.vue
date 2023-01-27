@@ -324,8 +324,10 @@ function sortByScoreThenName(a, b) {
 	overflow: hidden;
 }
 
+.prose,
 .prose p {
 	line-height: 1.8;
+	font-size: 1rem;
 	text-align: justify;
 }
 

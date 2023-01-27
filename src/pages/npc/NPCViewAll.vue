@@ -34,6 +34,7 @@
 			</div>
 		</div>
 		<div v-if="showChangelingNPCs && changelingNPCs.length > 0">
+			<q-separator class="q-my-xl" />
 			<h2>The Changelings</h2>
 			<div class="row q-col-gutter-lg">
 				<div class="col-1" v-for="character in changelingNPCs" :key="character.id">
@@ -59,6 +60,7 @@
 				</div>
 			</div>
 		</div>
+		<q-separator class="q-my-xl" />
 	</q-page>
 </template>
 
@@ -152,8 +154,4 @@ function toggleShowOtherSpernaturalNPCs() {
 }
 </script>
 
-<style>
-.npc_thumb .absolute-bottom {
-	background-color: rgba(0, 0, 0, 0.8);
-}
-</style>
+<style></style>

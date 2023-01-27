@@ -1,7 +1,7 @@
 import { computed } from "vue";
 import { defineStore } from "pinia";
 
-import fetchScenes from "assets/data/scenes.json";
+import fetchScenes from "data/scenes.json";
 
 export const useScenesStore = defineStore("Scenes", () => {
 	const scenes = computed(() => {
