@@ -9,7 +9,8 @@
 		<q-item-label header class="text-font-title text-h4 cursor-pointer flex items-center justify-between q-mt-lg"> Setting </q-item-label>
 		<NavLink title="Locations" icon="explore" link="scene_view_all" />
 		<NavLink title="Stories" icon="auto_stories" link="story_view_all" />
-		<q-item clickable class="nav_link">
+		<NavLink title="Notes" icon="checklist" link="notes_view_all" />
+		<!-- <q-item clickable class="nav_link">
 			<q-item-section avatar>
 				<q-icon name="checklist" />
 			</q-item-section>
@@ -33,7 +34,7 @@
 					</q-item>
 				</q-list>
 			</q-menu>
-		</q-item>
+		</q-item> -->
 		<q-space />
 		<q-item clickable class="nav_link q-mt-xl">
 			<q-item-section avatar>

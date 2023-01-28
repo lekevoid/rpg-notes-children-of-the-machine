@@ -108,16 +108,6 @@ const show_timeline_ahsha = ref(true);
 const show_timeline_ariel = ref(true);
 const show_timeline_lucas = ref(true);
 
-const activePeerCounselingCard = ref("");
-
-function togglePeerCounselingCard(val) {
-	if (activePeerCounselingCard.value === val) {
-		activePeerCounselingCard.value = "";
-	} else {
-		activePeerCounselingCard.value = val;
-	}
-}
-
 const filtered_stories_timeline = computed(() => {
 	return stories_timeline.map((s) => {
 		const filteredEntries = s.entries

@@ -58,8 +58,8 @@ const routes = [
 		component: () => import("layouts/MainLayout.vue"),
 		children: [
 			{ path: "", name: "notes_view_all", component: () => import("pages/notes/NotesViewAll.vue") },
-			{ path: "/powers", name: "notes_powers", component: () => import("pages/notes/NotesPowers.vue") },
-			{ path: "/epiphanies", name: "notes_epiphanies", component: () => import("pages/notes/NotesEpiphanies.vue") },
+			// { path: "/powers", name: "notes_powers", component: () => import("pages/notes/NotesPowers.vue") },
+			// { path: "/epiphanies", name: "notes_epiphanies", component: () => import("pages/notes/NotesEpiphanies.vue") },
 		],
 		meta: { requiresAuth: true },
 	},
