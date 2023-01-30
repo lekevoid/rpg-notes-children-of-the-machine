@@ -86,6 +86,7 @@ export const useNPCsStore = defineStore("NPCs", () => {
 				console.log("indexToReplace", indexToReplace);
 				fetchedNPCs.value.splice(indexToReplace, 1);
 				fetchedNPCs.value.push(savedNPC);
+				fetchedNPCs.value.sort(sortNPCs);
 			}
 		} catch (e) {
 			throw error;
