@@ -206,6 +206,7 @@ import NPCSheetSkeleton from "components/NPCSheetSkeleton.vue";
 import NPCTraitScore from "components/NPCTraitScore.vue";
 
 import { ref, computed, watch } from "vue";
+import { useMeta } from "quasar";
 import { useNPCsStore } from "stores/npcs";
 import { storeToRefs } from "pinia";
 import { useRoute } from "vue-router";
@@ -221,7 +222,7 @@ const npc = computed(() => {
 });
 
 const portraits = computed(() => {
-	console.log(npc.value);
+	// console.log(npc.value);
 	if (npc?.value?.race) {
 		switch (npc.value.race) {
 			case "Changeling":
@@ -256,7 +257,7 @@ function movePortraitPosPlus() {
 }
 
 watch([portraitPos, portraitsPosMax], () => {
-	console.log(portraitPos.value, portraitsPosMax.value);
+	// console.log(portraitPos.value, portraitsPosMax.value);
 	if (portraitPos.value > portraitsPosMax.value) {
 		portraitPos.value = 0;
 	}
@@ -313,6 +314,14 @@ function sortByScoreThenName(a, b) {
 	}
 	return 0;
 }
+
+const metaData = computed(() => ({ title: npc?.value?.name || "" }));
+
+useMeta(() => {
+	return {
+		...metaData.value,
+	};
+});
 </script>
 
 <style scoped>
