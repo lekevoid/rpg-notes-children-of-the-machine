@@ -11,5 +11,13 @@
 		"title": "Find the ports !",
 		"text": ["Define what a Port is..."],
 		"initiated": false
+	},
+	{
+		"title": "Restam Décarie",
+		"text": [
+			"Morkez va faire une mauvaise joke à Restam, genre 'Ouais mais ta mère est morte !' Restam va super mal le prendre, ça va mettre leur amitié en péril.",
+			"As a consequence, Restam will suddenly become really self-conscious about his mom's death."
+		],
+		"initiated": false
 	}
 ]

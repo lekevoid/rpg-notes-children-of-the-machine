@@ -58,6 +58,7 @@ onUpdated(() => {
 	line-height: 100%;
 }
 .npc_thumb .absolute-bottom {
-	background: transparent linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
+	background: transparent linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 100%);
+	text-shadow: 1px 1px 1px #000, 1px 1px 2px #000, 1px 1px 2px #000;
 }
 </style>

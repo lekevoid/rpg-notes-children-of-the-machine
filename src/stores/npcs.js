@@ -51,8 +51,7 @@ export const useNPCsStore = defineStore("NPCs", () => {
 
 	function getNPC(searchID) {
 		const out = npcs.value.find((n) => n.id === npcID.value);
-		console.log(searchID, out, npcs.value);
-		return npcs.value.find((n) => n.id === npcID.value);
+		return out;
 	}
 
 	function sortNPCs(a, b) {
@@ -88,6 +87,7 @@ export const useNPCsStore = defineStore("NPCs", () => {
 
 				fetchedNPCs.value.splice(indexToReplace, 1);
 				fetchedNPCs.value.push(savedNPC);
+				fetchedNPCs.value.sort(sortNPCs);
 			}
 		} catch (e) {
 			throw error;
