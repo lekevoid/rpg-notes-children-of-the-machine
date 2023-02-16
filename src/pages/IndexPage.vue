@@ -4,4 +4,4 @@
 	</q-page>
 </template>
 
-<script setup></script>
+<script></script>

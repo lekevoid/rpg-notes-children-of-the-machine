@@ -82,8 +82,10 @@ export const useNPCsStore = defineStore("NPCs", () => {
 			if (data) {
 				const savedNPC = data[0];
 				const indexToReplace = fetchedNPCs.value.findIndex((n) => n.id === savedNPC.id);
+
 				console.log(savedNPC, fetchedNPCs.value);
 				console.log("indexToReplace", indexToReplace);
+
 				fetchedNPCs.value.splice(indexToReplace, 1);
 				fetchedNPCs.value.push(savedNPC);
 			}
