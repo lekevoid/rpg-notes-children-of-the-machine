@@ -54,7 +54,7 @@ onUpdated(() => {
 
 <style>
 .npc_thumb .q-img__content > div {
-	padding: 6px 8px;
+	padding: 6px 4px;
 	line-height: 100%;
 }
 .npc_thumb .absolute-bottom {

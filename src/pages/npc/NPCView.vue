@@ -78,7 +78,7 @@
 					</div>
 					<div class="col-4">
 						<q-card class="q-mb-lg">
-							<q-carousel animated v-model="portraitPos" arrows infinite style="aspect-ratio: 1; height: auto">
+							<q-carousel animated v-model="portraitPos" arrows infinite style="aspect-ratio: 1; height: auto" class="portraits">
 								<q-carousel-slide
 									v-for="(portrait, k) in portraits"
 									:name="k"
@@ -331,6 +331,10 @@ useMeta(() => {
 	top: 0;
 	left: 0;
 	overflow: hidden;
+}
+
+.portraits .text-subtitle1 {
+	color: #fff;
 }
 
 .prose,
