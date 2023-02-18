@@ -27,5 +27,16 @@
 			"Later he'll try to confront a Garou and will be severely injured for it (lose an eye and an arm, will have to wear a prosthetic arm). He won't touch that again. Finally he sets his sights on Changelings. He reads about them and will want to go through different rituals to get rid of the fae and get the children back."
 		],
 		"initiated": false
+	},
+	{
+		"title": "Jamila's Family",
+		"supernatural_type": "changeling",
+		"text": [
+			"When Jamila fulfills her part of the contract with Duchess Eloyse, and both Ariel and Lucas have been sained and fostered.",
+			"Eloyse's contract stipulates that Jamila will 'be able to' contact her family, NOT that Eloyse will do it for her. All Eloyse does have to do, is guarantee them shelter and opportunities when they do come to the country. Jamila will still have to find a way to contact them, and make them come.",
+			"There's a few ways to resolve that. Maybe Ahsha will want to argue the contract ? Maybe the three PCs will embark on a journey to Spain to get in touch with that family ?",
+			"In the end, Jamila will, for all intents and purposes, have a 'ban' on moving, as long as she doesn't know her family is safe."
+		],
+		"initiated": false
 	}
 ]
