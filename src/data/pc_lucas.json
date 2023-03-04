@@ -83,13 +83,16 @@
 			"score": 1
 		}
 	],
-	"other_traits": ["Asthma", "Bad eyesight (for reading)", "Ambidextrous", "Insubordinate"],
+	"other_traits": [],
 	"glamour": 5,
 	"willpower": 4,
 	"nightmare": 0,
 	"banality": 3,
 	"antithesis": "Video games",
-	"portraits": [{ "img": "/img/lucas.jpg" }],
+	"portraits": [
+		{ "caption": "Lucas", "img": "/img/lucas.jpg" },
+		{ "caption": "Suissu, his Chimerical companion", "img": "/img/suissu.jpg" }
+	],
 	"details": [],
 	"bought_with_xp": []
 }
