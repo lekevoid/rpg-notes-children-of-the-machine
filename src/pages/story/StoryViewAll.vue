@@ -90,6 +90,7 @@
 
 <script setup>
 import { ref, computed } from "vue";
+import { useMeta } from "quasar";
 import { date } from "quasar";
 const tab = ref("timeline");
 
@@ -127,6 +128,12 @@ const filtered_stories_timeline = computed(() => {
 
 		return { ...s, entries: filteredEntries };
 	});
+});
+
+useMeta(() => {
+	return {
+		title: "Story",
+	};
 });
 </script>
 

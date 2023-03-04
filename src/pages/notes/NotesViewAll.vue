@@ -21,11 +21,18 @@
 
 <script setup>
 import { ref, computed } from "vue";
+import { useMeta } from "quasar";
 
 const tab = ref("powers");
 
 import NotesPowers from "components/NotesPowers.vue";
 import NotesEpiphanies from "components/NotesEpiphanies.vue";
+
+useMeta(() => {
+	return {
+		title: "Notes",
+	};
+});
 </script>
 
 <style></style>

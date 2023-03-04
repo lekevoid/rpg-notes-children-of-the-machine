@@ -9,7 +9,14 @@
 </template>
 
 <script setup>
+import { useMeta } from "quasar";
 import PCSheet from "components/PCSheet.vue";
 import PCTraitScore from "components/PCTraitScore.vue";
 import character from "data/pc_ariel.json";
+
+useMeta(() => {
+	return {
+		title: "Ariel Anderstone",
+	};
+});
 </script>

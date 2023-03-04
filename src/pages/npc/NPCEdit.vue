@@ -15,7 +15,8 @@
 </template>
 
 <script setup>
-import { ref, watch } from "vue";
+import { ref, computed, watch } from "vue";
+import { useMeta } from "quasar";
 import { useNPCsStore } from "stores/npcs";
 import { storeToRefs } from "pinia";
 import { useRoute } from "vue-router";
@@ -30,5 +31,13 @@ const character = ref(npcs.value.find((n) => n.id === npcID));
 
 watch(npcs, (newVal) => {
 	character.value = newVal.find((n) => n.id === npcID);
+});
+
+const metaData = computed(() => ({ title: `Edit ${character?.value?.name}` }));
+
+useMeta(() => {
+	return {
+		...metaData.value,
+	};
 });
 </script>

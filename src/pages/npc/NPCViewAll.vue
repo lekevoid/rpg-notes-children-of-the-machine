@@ -68,6 +68,7 @@
 import NPCThumbnail from "components/NPCThumbnail.vue";
 
 import { ref, computed, onMounted } from "vue";
+import { useMeta } from "quasar";
 import { storeToRefs } from "pinia";
 import { useNPCsStore } from "stores/npcs";
 
@@ -152,6 +153,12 @@ function toggleShowChangelingNPCs() {
 function toggleShowOtherSpernaturalNPCs() {
 	showOtherSpernaturalNPCs.value = !showOtherSpernaturalNPCs.value;
 }
+
+useMeta(() => {
+	return {
+		title: "NPCs",
+	};
+});
 </script>
 
 <style></style>
