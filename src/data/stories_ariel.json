@@ -1,7 +1,17 @@
 [
 	{
-		"title": "To be written !",
-		"text": ["Add stuff please !"],
+		"title": "Waterbending",
+		"text": [
+			"After her Saining, Ariel will meet somebody who knew her from past 'lives'. That person will give her an artefact, a very ornate sculpted piece of bone (a whip handle actually). They tell her it used to belong to her, but they don't know what it is. All they know is, it's infused with a Glamour that 'feels like the Gulf Stream', whatever that means.",
+			"That handle is a powerful weapon. It can basically give its wielder waterbending, provided they unlock its powers. When the user is near a big enough body of water (a small pond is sufficient, but the water has to be clean enough and cannot contain chlorine), the handle is able to absorb a 'charge' of water. Examples of powrer include :",
+			"- The charge of water becomes a whip that can be used to whip or grab. If used as a whip, it does normal whip damage. If used to grab, the whip has an effective Strength equal to half the user's. Objects too heavy to lift that way just pass through the water. The whip lasts until destroyed, dried, or dispelled.",
+			"- The charge of water can be thrown as a powerful water jet, inflicting 3B damage.",
+			"Here are other powers that can be unlocked but do not require a charge of water. A level is provided to give a sense of how difficult they are to unlock.",
+			"💦 The whip can act as a shield against any water attack, basically acting as an invisible umbrella.",
+			"💦💦 The handle doesn't need to touch the water anymore to control it crudely. For instance, the user can send a big bubble of water from a big puddle to someone, all without touching the water. The action can have no finesse however ; no tentacles or funny shapes.",
+			"💦💦💦💦 The handle can turn water it touches to vapor or ice. If it turns it to ice, it becomes cold, but if it turns it to vapor, it becomes warm but not burning. This power can be used to transform part of a water whip for devastating effect ; the damage inflicted by the whip is now Lethal.",
+			"💦💦💦💦💦 When the user is completely immersed in water, they gain a lot of control. Whirlpools, create streams to accelerate swimming, etc."
+		],
 		"initiated": false
 	}
 ]
