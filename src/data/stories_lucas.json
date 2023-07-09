@@ -1,7 +1,26 @@
 [
 	{
-		"title": "To be written !",
-		"text": ["Add stuff please !"],
+		"title": "Art Discovery : Summer",
+		"text": [
+			"First chapter of the power discovery for Lucas.",
+			"Jamila takes Lucas to the school yard during recess. She asks : have you ever noticed how your emotions are contagious ? Do you get that feeling that people tend to empathize very strongly ? What if I told you that you cna channel that ?",
+			"She asks Lucas to focus on a lone boy looking sad. She invites him to wish very very strongly for the boy to be cheerier. Fireflies manifest, they touch him, he gets up and goes to play.",
+			"Then she notices a girl playing ballon-poire, but in a very unassuming way. She wants to win but she's closer to collapsing in desperation. Jamila tells Lucas to wish for ther to be more agressive, even angry. They see the girl's opponent actually get scared for a moment. The girl still loses, but she got a fight out of the opponent.",
+			"Jamila excuses herself, says emotions have to be dealt with. She goes to join the girl. She tells Lucas that if he wants to know more about what he can do, he should come see her after class."
+		],
+		"initiated": false
+	},
+	{
+		"title": "Art Discovery : Legerdemain",
+		"text": [
+			"Jamila takes Lucas to walk home. On the way, they encounter a young boy being bullied by another boy Lucas knows, named Liam. She asks what he intends to do. He knows he can't fight. She suggests he can help in other ways. Most of the time, people can take care of themselves. All they need is a bit of love and care.",
+			"She invites Lucas to concentrate on Liam and send him love, while dancing and playing air-piano. The bully notices him, gets distracted, which allows the victim to escape. Then the bully trips, and things get in his way. The victim escapes."
+		],
+		"initiated": false
+	},
+	{
+		"title": "Art Discovery : Metamorphosis",
+		"text": ["Right after the situation with the bully (above), Jamila encourages Lucas to play a prank on the bully."],
 		"initiated": false
 	}
 ]

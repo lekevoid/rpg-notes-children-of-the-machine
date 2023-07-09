@@ -1,5 +1,11 @@
 [
 	{
+		"title": "Eloyse the woman-child",
+		"supernatural_type": "changeling",
+		"text": [""],
+		"initiated": false
+	},
+	{
 		"title": "To Hunt a Mitsuaki",
 		"supernatural_type": "hunter",
 		"text": ["What will be Seti Mitsuaki's next move..."],
