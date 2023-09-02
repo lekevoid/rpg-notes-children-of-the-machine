@@ -6,6 +6,8 @@ import defaults_changeling from "data/races_defaults_changeling.json";
 import defaults_mage from "data/races_defaults_mage.json";
 import defaults_vampire from "data/races_defaults_vampire.json";
 import defaults_werewolf from "data/races_defaults_werewolf.json";
+import defaults_fae from "data/races_defaults_fae.json";
+import defaults_fera from "data/races_defaults_fera.json";
 
 export const useDefaultsStore = defineStore("defaults", () => {
 	const statsListNPC = [
@@ -26,6 +28,8 @@ export const useDefaultsStore = defineStore("defaults", () => {
 	const baseStats = {
 		Human: defaults_human,
 		Changeling: defaults_changeling,
+		Fae: defaults_fae,
+		Fera: defaults_fera,
 		Mage: defaults_mage,
 		Vampire: defaults_vampire,
 		Werewolf: defaults_werewolf,

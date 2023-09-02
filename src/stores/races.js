@@ -4,6 +4,6 @@ import useSupabase from "boot/supabase";
 const { supabase } = useSupabase();
 
 export const useRacesStore = defineStore("races", () => {
-	const races = ["Changeling", "Demon", "Human", "Hunter", "Mage", "Vampire", "Werewolf"];
+	const races = ["Changeling", "Demon", "Human", "Hunter", "Mage", "Vampire", "Werewolf", "Fae", "Fera"];
 	return { races };
 });

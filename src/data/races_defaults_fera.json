@@ -1,0 +1,15 @@
+{
+	"name": "",
+	"race": "Fera",
+	"head": {
+		"nature": "",
+		"demeanor": "",
+		"fera": "",
+		"totem": ""
+	},
+	"history": "",
+	"optionsLists": {
+		"fera": ["Bastet", "Corax", "Gurahl", "Mokolé"],
+		"notablePowersTypes": ["Gifts"]
+	}
+}

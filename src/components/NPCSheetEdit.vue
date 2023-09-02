@@ -5,6 +5,7 @@
 			<q-card-section>
 				<h2>Main Information</h2>
 				<q-select outlined v-model="race" :options="races" label="Race/Type" class="q-mb-lg" />
+				<q-select outlined v-model="head.specialGroup" :options="specialGroups" label="Group" class="q-mb-lg" />
 				<div class="row q-gutter-lg">
 					<div class="col">
 						<q-input outlined v-model="name" label="Name" placeholder="Character Name" class="q-mb-lg" />
@@ -66,13 +67,25 @@
 							placeholder="Auspice"
 							class="q-mb-lg"
 						/>
+						<!-- Fera -->
+						<q-select
+							outlined
+							v-if="statExists([head.fera, optionsLists?.fera])"
+							v-model="head.fera"
+							:options="optionsLists.fera"
+							label="Fera"
+							placeholder="Fera"
+							class="q-mb-lg"
+						/>
 					</div>
 					<div class="col">
 						<q-input outlined v-if="statExists(head.demeanor)" v-model="head.demeanor" label="Demeanor" placeholder="Demeanor" class="q-mb-lg" />
+						<!-- Fae Kith -->
+						<q-input outlined v-if="statExists(head.kith) && race === 'Fae'" v-model="head.kith" label="Kith" placeholder="Kith" class="q-mb-lg" />
 						<!-- Changeling Kith -->
 						<q-select
 							outlined
-							v-if="statExists([head.kith, optionsLists?.kiths])"
+							v-if="statExists([head.kith, optionsLists?.kiths]) && race === 'Changeling'"
 							v-model="head.kith"
 							:options="optionsLists.kiths"
 							label="Kith"
@@ -305,6 +318,7 @@ const props = defineProps({
 
 const { getHeadStatsForRace, getOptionsListsForRace, statExists } = useDefaultsStore();
 const { races } = useRacesStore();
+const specialGroups = ["", "Kisosen"];
 const { fetchNPC, defaultNPCStats } = useNPCsStore();
 
 const resetStatsScore = ref(4);

@@ -1,0 +1,13 @@
+{
+	"name": "",
+	"race": "Fae",
+	"head": {
+		"nature": "",
+		"demeanor": "",
+		"kith": ""
+	},
+	"history": "",
+	"optionsLists": {
+		"notablePowersTypes": ["Arts", "Realms"]
+	}
+}

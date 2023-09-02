@@ -18,6 +18,7 @@
 						<div class="row q-col-gutter-xl">
 							<div class="col">
 								<p v-if="npc.race" class="text-capitalize">Race/Type : {{ npc.race }}</p>
+								<p v-if="npc.head.fera" class="text-capitalize">Fera : {{ npc.head.fera }}</p>
 							</div>
 							<div class="col">
 								<p v-if="npc.head.nature">Nature : {{ npc.head.nature }}</p>
@@ -240,6 +241,11 @@ const portraits = computed(() => {
 					{ id: "normal", src: `/img/npcs/${slugify(npc.value.name)}.jpg` },
 					{ id: "crinos", src: `/img/npcs/${slugify(npc.value.name)}_crinos.jpg`, caption: "Crinos Form" },
 					{ id: "lupus", src: `/img/npcs/${slugify(npc.value.name)}_lupus.jpg`, caption: "Lupus Form" },
+				];
+			case "Fera":
+				return [
+					{ id: "normal", src: `/img/npcs/${slugify(npc.value.name)}.jpg` },
+					{ id: "animal", src: `/img/npcs/${slugify(npc.value.name)}_animal.jpg`, caption: "Animal Form" },
 				];
 			default:
 				return [{ id: "normal", src: `/img/npcs/${slugify(npc.value.name)}.jpg` }];
