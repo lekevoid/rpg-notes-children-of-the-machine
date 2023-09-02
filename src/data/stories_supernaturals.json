@@ -1,8 +1,34 @@
 [
 	{
+		"title": "Uktena & Stag",
+		"supernatural_type": "werewolf",
+		"text": [
+			"When Ahsha and Malory will go on their date to the Île St-Quentin. They go to Le Bayou, a grill where Achak works. He immediately senses what Ahsha is, and warms up to her. Plus, he knows Malory. So he offers them his special recipes : Three sisters stew (corn, lima beans and eggplant), fry bread (made with corn bread), maple smoked salmon and hazelnut soup.",
+			"End of the women's date : Achak catches up to Ahsha, and asks her : \"Do you happen to know the Seal Girl ? I have a message for her. Uktena says that fire, water, earth and air are exhausting the hunting ground of the Land of the Turtle, north of Métaéroutin. Stag is worried. I proposed to go myself, but Uktena says this is an internal affair and I should not get involved.\"",
+			"Translation : a motley of 4 Redcaps are killing deers and disrupting nature at the Hosanna Club in the Mékinac region, about 3 hours north of Trois-Rivières.",
+			"If pressed for questions, Achak says : \"Uktena favors wisdom and discretion. I am willing to assist if I can, out of respect for Stag. But knowldege is earned, not freely given away.\""
+		],
+		"initiated": false
+	},
+	{
 		"title": "Eloyse the woman-child",
 		"supernatural_type": "changeling",
 		"text": [""],
+		"initiated": false
+	},
+	{
+		"title": "Tyler Cohen the Lost & Found, pt. 1",
+		"supernatural_type": "changeling",
+		"text": [
+			"An amber alert is triggered. Tyler has alledgedly been kidnapped by his father. The truth is that Tyler started undergoing his Dream Dance. His father, a Kinain, is aware of what's happening, and tried to get him to a safe place at their cabin. But neighbors noticed the dad trying to get his visibly panicking son into the car, and called the CP services. They're on the run. Fortunately the authorities don't know about the cabin at Lac des Atocas as the buying transaction wasn't complete, so they have some time before they're found.",
+			"The first stepo is to find Tyler."
+		],
+		"initiated": false
+	},
+	{
+		"title": "Tyler Cohen the Lost & Found, pt. 2",
+		"supernatural_type": "changeling",
+		"text": ["By now, the players should realize that one way to help them is to enlist the aid of a spirit of secrets. There's one called Kathanok."],
 		"initiated": false
 	},
 	{
@@ -19,37 +45,6 @@
 			"Eloyse's contract stipulates that Jamila will 'be able to' contact her family, NOT that Eloyse will do it for her. All Eloyse does have to do, is guarantee them shelter and opportunities when they do come to the country. Jamila will still have to find a way to contact them, and make them come.",
 			"There's a few ways to resolve that. Maybe Ahsha will want to argue the contract ? Maybe the three PCs will embark on a journey to Spain to get in touch with that family ?",
 			"In the end, Jamila will, for all intents and purposes, have a 'ban' on moving, as long as she doesn't know her family is safe."
-		],
-		"initiated": false
-	},
-	{
-		"title": "Uktena & Stag",
-		"supernatural_type": "werewolf",
-		"text": [
-			"When Ahsha and Malory will go on their date to the Île St-Quentin. They go to Le Bayou, a grill where Achak works. He immediately senses what Ahsha is, and warms up to her. Plus, he knows Malory. So he offers them his special recipes : Three sisters stew (corn, lima beans and eggplant), fry bread (made with corn bread), maple smoked salmon and hazelnut soup.",
-			"End of the women's date : Achak catches up to Ahsha, and asks her : \"Do you happen to know the Seal Girl ? I have a message for her. Uktena says that fire, water, earth and air are exhausting the hunting ground of the Land of the Turtle, north of Métaéroutin. Stag is worried. I proposed to go myself, but Uktena says this is an internal affair and I should not get involved.\"",
-			"Translation : a motley of 4 Redcaps are killing deers and disrupting nature at the Hosanna Club in the Mékinac region, about 3 hours north of Trois-Rivières.",
-			"If pressed for questions, Achak says : \"Uktena favors wisdom and discretion. I am willing to assist if I can, out of respect for Stag. But knowldege is earned, not freely given away.\""
-		],
-		"initiated": false
-	},
-	{
-		"title": "Live ike there's no to-Merrow",
-		"supernatural_type": "changeling",
-		"text": [
-			"Quand le pont de la rivière St-Maurice s'est effondré, plusieurs personnes sont décédées. Des Merrows qui habitaient la rivière et ses environs, en ont profité pour pondre leurs oeufs. Deux ans plus tard, ces oeufs éclosent.",
-			"Le résultat est subtil pour l'instant. Quelques naissances vont survenir, de bébés difformes, écailleux et avec des membranes entre les doigts. Les Changelings pourront détecter leur potentiel de Glamour.",
-			"Find another story, tragedy etc. that would've happened ~10 years ago, in relation with the bridge or the river and involving the Merrows. These merrows are children now and they're causin mischief. They kidnap one of the newborns in an attempt to 'raise them in their real family'"
-		],
-		"initiated": false
-	},
-	{
-		"title": "Just like in Detroit !",
-		"supernatural_type": "vampire",
-		"text": [
-			"La Camarilla de Québec et la Sabbat de Montréal entrent en conflit de plus en plus ouvert, et Trois-Rivières est l'épicentre actuel. Des missions de reconnaissance sont menées pour établir un foothold. As a result, les égoûts sont patrouillés par des Nosferatu, et on peut parfois voir des ghoul rats dans les coins sales de la ville.",
-			"Homeless people are disappearing. Richer people too, but the Masquerade is desperately upheld. The few blood banks get robbed.",
-			"Le step 2 va être d'envoyer des Malkavian. La Sabbat va aussi envoyer des City Gangrels. À cette étape, les choses vont devenir chaotiques, as Malkavians play pranks on each other and Gangrels get voracious without much regards for the Masquerade."
 		],
 		"initiated": false
 	}
